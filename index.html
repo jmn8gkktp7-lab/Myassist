@@ -2,12 +2,330 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#fff0f6"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MyAssist">
 <title>MyAssist</title><style>
-:root{--bg:#fff5f8;--card:#ffffff;--ink:#4a2638;--muted:#916f80;--purple:#e86c9b;--lav:#ffe1ed;--mint:#e1f7ee;--peach:#fff0e4;--line:#f5dce7}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 3%,#ffe2ee 0,transparent 30%),radial-gradient(circle at 95% 18%,#ffeeda 0,transparent 26%),linear-gradient(135deg,#fff8fb,#fff0f6);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}.app{max-width:1000px;margin:auto;padding:16px}.top{display:flex;align-items:center;gap:12px;margin:8px 0 18px}.logo{font-size:28px;background:linear-gradient(135deg,#ffb9d2,#ffe1ed,#ffd9b8);border-radius:18px;padding:10px;box-shadow:0 7px 18px #e86c9b22}.top h1{margin:0;font-size:24px}.top p{margin:4px 0;color:var(--muted);font-size:13px}.tabs{display:flex;gap:6px;overflow:auto;position:sticky;top:0;background:#fff5f8ee;padding:8px 0;z-index:2}.tabs button{background:transparent;color:var(--muted);border:0;border-radius:13px;padding:11px 13px;white-space:nowrap}.tabs button.active{background:var(--lav);color:#b93670;font-weight:700;box-shadow:inset 0 0 0 1px #f8c5d9}.view{display:none}.view.active{display:block}.hero{position:relative;overflow:hidden;background:linear-gradient(110deg,#ffd9e8,#fff0f6 58%,#ffe8d7);padding:24px;border-radius:25px;margin:10px 0 15px;border:1px solid #f8c9dc;box-shadow:0 10px 28px #c95b8612}.hero:after{content:"🌷  ✿  🎀";position:absolute;right:18px;bottom:14px;font-size:clamp(23px,4vw,38px);opacity:.9;letter-spacing:3px}.hero p{max-width:72%}.hero h2{margin:0 0 8px}.hero p{margin:0;color:#6d6e88;line-height:1.5}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:#ffffffee;border:1px solid var(--line);border-radius:22px;padding:17px;min-width:0;box-shadow:0 8px 24px #a43d6b0b}.card h3{color:#713b55}.card h3{margin:0 0 13px;font-size:16px}.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:var(--muted);font-weight:650}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #f0cfdd;border-radius:12px;background:#fff;color:var(--ink);font:inherit}.field textarea{min-height:75px}.btn{border:0;border-radius:13px;padding:11px 14px;background:linear-gradient(135deg,#ed79a5,#df5c91);color:#fff;font-weight:650;box-shadow:0 4px 10px #df5c911c}.btn.soft{background:var(--lav);color:#b93670;box-shadow:none}.btn.mint{background:var(--mint);color:#28735b}.btn.peach{background:var(--peach);color:#a45c30}.btn.danger{background:#fff0f0;color:#b64d4d}.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.item{display:flex;gap:9px;align-items:flex-start;border-bottom:1px solid var(--line);padding:11px 0}.item:last-child{border:0}.dot{width:9px;height:9px;border-radius:50%;background:#ed79a5;margin-top:5px;flex:none}.main{flex:1;min-width:0}.main strong{display:block;font-size:14px;overflow-wrap:anywhere}.main small{display:block;color:var(--muted);margin-top:4px;line-height:1.4}.empty{color:var(--muted);font-size:13px;padding:10px 0}.stat{font-size:27px;font-weight:750;margin:8px 0}.muted{color:var(--muted);font-size:12px;line-height:1.5}.note{background:#fff0f6;color:#9b526f;border-radius:13px;padding:12px;font-size:12px;line-height:1.5;margin-top:12px}.footer{text-align:center;color:var(--muted);font-size:11px;padding:22px 0}
-@media(max-width:680px){.grid{grid-template-columns:1fr}.app{padding:12px}.form{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:15px}.hero{padding:18px}}
+  :root {
+  --bg: #fff5f9;
+  --card: #ffffff;
+  --ink: #63394e;
+  --muted: #a17b8e;
+  --purple: #ed79a8;
+  --lav: #ffe1ed;
+  --mint: #e4f8ed;
+  --peach: #fff0e4;
+  --line: #f6d9e6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% 5%, #ffdbea 0, transparent 30%),
+    radial-gradient(circle at 95% 20%, #ffe9ef 0, transparent 25%),
+    linear-gradient(135deg, #fff8fb, #fff0f6);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+}
+
+.app {
+  max-width: 1000px;
+  margin: auto;
+  padding: 16px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0 18px;
+}
+
+.logo {
+  font-size: 30px;
+  background: linear-gradient(135deg, #ffb9d5, #ffe2ed);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 6px 18px #ed79a822;
+}
+
+.top h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #d9578b;
+}
+
+.top p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  position: sticky;
+  top: 0;
+  background: #fff5f9ee;
+  padding: 8px 0;
+  z-index: 2;
+}
+
+.tabs button {
+  background: transparent;
+  color: var(--muted);
+  border: 0;
+  border-radius: 14px;
+  padding: 11px 13px;
+  white-space: nowrap;
+}
+
+.tabs button.active {
+  background: var(--lav);
+  color: #c13e78;
+  font-weight: 700;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.hero {
+  background: linear-gradient(120deg, #ffd8e8, #fff0f6, #ffe6d7);
+  padding: 24px;
+  border-radius: 25px;
+  margin: 10px 0 15px;
+  border: 1px solid #f8c9dc;
+  box-shadow: 0 8px 25px #c95b8612;
+}
+
+.hero h2 {
+  margin: 0 0 8px;
+  color: #b94477;
+}
+
+.hero p {
+  margin: 0;
+  color: #91677e;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.card {
+  background: #ffffffee;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  min-width: 0;
+  box-shadow: 0 8px 24px #a43d6b0b;
+}
+
+.card h3 {
+  margin: 0 0 13px;
+  font-size: 16px;
+  color: #b94477;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #f0cfdd;
+  border-radius: 13px;
+  background: #fffafd;
+  color: var(--ink);
+  font: inherit;
+}
+
+.field textarea {
+  min-height: 75px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 14px;
+  padding: 12px 15px;
+  background: linear-gradient(135deg, #f18ab2, #df5c91);
+  color: white;
+  font-weight: 650;
+  box-shadow: 0 4px 10px #df5c911c;
+}
+
+.btn.soft {
+  background: #ffe1ed;
+  color: #b93670;
+  box-shadow: none;
+}
+
+.btn.mint {
+  background: #e1f7ee;
+  color: #28735b;
+  box-shadow: none;
+}
+
+.btn.peach {
+  background: #fff0e4;
+  color: #a45c30;
+  box-shadow: none;
+}
+
+.btn.danger {
+  background: #fff0f0;
+  color: #b64d4d;
+  box-shadow: none;
+}
+
+.quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.item {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--line);
+  padding: 11px 0;
+}
+
+.item:last-child {
+  border: 0;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ed79a5;
+  margin-top: 5px;
+  flex: none;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.main strong {
+  display: block;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.main small {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 13px;
+  padding: 10px 0;
+}
+
+.stat {
+  font-size: 27px;
+  font-weight: 750;
+  margin: 8px 0;
+  color: #d9578b;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.note {
+  background: #fff0f6;
+  color: #9b526f;
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 22px 0;
+}
+
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app {
+    padding: 12px;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .hero {
+    padding: 19px;
+  }
+}
 </style></head><body><main class="app">
 <header class="top"><div class="logo">🌸</div><div><h1>MyAssist <span style="color:#e86c9b">♡</span></h1><p>Your soft little space for plans, money & ideas.</p></div></header>
-<nav class="tabs"><button class="active" data-tab="today">☀️ Today</button><button data-tab="schedule">🗓️ Schedule</button><button data-tab="expenses">🌷 Expenses</button><button data-tab="notes">📝 Notes & Tasks</button><button data-tab="settings">⚙️ Settings</button></nav>
+<nav class="tabs">
+  <button class="active" data-tab="today">☀️ Today</button>
+  <button data-tab="schedule">🗓️ Schedule</button>
+  <button data-tab="expenses">🌷 Expenses</button>
+  <button data-tab="notes">📝 Notes & Tasks</button>
+  <button data-tab="gallery">🖼️ Gallery</button>
+  <button data-tab="settings">⚙️ Settings</button>
+</nav>
+
 <section class="view active" id="today"><div class="hero"><h2 id="hello">A little progress is still progress 🌷</h2><p>Keep your plans clear, your spending visible, and your mind a little lighter.</p></div><div class="grid">
 <div class="card"><h3>🌸 Today's plan</h3><div id="todayEvents"></div><div class="quick"><button class="btn soft" onclick="tab('schedule')">＋ Reminder</button><button class="btn" onclick="tab('notes')">＋ Task</button></div></div>
 <div class="card"><h3>🎀 Spending this month</h3><div class="stat" id="monthTotal">₱0.00</div><div id="monthCount" class="muted"></div><button class="btn soft" onclick="tab('expenses')">＋ Add expense</button></div>
@@ -24,6 +342,22 @@
 <div class="note">For alerts when this webpage is closed, export reminders to Apple Calendar. Browser notifications are best-effort and may not fire when the app is not running.</div></div>
 <div class="card"><h3 class="split">Upcoming reminders <button class="btn soft" onclick="exportICS()">Export all to Calendar</button></h3><div id="eventList"></div></div>
 </div></section>
+<section class="view" id="gallery">
+  <div class="grid">
+    <div class="card">
+      <h3>🌸 My Picture Gallery</h3>
+      <p class="muted">Your favorite memories in one little space. ♡</p>
+      <div class="field">
+        <label>Choose pictures from your iPad</label>
+        <input id="galleryUpload" type="file" accept="image/*" multiple>
+      </div>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h3>🎀 My Memories</h3>
+      <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px"></div>
+    </div>
+  </div>
+</section>
 <section class="view" id="expenses"><div class="grid">
 <div class="card"><h3>＋ Add an expense</h3><form id="expenseForm" class="form">
 <div class="field"><label>Amount</label><input id="amount" type="number" min=".01" step=".01" required placeholder="0.00"></div><div class="field"><label>Date</label><input id="xdate" type="date" required></div>
@@ -34,14 +368,20 @@
 <div class="card"><h3>Monthly summary</h3><div class="stat" id="xTotal">₱0.00</div><div id="cats"></div><div class="quick"><button class="btn soft" onclick="csv()">Export expenses CSV</button><button class="btn soft" onclick="allExpenses()">Show all dates</button></div></div>
 <div class="card" style="grid-column:1/-1"><h3>Recent expenses</h3><div id="expenseList"></div></div></div></section>
 <section class="view" id="notes"><div class="grid">
-<div class="card"><h3>＋ Add a note or task</h3><form id="taskForm" class="form"><div class="field full"><label>Title</label><input id="ttitle" required placeholder="e.g. Review monthly budget"></div><div class="field"><label>Type</label><select id="ttype"><option>Task</option><option>Note</option><option>Idea</option><option>Shopping list</option></select></div><div class="field"><label>Due date</label><input id="tdate" type="date"></div><div class="field full"><label>Details</label><textarea id="tdetails" placeholder="Add details…"></textarea></div><div class="field full"><button class="btn">Save</button><button type="button" class="btn mint" onclick="voice('tdetails')">🎙️ Dictate details</button></div></form></div>
 <div class="card"><h3>My notes & tasks</h3><div id="taskList"></div></div></div></section>
 <section class="view" id="settings"><div class="grid">
 <div class="card"><h3>🌿 Preferences</h3><form id="settingsForm" class="form"><div class="field"><label>Your name</label><input id="name" placeholder="Optional"></div><div class="field"><label>Currency</label><select id="currency"><option value="PHP">PHP — Philippine peso</option><option value="USD">USD — US dollar</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — Pound</option></select></div><div class="field full"><button class="btn">Save preferences</button></div></form><div class="quick"><button class="btn soft" onclick="notifyPermission()">Enable browser notifications</button><button class="btn soft" onclick="backup()">Export backup</button><label class="btn soft">Import backup<input id="restore" type="file" accept=".json" hidden></label></div><div id="notif" class="note">Notifications vary by iPadOS version and hosting setup.</div></div>
 <div class="card"><h3>🔐 Your data</h3><p class="muted">Entries are stored in this browser on this device. They do not sync automatically. Export a backup regularly. Clearing website data may erase your entries.</p><button class="btn danger" onclick="wipe()">Delete all app data</button><p class="muted">This prototype does not directly connect to Apple Reminders. Calendar export is supported using .ics files.</p></div></div></section>
 <div class="footer">🌷 MyAssist · Your goals. Your time. Your little pink assistant. ♡</div></main>
 <script>
-const K='myassist-ipad-v1';let db={events:[],expenses:[],tasks:[],settings:{name:'',currency:'PHP'}};
+const K = 'myassist-ipad-v1';
+let db = {
+  events: [],
+  expenses: [],
+  tasks: [],
+  settings: {name: '', currency: 'PHP'},
+  gallery: []
+};
 const $=x=>document.getElementById(x), iso=()=>{let d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}, uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 function load(){try{db={...db,...JSON.parse(localStorage.getItem(K)||'{}')}}catch(e){}db.settings={name:'',currency:'PHP',...(db.settings||{})}}
 function save(){localStorage.setItem(K,JSON.stringify(db));render()}
