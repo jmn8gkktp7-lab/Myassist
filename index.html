@@ -8,29 +8,124 @@
 <meta name="apple-mobile-web-app-title" content="MyAssist">
 <title>MyAssist — Pastel Planner</title>
 <style>
-:root{--bg:#fff5f9;--card:#fff;--ink:#63394e;--muted:#a17b8e;--pink:#df5c91;--pink-dark:#bd3f78;--pink-light:#ffe1ed;--line:#f4d7e4;--mint:#e4f8ed;--peach:#fff0e4;--shadow:0 9px 28px rgba(157,62,103,.09)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 0%,#ffdbea 0,transparent 27%),radial-gradient(circle at 100% 22%,#ffe8f0 0,transparent 25%),linear-gradient(135deg,#fff9fc,#fff0f6);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:1180px;margin:auto;padding:18px}.top{display:flex;align-items:center;gap:12px;margin:5px 0 18px}.logo{font-size:29px;background:linear-gradient(135deg,#ffb9d5,#ffe7f0);border-radius:18px;padding:12px;box-shadow:0 7px 18px #ed79a822}.top h1{margin:0;font-size:27px;color:#d9578b}.top p{margin:4px 0 0;color:var(--muted);font-size:13px}.tabs{display:flex;gap:7px;overflow-x:auto;position:sticky;top:0;background:#fff7f9ee;backdrop-filter:blur(12px);padding:9px 0;z-index:5;border-bottom:1px solid #f7e0e9}.tabs button{background:transparent;color:var(--muted);border:0;border-radius:14px;padding:11px 14px;white-space:nowrap}.tabs button.active{background:var(--pink-light);color:var(--pink-dark);font-weight:750}.view{display:none}.view.active{display:block}.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#ffd7e7,#fff0f6 60%,#ffe8d9);padding:27px;border-radius:27px;margin:14px 0;border:1px solid #f7c9dc;box-shadow:var(--shadow)}.hero:after{content:'✿  ♡  ✧';position:absolute;right:22px;top:17px;font-size:25px;color:#dc7ba2;opacity:.75;letter-spacing:5px}.eyebrow{font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#b45c82;font-weight:800}.hero h2{font-size:clamp(24px,4vw,34px);margin:8px 0;color:#b94477}.hero p{max-width:650px;margin:0;color:#91677e;line-height:1.65}.hero-date{display:inline-block;margin-top:14px;background:#ffffffa8;border:1px solid #fff;border-radius:99px;padding:7px 12px;font-size:12px;color:#9b526f}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:#ffffffed;border:1px solid var(--line);border-radius:23px;padding:19px;min-width:0;box-shadow:var(--shadow)}.card h3{margin:0 0 13px;font-size:16px;color:#b94477}.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.card-head h3{margin-bottom:13px}.stat{font-size:28px;font-weight:800;margin:8px 0;color:#d9578b;overflow-wrap:anywhere}.muted{color:var(--muted);font-size:12px;line-height:1.5}.btn{border:0;border-radius:14px;padding:11px 14px;background:linear-gradient(135deg,#f18ab2,#df5c91);color:#fff;font-weight:700;box-shadow:0 4px 10px #df5c911c}.btn.soft{background:#ffe1ed;color:#b93670;box-shadow:none}.btn.mint{background:#e1f7ee;color:#28735b;box-shadow:none}.btn.peach{background:#fff0e4;color:#a45c30;box-shadow:none}.btn.danger{background:#fff0f0;color:#b64d4d;box-shadow:none}.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field.full{grid-column:1/-1}.field label{font-size:12px;color:var(--muted);font-weight:700}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #f0cfdd;border-radius:13px;background:#fffafd;color:var(--ink);min-width:0}.field textarea{min-height:78px;resize:vertical}.form{display:grid;grid-template-columns:1fr 1fr;gap:11px}.item{display:flex;gap:9px;align-items:flex-start;border-bottom:1px solid var(--line);padding:11px 0}.item:last-child{border:0}.dot{width:9px;height:9px;border-radius:50%;background:#ed79a5;margin-top:5px;flex:none}.main{flex:1;min-width:0}.main strong{display:block;font-size:14px;overflow-wrap:anywhere}.main small{display:block;color:var(--muted);margin-top:4px;line-height:1.45}.empty{color:var(--muted);font-size:13px;padding:12px 0}.note{background:#fff0f6;color:#9b526f;border-radius:14px;padding:12px;font-size:12px;line-height:1.5;margin-top:12px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:22px 2px 12px}.section-title h3{margin:0;color:#b94477}.memory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.memory-card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:7px;box-shadow:var(--shadow);min-width:0}.memory-card img{display:block;width:100%;height:125px;object-fit:cover;border-radius:12px;background:#fff0f6}.memory-card p{font-size:11px;color:var(--muted);margin:7px 3px 3px;overflow-wrap:anywhere}.gallery-grid{columns:3 170px;column-gap:13px}.gallery-photo{break-inside:avoid;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;margin:0 0 13px;box-shadow:var(--shadow)}.gallery-photo img{width:100%;height:auto;max-height:360px;object-fit:cover;border-radius:12px;display:block;background:#fff0f6}.gallery-photo p{font-size:12px;color:var(--muted);margin:8px 2px 5px;overflow-wrap:anywhere}.gallery-photo .btn{padding:7px 10px;font-size:12px}.priority-list{list-style:none;padding:0;margin:0}.priority-list li{display:flex;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.priority-list li:last-child{border:0}.priority-list input{accent-color:#df5c91;width:17px;height:17px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 0 12px}.two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px}.pill{display:inline-block;background:#fff0f6;color:#b94477;border-radius:99px;padding:5px 9px;font-size:11px;font-weight:700}.small-link{border:0;background:none;color:#c34b80;font-size:12px;font-weight:700;padding:5px}
-.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:14px;margin-top:14px}.chart-area{height:150px;display:flex;align-items:stretch;gap:9px;padding:12px 2px 0;border-bottom:1px solid var(--line);margin-top:8px}.chart-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:7px;min-width:0}.chart-value{font-size:10px;color:var(--muted);height:13px}.chart-track{height:105px;width:min(100%,28px);display:flex;align-items:flex-end;justify-content:center;background:#fff0f6;border-radius:10px 10px 5px 5px;overflow:hidden}.chart-bar{width:100%;min-height:2px;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,#f5a7c5,#df5c91);transition:height .25s}.chart-bar.mint{background:linear-gradient(180deg,#a8e8cf,#56b994)}.chart-label{font-size:10px;color:var(--muted);white-space:nowrap}.chart-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)}.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#df5c91;margin-right:5px}.legend-dot.mint{background:#56b994}.progress-track{height:9px;border-radius:99px;background:#f8e5ed;overflow:hidden;margin:10px 0}.progress-fill{height:100%;background:linear-gradient(90deg,#f3a2c2,#d9578b);border-radius:99px;width:0}.priority-entry{display:flex;gap:8px;align-items:center;margin:8px 0}.priority-entry input[type=text]{flex:1;min-width:0;padding:11px;border:1px solid #f0cfdd;border-radius:12px;background:#fffafd;color:var(--ink)}.priority-item{display:flex;align-items:center;gap:9px;padding:11px 0;border-bottom:1px solid var(--line)}.priority-item:last-child{border-bottom:0}.priority-item input{accent-color:#df5c91;width:17px;height:17px;flex:none}.priority-item span{flex:1;font-size:13px;overflow-wrap:anywhere}.priority-item.done span{text-decoration:line-through;opacity:.55}.budget-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin-top:14px}.budget-row input{width:100%;min-width:0;padding:10px;border:1px solid #f0cfdd;border-radius:12px;background:#fffafd;color:var(--ink)}.kpi-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}.kpi{padding:12px;border-radius:16px;background:#fff6fa;border:1px solid #f8e1eb}.kpi span{display:block;font-size:11px;color:var(--muted)}.kpi strong{display:block;margin-top:5px;font-size:17px;color:#c94f85;overflow-wrap:anywhere}
-
-.finance-month-chart{height:190px}.finance-month-chart .chart-track{height:135px;width:min(100%,34px)}.finance-month-chart .chart-col{gap:7px}.finance-month-chart .chart-label{font-size:9px}.category-chart{display:flex;flex-direction:column;gap:13px;margin-top:16px}.category-row{display:grid;grid-template-columns:minmax(76px,1fr) minmax(70px,2fr) auto;gap:9px;align-items:center}.category-name{font-size:12px;overflow-wrap:anywhere}.category-track{height:10px;background:#fff0f6;border-radius:99px;overflow:hidden}.category-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#f6b4ce,#df5c91)}.category-amount{font-size:11px;color:var(--muted);text-align:right;white-space:nowrap}.finance-kpis{margin:0 0 14px}.finance-grid{margin-top:0}.finance-grid .card{min-width:0}
-
-/* Soft rainbow pastel refresh: pink, mint, lilac, butter yellow and peach */
 :root{--bg:#fffaf5;--card:#fff;--ink:#51445f;--muted:#8f829a;--pink:#e47da9;--pink-dark:#a84f7a;--pink-light:#ffe5f0;--mint:#e1f6e9;--peach:#fff0df;--line:#eee2ef;--shadow:0 9px 28px rgba(117,91,133,.09)}
-body{background:radial-gradient(circle at 4% 0%,#ffe0ed 0,transparent 25%),radial-gradient(circle at 96% 10%,#e6e0ff 0,transparent 26%),radial-gradient(circle at 80% 90%,#fff0bd 0,transparent 22%),linear-gradient(135deg,#fffafc,#f8fff9 55%,#fffaf0);color:var(--ink)}
-.top .logo{background:linear-gradient(135deg,#ffd5e6,#dff7e8 48%,#e6ddff);box-shadow:0 7px 18px #b99bc322}
-.top h1{color:#c65e91}
-.tabs{background:#fffaf5eF;border-color:#eee2ef}
-.tabs button:nth-child(1).active{background:#ffe1ed;color:#a84f7a}.tabs button:nth-child(2).active{background:#dcf5e7;color:#397a61}.tabs button:nth-child(3).active{background:#e9e1ff;color:#7154a6}.tabs button:nth-child(4).active{background:#fff0bd;color:#8e7026}.tabs button:nth-child(5).active{background:#ffe8d7;color:#a9673f}.tabs button:nth-child(6).active{background:#dff4f6;color:#397d83}.tabs button:nth-child(7).active{background:#f0e4fa;color:#8057a0}
-.hero{background:linear-gradient(120deg,#ffe0ed 0%,#e4f8ed 38%,#eee5ff 72%,#fff1c9 100%);border-color:#eadced}.hero h2{color:#895a92}.eyebrow{color:#a65d86}.hero-date{color:#795c84}
-.card{border-color:#eee2ef}.card:nth-child(6n+1) h3{color:#c45c91}.card:nth-child(6n+2) h3{color:#4d967b}.card:nth-child(6n+3) h3{color:#8566b1}.card:nth-child(6n+4) h3{color:#a7832e}.card:nth-child(6n+5) h3{color:#c47b50}.card:nth-child(6n) h3{color:#548b9b}
-.btn{background:linear-gradient(135deg,#ee9fbe,#db78a6)}.btn.soft{background:#eee6ff;color:#775aa5}.btn.mint{background:#dcf5e7;color:#34775d}.btn.peach{background:#fff0bd;color:#8e7026}.btn.danger{background:#ffebec;color:#b64d4d}
-.field input,.field select,.field textarea,.priority-entry input[type=text],.budget-row input{border-color:#e8dcec;background:#fffdfd;color:var(--ink)}
-.chart-track{background:#f0e9fb}.chart-bar{background:linear-gradient(180deg,#c7b3ff,#9278d4)}.chart-bar.mint{background:linear-gradient(180deg,#b6ebce,#62b991)}.chart-col:nth-child(3n+1) .chart-bar:not(.mint){background:linear-gradient(180deg,#ffc2d9,#e47da9)}.chart-col:nth-child(3n+2) .chart-bar:not(.mint){background:linear-gradient(180deg,#c7b3ff,#9278d4)}.chart-col:nth-child(3n) .chart-bar:not(.mint){background:linear-gradient(180deg,#ffe49a,#e2b94e)}
-.category-track{background:#f1eafb}.category-row:nth-child(4n+1) .category-fill{background:linear-gradient(90deg,#ffc8dc,#e47da9)}.category-row:nth-child(4n+2) .category-fill{background:linear-gradient(90deg,#c8f0d7,#62b991)}.category-row:nth-child(4n+3) .category-fill{background:linear-gradient(90deg,#d8cbff,#9278d4)}.category-row:nth-child(4n) .category-fill{background:linear-gradient(90deg,#fff0b7,#e2b94e)}
-.kpi:nth-child(3n+1){background:#fff0f6;border-color:#f7d9e7}.kpi:nth-child(3n+2){background:#eaf9ef;border-color:#d6efdf}.kpi:nth-child(3n){background:#f0eaff;border-color:#e5dbfb}.progress-track{background:#f1e8f4}.progress-fill{background:linear-gradient(90deg,#e47da9,#bca6f4,#70c5a0,#f0cf66)}
-.task-filter-row{display:flex;gap:7px;flex-wrap:wrap;margin:5px 0 12px}.task-filter{border:1px solid #e8dcec;background:#fff;color:#82728d;border-radius:99px;padding:8px 12px;font-size:12px;font-weight:700}.task-filter.active{background:#e9e1ff;color:#7154a6;border-color:#d9ccfa}.task-filter[data-filter="open"].active{background:#dcf5e7;color:#34775d;border-color:#c4ead4}.task-filter[data-filter="completed"].active{background:#ffe1ed;color:#a84f7a;border-color:#f7c8dd}.task-row-done{background:linear-gradient(90deg,#f1fbf4,#fff 75%);border-radius:12px;padding-left:9px;padding-right:8px}.task-check{width:19px;height:19px;accent-color:#66b88e;flex:none;margin:2px 2px 0 0}.task-row-done .main strong{text-decoration:line-through;opacity:.58}.task-status{display:inline-flex;align-items:center;gap:4px;margin-top:5px;font-size:10px;font-weight:700;color:#438b6b;background:#e3f7eb;border-radius:99px;padding:4px 7px}.task-list-empty{padding:16px;border-radius:14px;background:#fbf7ff;color:#8f829a;font-size:12px}
-
-@media(max-width:700px){.app{padding:11px}.grid,.two-col,.dashboard-grid{grid-template-columns:1fr}.hero{padding:21px}.hero:after{font-size:18px;right:14px}.card{padding:15px}.form{grid-template-columns:1fr}.field.full{grid-column:auto}.memory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.memory-card img{height:110px}.tabs button{padding:10px 12px}.top h1{font-size:24px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 4% 0%,#ffe0ed 0,transparent 25%),radial-gradient(circle at 96% 10%,#e6e0ff 0,transparent 26%),radial-gradient(circle at 80% 90%,#fff0bd 0,transparent 22%),linear-gradient(135deg,#fffafc,#f8fff9 55%,#fffaf0);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.app{max-width:1180px;margin:auto;padding:18px}
+.top{display:flex;align-items:center;gap:12px;margin:5px 0 18px}
+.logo{font-size:29px;background:linear-gradient(135deg,#ffd5e6,#dff7e8 48%,#e6ddff);border-radius:18px;padding:12px;box-shadow:0 7px 18px #b99bc322}
+.top h1{margin:0;font-size:27px;color:#c65e91}
+.top p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.tabs{display:flex;gap:7px;overflow-x:auto;position:sticky;top:0;background:#fffaf5ef;backdrop-filter:blur(12px);padding:9px 0;z-index:5;border-bottom:1px solid var(--line)}
+.tabs button{background:transparent;color:var(--muted);border:0;border-radius:14px;padding:11px 14px;white-space:nowrap}
+.tabs button.active{background:var(--pink-light);color:var(--pink-dark);font-weight:750}
+.tabs button:nth-child(2).active{background:#dcf5e7;color:#397a61}
+.tabs button:nth-child(3).active{background:#e9e1ff;color:#7154a6}
+.tabs button:nth-child(4).active{background:#fff0bd;color:#8e7026}
+.tabs button:nth-child(5).active{background:#ffe8d7;color:#a9673f}
+.tabs button:nth-child(6).active{background:#dff4f6;color:#397d83}
+.tabs button:nth-child(7).active{background:#f0e4fa;color:#8057a0}
+.view{display:none}
+.view.active{display:block}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#ffe0ed 0%,#e4f8ed 38%,#eee5ff 72%,#fff1c9 100%);padding:27px;border-radius:27px;margin:14px 0;border:1px solid #eadced;box-shadow:var(--shadow)}
+.hero:after{content:'✿ ♡ ✧';position:absolute;right:22px;top:17px;font-size:25px;color:#dc7ba2;opacity:.75;letter-spacing:5px}
+.eyebrow{font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#a65d86;font-weight:800}
+.hero h2{font-size:clamp(24px,4vw,34px);margin:8px 0;color:#895a92}
+.hero p{max-width:650px;margin:0;color:#91677e;line-height:1.65}
+.hero-date{display:inline-block;margin-top:14px;background:#ffffffa8;border:1px solid #fff;border-radius:99px;padding:7px 12px;font-size:12px;color:#795c84}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:#ffffffed;border:1px solid var(--line);border-radius:23px;padding:19px;min-width:0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 13px;font-size:16px;color:#895a92}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card-head h3{margin-bottom:13px}
+.stat{font-size:28px;font-weight:800;margin:8px 0;color:#c65e91;overflow-wrap:anywhere}
+.muted{color:var(--muted);font-size:12px;line-height:1.5}
+.btn{border:0;border-radius:14px;padding:11px 14px;background:linear-gradient(135deg,#ee9fbe,#db78a6);color:#fff;font-weight:700;box-shadow:0 4px 10px #df5c911c}
+.btn.soft{background:#eee6ff;color:#775aa5;box-shadow:none}
+.btn.mint{background:#dcf5e7;color:#34775d;box-shadow:none}
+.btn.peach{background:#fff0bd;color:#8e7026;box-shadow:none}
+.btn.danger{background:#ffebec;color:#b64d4d;box-shadow:none}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;color:var(--muted);font-weight:700}
+.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #e8dcec;border-radius:13px;background:#fffdfd;color:var(--ink);min-width:0}
+.field textarea{min-height:78px;resize:vertical}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.item{display:flex;gap:9px;align-items:flex-start;border-bottom:1px solid var(--line);padding:11px 0}
+.item:last-child{border:0}
+.dot{width:9px;height:9px;border-radius:50%;background:#ed79a5;margin-top:5px;flex:none}
+.main{flex:1;min-width:0}
+.main strong{display:block;font-size:14px;overflow-wrap:anywhere}
+.main small{display:block;color:var(--muted);margin-top:4px;line-height:1.45}
+.empty{color:var(--muted);font-size:13px;padding:12px 0}
+.note{background:#fff0f6;color:#9b526f;border-radius:14px;padding:12px;font-size:12px;line-height:1.5;margin-top:12px}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:22px 2px 12px}
+.section-title h3{margin:0;color:#895a92}
+.memory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.memory-card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:7px;box-shadow:var(--shadow);min-width:0}
+.memory-card img{display:block;width:100%;height:125px;object-fit:cover;border-radius:12px;background:#fff0f6}
+.memory-card p{font-size:11px;color:var(--muted);margin:7px 3px 3px;overflow-wrap:anywhere}
+.gallery-grid{columns:3 170px;column-gap:13px}
+.gallery-photo{break-inside:avoid;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;margin:0 0 13px;box-shadow:var(--shadow)}
+.gallery-photo img{width:100%;height:auto;max-height:360px;object-fit:cover;border-radius:12px;display:block;background:#fff0f6}
+.gallery-photo p{font-size:12px;color:var(--muted);margin:8px 2px 5px;overflow-wrap:anywhere}
+.gallery-photo .btn{padding:7px 10px;font-size:12px}
+.footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 0 12px}
+.pill{display:inline-block;background:#fff0f6;color:#b94477;border-radius:99px;padding:5px 9px;font-size:11px;font-weight:700}
+.small-link{border:0;background:none;color:#c34b80;font-size:12px;font-weight:700;padding:5px}
+.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:14px;margin-top:14px}
+.chart-area{height:150px;display:flex;align-items:stretch;gap:9px;padding:12px 2px 0;border-bottom:1px solid var(--line);margin-top:8px}
+.chart-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:7px;min-width:0}
+.chart-value{font-size:10px;color:var(--muted);height:13px}
+.chart-track{height:105px;width:min(100%,28px);display:flex;align-items:flex-end;justify-content:center;background:#f0e9fb;border-radius:10px 10px 5px 5px;overflow:hidden}
+.chart-bar{width:100%;min-height:2px;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,#c7b3ff,#9278d4);transition:height .25s}
+.chart-bar.mint{background:linear-gradient(180deg,#b6ebce,#62b991)}
+.chart-label{font-size:10px;color:var(--muted);white-space:nowrap}
+.chart-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)}
+.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#df5c91;margin-right:5px}
+.legend-dot.mint{background:#56b994}
+.progress-track{height:9px;border-radius:99px;background:#f1e8f4;overflow:hidden;margin:10px 0}
+.progress-fill{height:100%;background:linear-gradient(90deg,#e47da9,#bca6f4,#70c5a0,#f0cf66);border-radius:99px;width:0}
+.priority-entry{display:flex;gap:8px;align-items:center;margin:8px 0}
+.priority-entry input[type=text]{flex:1;min-width:0;padding:11px;border:1px solid #e8dcec;border-radius:12px;background:#fffdfd;color:var(--ink)}
+.priority-item{display:flex;align-items:center;gap:9px;padding:11px 0;border-bottom:1px solid var(--line)}
+.priority-item:last-child{border-bottom:0}
+.priority-item input{accent-color:#df5c91;width:17px;height:17px;flex:none}
+.priority-item span{flex:1;font-size:13px;overflow-wrap:anywhere}
+.priority-item.done span{text-decoration:line-through;opacity:.55}
+.budget-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin-top:14px}
+.budget-row input{width:100%;min-width:0;padding:10px;border:1px solid #e8dcec;border-radius:12px;background:#fffdfd;color:var(--ink)}
+.kpi-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}
+.kpi{padding:12px;border-radius:16px;background:#fff6fa;border:1px solid #f8e1eb}
+.kpi span{display:block;font-size:11px;color:var(--muted)}
+.kpi strong{display:block;margin-top:5px;font-size:17px;color:#c94f85;overflow-wrap:anywhere}
+.finance-month-chart{height:190px}
+.finance-month-chart .chart-track{height:135px;width:min(100%,34px)}
+.finance-month-chart .chart-col{gap:7px}
+.finance-month-chart .chart-label{font-size:9px}
+.category-chart{display:flex;flex-direction:column;gap:13px;margin-top:16px}
+.category-row{display:grid;grid-template-columns:minmax(76px,1fr) minmax(70px,2fr) auto;gap:9px;align-items:center}
+.category-name{font-size:12px;overflow-wrap:anywhere}
+.category-track{height:10px;background:#f1eafb;border-radius:99px;overflow:hidden}
+.category-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#ffc8dc,#e47da9)}
+.category-amount{font-size:11px;color:var(--muted);text-align:right;white-space:nowrap}
+.finance-kpis{margin:0 0 14px}
+.finance-grid{margin-top:0}
+.finance-grid .card{min-width:0}
+.task-filter-row{display:flex;gap:7px;flex-wrap:wrap;margin:5px 0 12px}
+.task-filter{border:1px solid #e8dcec;background:#fff;color:#82728d;border-radius:99px;padding:8px 12px;font-size:12px;font-weight:700}
+.task-filter.active{background:#e9e1ff;color:#7154a6;border-color:#d9ccfa}
+.task-filter[data-filter="open"].active{background:#dcf5e7;color:#34775d;border-color:#c4ead4}
+.task-filter[data-filter="completed"].active{background:#ffe1ed;color:#a84f7a;border-color:#f7c8dd}
+.task-row-done{background:linear-gradient(90deg,#f1fbf4,#fff 75%);border-radius:12px;padding-left:9px;padding-right:8px}
+.task-check{width:19px;height:19px;accent-color:#66b88e;flex:none;margin:2px 2px 0 0}
+.task-row-done .main strong{text-decoration:line-through;opacity:.58}
+.task-status{display:inline-flex;align-items:center;gap:4px;margin-top:5px;font-size:10px;font-weight:700;color:#438b6b;background:#e3f7eb;border-radius:99px;padding:4px 7px}
+.task-list-empty{padding:16px;border-radius:14px;background:#fbf7ff;color:#8f829a;font-size:12px}
 
 /* Notion-inspired editable cover banner */
 .cover-wrap{margin:8px 0 16px;position:relative}
@@ -46,20 +141,35 @@ body{background:radial-gradient(circle at 4% 0%,#ffe0ed 0,transparent 25%),radia
 .cover-page-icon{font-size:29px;line-height:1;filter:drop-shadow(0 3px 4px #c8a7c655)}
 .cover-title-row h2{margin:0;color:#624c68;font-size:clamp(23px,4vw,31px);letter-spacing:-.7px}
 .cover-subtitle{margin:5px 0 0 2px;color:#9b849e;font-size:13px}
+@media(max-width:700px){.app{padding:11px}.grid,.two-col,.dashboard-grid{grid-template-columns:1fr}.hero{padding:21px}.hero:after{font-size:18px;right:14px}.card{padding:15px}.form{grid-template-columns:1fr}.field.full{grid-column:auto}.memory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.memory-card img{height:110px}.tabs button{padding:10px 12px}.top h1{font-size:24px}}
 @media(max-width:600px){.cover-banner{height:150px;border-radius:16px}.cover-actions{justify-content:flex-start}.cover-title-row h2{font-size:24px}}
-
 </style>
 </head>
 <body>
 <main class="app">
 <header class="top"><div class="logo">🌸</div><div><h1>MyAssist <span style="color:#e86c9b">♡</span></h1><p>Your little corner for plans, money, memories & ideas.</p></div></header>
+
 <section class="cover-wrap" aria-label="Dashboard cover photo">
-  <div id="coverBanner" class="cover-banner" role="img" aria-label="MyAssist cover banner"><div class="cover-art"><span class="cover-symbols">✿ ✧ ♡ ✧ ✿</span><span>Your little corner of the world</span></div></div>
-  <div class="cover-actions"><label class="btn soft" for="coverUpload" id="coverUploadLabel">＋ Add cover photo</label><input id="coverUpload" type="file" accept="image/*" hidden><button class="btn mint" id="coverChangeButton" type="button" onclick="document.getElementById('coverUpload').click()" hidden>Change cover</button><button class="btn danger" id="coverRemoveButton" type="button" onclick="removeCover()" hidden>Remove</button></div>
+  <div id="coverBanner" class="cover-banner" role="img" aria-label="MyAssist cover banner">
+    <div class="cover-art"><span class="cover-symbols">✿ ✧ ♡ ✧ ✿</span><span>Your little corner of the world</span></div>
+  </div>
+  <div class="cover-actions">
+    <label class="btn soft" for="coverUpload" id="coverUploadLabel">＋ Add cover photo</label>
+    <input id="coverUpload" type="file" accept="image/*" hidden>
+    <button class="btn mint" id="coverChangeButton" type="button" onclick="document.getElementById('coverUpload').click()" hidden>Change cover</button>
+    <button class="btn danger" id="coverRemoveButton" type="button" onclick="removeCover()" hidden>Remove</button>
+  </div>
   <div class="cover-title-row"><span class="cover-page-icon">🌷</span><div><h2>MyAssist</h2><p class="cover-subtitle">A soft space to organize your life, one day at a time.</p></div></div>
 </section>
+
 <nav class="tabs" aria-label="Main navigation">
-<button class="active" data-tab="today">🏠 Home</button><button data-tab="schedule">🗓️ Schedule</button><button data-tab="finance">💸 Finance</button><button data-tab="expenses">🌷 Expenses</button><button data-tab="notes">📝 Notes & Tasks</button><button data-tab="gallery">🖼️ Gallery</button><button data-tab="settings">⚙️ Settings</button>
+<button class="active" data-tab="today">🏠 Home</button>
+<button data-tab="schedule">🗓️ Schedule</button>
+<button data-tab="finance">💸 Finance</button>
+<button data-tab="expenses">🌷 Expenses</button>
+<button data-tab="notes">📝 Notes & Tasks</button>
+<button data-tab="gallery">🖼️ Gallery</button>
+<button data-tab="settings">⚙️ Settings</button>
 </nav>
 
 <section class="view active" id="today">
@@ -77,197 +187,1648 @@ body{background:radial-gradient(circle at 4% 0%,#ffe0ed 0,transparent 25%),radia
 <div class="card"><h3>💌 A little note to yourself</h3><div class="field"><label for="quickNote">Jot down a thought</label><textarea id="quickNote" placeholder="Something I don't want to forget…"></textarea></div><div class="quick"><button class="btn" onclick="saveQuick()">Save note</button><button class="btn mint" onclick="voice('quickNote')">🎙️ Dictate</button></div><div class="quick"><button class="btn soft" onclick="tab('schedule')">＋ Add reminder</button><button class="btn soft" onclick="tab('gallery')">🖼️ Open memories</button></div></div>
 <div class="card"><div class="card-head"><h3>🖼️ Little moments</h3><button class="small-link" onclick="tab('gallery')">Open gallery →</button></div><div id="homeMemories" class="memory-grid"><div class="empty">Your favorite photos will appear here after you add them in Gallery. ♡</div></div></div>
 </div></section>
-<section class="view" id="schedule"><div class="grid">
-<div class="card"><h3>＋ Add a reminder</h3><form id="eventForm" class="form"><div class="field full"><label>Title</label><input id="etitle" required placeholder="e.g. Pay internet bill"></div><div class="field"><label>Date</label><input id="edate" type="date" required></div><div class="field"><label>Time</label><input id="etime" type="time" value="09:00" required></div><div class="field"><label>Remind before</label><select id="elead"><option value="0">At event time</option><option value="5">5 minutes</option><option value="15" selected>15 minutes</option><option value="30">30 minutes</option><option value="60">1 hour</option><option value="1440">1 day</option></select></div><div class="field"><label>Type</label><select id="etype"><option>Personal</option><option>Work</option><option>Study</option><option>Bill / payment</option><option>Health</option></select></div><div class="field full"><label>Notes (optional)</label><input id="enotes" placeholder="Details"></div><div class="field full"><button class="btn">Save reminder</button></div></form><div class="note">Tip: use “Export all to Calendar” to move reminders into your calendar app. Browser alerts may not fire when this page is closed.</div></div>
-<div class="card"><div class="card-head"><h3>Upcoming reminders</h3><button class="btn soft" onclick="exportICS()">Export to Calendar</button></div><div id="eventList"></div></div></div></section>
+<section class="view" id="schedule">
+  <div class="hero">
+    <div class="eyebrow">Plan gently ✨</div>
+    <h2>My Schedule 🗓️</h2>
+    <p>Keep track of appointments, reminders, and important dates.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>＋ Add an event</h3>
+      <form id="eventForm" class="form">
+        <div class="field full"><label for="eventTitle">Event title</label><input id="eventTitle" required maxlength="120" placeholder="e.g. Interview"></div>
+        <div class="field"><label for="eventDate">Date</label><input id="eventDate" type="date" required></div>
+        <div class="field"><label for="eventTime">Time</label><input id="eventTime" type="time"></div>
+        <div class="field full"><label for="eventDetails">Details</label><textarea id="eventDetails" placeholder="Add any extra details..."></textarea></div>
+        <div class="field full"><button class="btn" type="submit">Save event ♡</button></div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>🔎 Find events</h3>
+      <div class="field"><label for="eventSearch">Search by title</label><input id="eventSearch" placeholder="Search your schedule..."></div>
+      <div class="field" style="margin-top:12px"><label for="eventFilterDate">Filter by date</label><input id="eventFilterDate" type="date"></div>
+      <div class="quick"><button class="btn soft" onclick="clearEventFilters()">Clear filters</button></div>
+    </div>
+  </div>
+
+  <div class="section-title"><h3>📅 Upcoming & saved events</h3><span class="pill" id="scheduleCount">0 events</span></div>
+  <div class="card"><div id="eventList"></div></div>
+</section>
 
 <section class="view" id="finance">
-<div class="hero"><div class="eyebrow">Your money, made clearer ♡</div><h2>Finance overview</h2><p>See how much you have spent this month, compare recent months, understand your biggest spending categories, and keep an eye on your budget.</p><span class="hero-date" id="financeMonthLabel">Your monthly snapshot</span></div>
-<div class="kpi-row finance-kpis">
-<div class="kpi"><span>💗 Spent this month</span><strong id="financeMonthTotal">₱0.00</strong></div>
-<div class="kpi"><span>🎀 Budget remaining</span><strong id="financeRemaining">Set a budget</strong></div>
-<div class="kpi"><span>🧾 Expenses this month</span><strong id="financeExpenseCount">0 entries</strong></div>
-</div>
-<div class="dashboard-grid finance-grid">
-<div class="card"><div class="card-head"><h3>📈 Monthly spending trend</h3><span class="pill">Last 6 months</span></div><p class="muted">Each bar shows the total expenses recorded for that month.</p><div id="financeMonthChart" class="chart-area finance-month-chart"></div><div class="chart-legend"><span><i class="legend-dot"></i>Monthly expenses</span></div></div>
-<div class="card"><div class="card-head"><h3>🌷 Where your money goes</h3><span class="pill">This month</span></div><p class="muted">Your spending grouped by category.</p><div id="financeCategoryChart" class="category-chart"><div class="empty">Add expenses to see your category breakdown. ♡</div></div><div id="financeTopCategory" class="note">Your top spending category will appear here.</div></div>
-<div class="card"><div class="card-head"><h3>🎯 Monthly budget</h3><button class="small-link" onclick="tab('settings')">Preferences →</button></div><p class="muted">Choose a monthly spending limit and MyAssist will track your progress.</p><div class="budget-row"><div class="field"><label for="financeBudgetInput">Budget amount</label><input id="financeBudgetInput" type="number" min="0" step="0.01" placeholder="Enter monthly budget"></div><button class="btn soft" onclick="saveFinanceBudget()">Save budget</button></div><div class="progress-track"><div id="financeBudgetProgress" class="progress-fill"></div></div><p class="muted" id="financeBudgetText">Set a budget to start tracking your spending.</p></div>
-<div class="card"><div class="card-head"><h3>🪷 Quick actions</h3></div><p class="muted">Keep your records up to date so the charts reflect your actual entries.</p><div class="quick"><button class="btn" onclick="tab('expenses')">＋ Add an expense</button><button class="btn soft" onclick="tab('expenses')">View expense list →</button><button class="btn soft" onclick="csv()">Export expenses CSV</button></div><div class="note">MyAssist currently summarizes the expenses you record. It does not yet track income, bank balances, or debts.</div></div>
-</div></section>
+  <div class="hero">
+    <div class="eyebrow">Money mindfulness 💸</div>
+    <h2>My Finance Dashboard</h2>
+    <p>Understand your spending, set a budget, and make informed financial decisions.</p>
+  </div>
 
-<section class="view" id="expenses"><div class="grid">
-<div class="card"><h3>＋ Add an expense</h3><form id="expenseForm" class="form"><div class="field"><label>Amount</label><input id="amount" type="number" min=".01" step=".01" required placeholder="0.00"></div><div class="field"><label>Date</label><input id="xdate" type="date" required></div><div class="field"><label>Category</label><select id="category"><option>Food & Dining</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Health</option><option>Education</option><option>Entertainment</option><option>Family</option><option>Other</option></select></div><div class="field"><label>Payment</label><select id="payment"><option>Cash</option><option>Debit card</option><option>Credit card</option><option>E-wallet</option><option>Bank transfer</option><option>Other</option></select></div><div class="field full"><label>Description</label><input id="description" placeholder="Lunch, fare, groceries…"></div><div class="field full"><button class="btn">Save expense</button><button type="button" class="btn mint" onclick="voiceExpense()">🎙️ Add by voice</button><p class="muted" id="voiceStatus">Review all fields before saving.</p></div></form></div>
-<div class="card"><h3>Monthly summary</h3><div class="stat" id="xTotal">₱0.00</div><div id="cats"></div><div class="quick"><button class="btn soft" onclick="csv()">Export expenses CSV</button><button class="btn soft" onclick="toggleExpenseDates()" id="expenseRangeBtn">Show all dates</button></div></div>
-<div class="card" style="grid-column:1/-1"><h3>Recent expenses</h3><div id="expenseList"></div></div></div></section>
+  <div class="kpi-row finance-kpis">
+    <div class="kpi"><span>💰 Income this month</span><strong id="financeIncome">₱0.00</strong></div>
+    <div class="kpi"><span>🛍️ Expenses this month</span><strong id="financeExpense">₱0.00</strong></div>
+    <div class="kpi"><span>🌱 Remaining balance</span><strong id="financeBalance">₱0.00</strong></div>
+  </div>
 
-<section class="view" id="notes"><div class="grid"><div class="card"><h3>🌷 Add a note or task</h3><form id="taskForm" class="form"><div class="field full"><label>Title</label><input id="ttitle" required placeholder="e.g. Review my budget"></div><div class="field"><label>Type</label><select id="ttype"><option>Task</option><option>Note</option><option>Personal</option><option>Work</option><option>Study</option></select></div><div class="field"><label>Due date (optional)</label><input id="tdate" type="date"></div><div class="field full"><label>Details (optional)</label><textarea id="tdetails" placeholder="Add a few details…"></textarea></div><div class="field full"><button class="btn">Save note / task</button></div></form></div><div class="card"><h3>📝 Your notes & tasks</h3><p class="muted">Tap the checkbox beside a task to mark it complete. Completed tasks are saved and can be viewed below.</p><div class="task-filter-row" role="group" aria-label="Filter tasks"><button type="button" class="task-filter active" data-filter="open" onclick="setTaskFilter('open')">○ To do</button><button type="button" class="task-filter" data-filter="completed" onclick="setTaskFilter('completed')">✓ Completed</button><button type="button" class="task-filter" data-filter="all" onclick="setTaskFilter('all')">All tasks</button></div><div id="taskList"></div></div></div></section>
+  <div class="grid finance-grid">
+    <div class="card">
+      <h3>＋ Add income</h3>
+      <form id="incomeForm" class="form">
+        <div class="field full"><label for="incomeTitle">Income source</label><input id="incomeTitle" maxlength="120" required placeholder="e.g. Salary"></div>
+        <div class="field"><label for="incomeAmount">Amount (₱)</label><input id="incomeAmount" type="number" min="0.01" step="0.01" required placeholder="0.00"></div>
+        <div class="field"><label for="incomeDate">Date received</label><input id="incomeDate" type="date" required></div>
+        <div class="field full"><label for="incomeCategory">Category</label><select id="incomeCategory"><option>Salary</option><option>Freelance</option><option>Business</option><option>Allowance</option><option>Investment</option><option>Other</option></select></div>
+        <div class="field full"><button class="btn mint" type="submit">Save income ♡</button></div>
+      </form>
+    </div>
 
-<section class="view" id="gallery"><div class="grid"><div class="card"><h3>🌸 Add to your memories</h3><p class="muted">Choose photos from your iPad. Images are resized before saving to help reduce storage use.</p><div class="field"><label>Choose pictures</label><input id="galleryUpload" type="file" accept="image/*" multiple></div><p class="muted" id="galleryStatus">Photos are stored on this device until you choose Upload to cloud in Settings. Keep a backup in Files too.</p></div><div class="card"><h3>🎀 Your memory board</h3><p class="muted">A little collection of moments you want to keep. ♡</p><div class="quick"><button class="btn soft" onclick="clearGallery()">Clear gallery</button></div></div></div><div class="section-title"><h3>🖼️ My memories</h3><span class="muted" id="galleryCount">0 photos</span></div><div id="galleryGrid" class="gallery-grid"><div class="card empty">Your photos will show up here after you upload them. ♡</div></div></section>
+    <div class="card">
+      <h3>📊 Monthly spending budget</h3>
+      <div class="field"><label for="financeBudget">Monthly budget (₱)</label><input id="financeBudget" type="number" min="0" step="0.01" placeholder="Enter your budget"></div>
+      <div class="quick"><button class="btn soft" onclick="saveFinanceBudget()">Save budget</button></div>
+      <div class="stat" id="financeBudgetRemaining">₱0.00</div>
+      <div class="muted" id="financeBudgetMessage">Set a budget to begin tracking.</div>
+      <div class="progress-track"><div class="progress-fill" id="financeBudgetProgress"></div></div>
+      <div class="note">A budget is a guide, not a judgment. Adjust it when your circumstances change.</div>
+    </div>
 
-<section class="view" id="settings"><div class="grid"><div class="card" style="grid-column:1/-1"><h3>☁️ MyAssist cloud sync</h3><p class="muted">Sign in to sync your planner, expenses, tasks, preferences, cover photo, and gallery photos between devices. Sync is manual so cloud data never silently overwrites this device.</p><div class="form"><div class="field"><label for="cloudEmail">Email</label><input id="cloudEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label for="cloudPassword">Password</label><input id="cloudPassword" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div></div><div class="quick"><button class="btn" type="button" onclick="cloudSignIn()">Log in</button><button class="btn soft" type="button" onclick="cloudSignUp()">Create account</button><button class="btn peach" type="button" onclick="cloudSignOut()">Log out</button></div><p class="muted" id="cloudAccountStatus">Checking Supabase connection…</p><div class="quick"><button class="btn mint" type="button" onclick="pushCloud()">⬆️ Upload this device to cloud</button><button class="btn soft" type="button" onclick="pullCloud()">⬇️ Restore cloud data to this device</button></div><div class="note" id="cloudStatus">Important: use Upload only when this device has the version you want to keep. Restore replaces the app data on this device with the cloud copy. Make a backup first.</div></div><div class="card"><h3>🌿 Preferences</h3><form id="settingsForm" class="form"><div class="field"><label>Your name</label><input id="name" placeholder="Optional"></div><div class="field"><label>Currency</label><select id="currency"><option value="PHP">PHP — Philippine peso</option><option value="USD">USD — US dollar</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — Pound</option></select></div><div class="field full"><button class="btn">Save preferences</button></div></form><div class="quick"><button class="btn soft" onclick="notifyPermission()">Enable browser notifications</button><button class="btn" onclick="backup()">📲 Save backup to iPad Files</button><button class="btn soft" onclick="requestPersistentStorage()">Enable persistent storage</button><button class="btn soft" onclick="refreshStorageInfo()">↻ Check storage</button><label class="btn soft">Import backup<input id="restore" type="file" accept=".json,application/json" hidden></label></div><div id="notif" class="note">On iPad, tap “Save backup to iPad Files,” then choose Save to Files in the share sheet. This creates a separate backup copy; it does not move live app storage out of the browser.</div></div><div class="card"><h3>🔐 Your data & storage</h3><p class="muted">MyAssist automatically saves entries in this browser and photos in IndexedDB on this iPad. It also requests persistent storage when supported and compresses photos to reduce space. Browser storage can still be cleared or run out, so use cloud sync and save a separate backup to Files.</p><div id="storageInfo" class="note">Checking browser storage…</div><button class="btn soft" onclick="backup()">Create a backup copy</button><button class="btn danger" onclick="wipe()">Delete all app data</button><p class="muted">Keep a recent backup in the Files app. Calendar export is supported using .ics files.</p></div></div></section>
-<div class="footer">🌷 MyAssist · Your goals. Your time. Your little pink assistant. ♡</div>
+    <div class="card">
+      <h3>📈 Monthly spending</h3>
+      <p class="muted">Your expenses over the last six months.</p>
+      <div id="monthlySpendingChart" class="chart-area finance-month-chart"></div>
+    </div>
+
+    <div class="card">
+      <h3>🧁 Spending by category</h3>
+      <p class="muted">See where your money goes this month.</p>
+      <div id="categorySpendingChart" class="category-chart"></div>
+    </div>
+
+    <div class="card">
+      <h3>💵 Income history</h3>
+      <div id="incomeList"></div>
+    </div>
+
+    <div class="card">
+      <h3>🧾 Recent expenses</h3>
+      <div id="financeExpenseList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="expenses">
+  <div class="hero">
+    <div class="eyebrow">Spend with intention 🌷</div>
+    <h2>My Expenses</h2>
+    <p>Record your purchases and keep your spending organized.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>＋ Add an expense</h3>
+      <form id="expenseForm" class="form">
+        <div class="field full"><label for="expenseTitle">Expense description</label><input id="expenseTitle" required maxlength="120" placeholder="e.g. Groceries"></div>
+        <div class="field"><label for="expenseAmount">Amount (₱)</label><input id="expenseAmount" type="number" min="0.01" step="0.01" required placeholder="0.00"></div>
+        <div class="field"><label for="expenseDate">Date</label><input id="expenseDate" type="date" required></div>
+        <div class="field full"><label for="expenseCategory">Category</label><select id="expenseCategory"><option>Food</option><option>Transportation</option><option>Bills</option><option>Shopping</option><option>Health</option><option>Education</option><option>Entertainment</option><option>Savings</option><option>Other</option></select></div>
+        <div class="field full"><label for="expenseNotes">Notes (optional)</label><textarea id="expenseNotes" placeholder="Any extra details..."></textarea></div>
+        <div class="field full"><button class="btn" type="submit">Save expense ♡</button></div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>🔎 Filter expenses</h3>
+      <div class="field"><label for="expenseSearch">Search description</label><input id="expenseSearch" placeholder="Search expenses..."></div>
+      <div class="field" style="margin-top:12px"><label for="expenseFilterCategory">Category</label><select id="expenseFilterCategory"><option value="">All categories</option><option>Food</option><option>Transportation</option><option>Bills</option><option>Shopping</option><option>Health</option><option>Education</option><option>Entertainment</option><option>Savings</option><option>Other</option></select></div>
+      <div class="field" style="margin-top:12px"><label for="expenseFilterMonth">Month</label><input id="expenseFilterMonth" type="month"></div>
+      <div class="stat" id="expenseFilteredTotal">₱0.00</div>
+      <p class="muted">Total for the filtered expenses.</p>
+      <div class="quick"><button class="btn soft" onclick="clearExpenseFilters()">Clear filters</button></div>
+    </div>
+  </div>
+
+  <div class="section-title"><h3>🧾 Expense history</h3><span class="pill" id="expenseCount">0 records</span></div>
+  <div class="card"><div id="expenseList"></div></div>
+</section>
+
+<section class="view" id="notes">
+  <div class="hero">
+    <div class="eyebrow">Little steps count ♡</div>
+    <h2>Notes & Tasks</h2>
+    <p>Capture your ideas, organize your to-do list, and celebrate every completed task.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>＋ Add a task</h3>
+      <form id="taskForm" class="form">
+        <div class="field full"><label for="taskTitle">Task</label><input id="taskTitle" maxlength="180" required placeholder="What do you need to do?"></div>
+        <div class="field"><label for="taskDue">Due date</label><input id="taskDue" type="date"></div>
+        <div class="field"><label for="taskPriority">Priority</label><select id="taskPriority"><option>Normal</option><option>High</option><option>Low</option></select></div>
+        <div class="field full"><label for="taskDetails">Details (optional)</label><textarea id="taskDetails" placeholder="Add a note..."></textarea></div>
+        <div class="field full"><button class="btn" type="submit">Add task ♡</button></div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>📝 Write a note</h3>
+      <form id="noteForm" class="form">
+        <div class="field full"><label for="noteTitle">Note title</label><input id="noteTitle" required maxlength="150" placeholder="Give your note a title"></div>
+        <div class="field full"><label for="noteBody">Your note</label><textarea id="noteBody" required placeholder="Write anything you want to remember..."></textarea></div>
+        <div class="field full"><button class="btn soft" type="submit">Save note</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="section-title"><h3>🌱 My task list</h3><span class="pill" id="taskListCount">0 tasks</span></div>
+  <div class="card">
+    <div class="task-filter-row">
+      <button class="task-filter active" data-filter="open" onclick="setTaskFilter('open')">○ To do</button>
+      <button class="task-filter" data-filter="completed" onclick="setTaskFilter('completed')">✓ Completed</button>
+      <button class="task-filter" data-filter="all" onclick="setTaskFilter('all')">☷ All tasks</button>
+    </div>
+    <div id="taskList"></div>
+  </div>
+
+  <div class="section-title"><h3>💌 My saved notes</h3><span class="pill" id="noteCount">0 notes</span></div>
+  <div class="card"><div id="noteList"></div></div>
+</section>
+
+<section class="view" id="gallery">
+  <div class="hero">
+    <div class="eyebrow">Keep the little moments ✨</div>
+    <h2>My Memory Gallery</h2>
+    <p>Save your favorite pictures and add captions to remember why they matter.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>📸 Add memories</h3>
+      <form id="photoForm" class="form">
+        <div class="field full"><label for="photoFiles">Choose pictures</label><input id="photoFiles" type="file" accept="image/*" multiple required></div>
+        <div class="field full"><label for="photoCaption">Caption (optional)</label><input id="photoCaption" maxlength="180" placeholder="A little memory..."></div>
+        <div class="field full"><button class="btn" type="submit">Save photos ♡</button></div>
+      </form>
+      <div class="note">Pictures are resized and compressed before saving where supported. Keep a backup of important photos.</div>
+      <div id="photoUploadStatus" class="muted" style="margin-top:10px"></div>
+    </div>
+
+    <div class="card">
+      <h3>🌷 Gallery guide</h3>
+      <p class="muted">Choose one or more images from Photos or Files. You can add captions and remove photos later.</p>
+      <p class="muted">For important pictures, keep the original in your Photos app or Files as well as in MyAssist.</p>
+      <div class="quick"><button class="btn soft" onclick="exportBackup()">Save a backup</button></div>
+    </div>
+  </div>
+
+  <div class="section-title"><h3>🖼️ My pictures</h3><span class="pill" id="galleryCount">0 photos</span></div>
+  <div id="galleryList" class="gallery-grid"></div>
+</section>
+
+<section class="view" id="settings">
+  <div class="hero">
+    <div class="eyebrow">Your space, your way ⚙️</div>
+    <h2>Settings & Backups</h2>
+    <p>Manage your data, save a backup to your iPad, and restore it when needed.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>💾 Storage information</h3>
+      <div class="stat" id="storageUsed">Checking…</div>
+      <p class="muted" id="storageDetails">Checking available browser storage information.</p>
+      <div class="progress-track"><div class="progress-fill" id="storageProgress"></div></div>
+      <div class="quick"><button class="btn mint" onclick="refreshStorageInfo()">Refresh storage info</button></div>
+      <div class="note">Storage information is an estimate. Browser storage is managed by iPadOS and Safari. This does not show all storage used by your iPad.</div>
+    </div>
+
+    <div class="card">
+      <h3>📲 Backup to iPad Files</h3>
+      <p class="muted">Create a downloadable backup of your MyAssist records and photos. Then choose Save to Files in the iPad share menu when available.</p>
+      <div class="quick"><button class="btn" onclick="exportBackup()">⬇ Save backup</button></div>
+      <div class="note">A backup is a separate copy. It does not move the live data out of browser storage.</div>
+    </div>
+
+    <div class="card">
+      <h3>♻️ Restore a backup</h3>
+      <p class="muted">Choose a MyAssist JSON backup file to restore your saved records and photos.</p>
+      <div class="field"><label for="backupFile">Choose backup file</label><input id="backupFile" type="file" accept=".json,application/json"></div>
+      <div class="quick"><button class="btn soft" onclick="importBackup()">Import backup</button></div>
+      <div class="note">Importing replaces the current saved records. Export a backup of your current data first.</div>
+    </div>
+
+    <div class="card">
+      <h3>🌸 Personalize MyAssist</h3>
+      <div class="field"><label for="displayName">Your display name</label><input id="displayName" maxlength="60" placeholder="Lovely"></div>
+      <div class="quick"><button class="btn mint" onclick="saveDisplayName()">Save name</button></div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+      <h3>🧹 Clear data</h3>
+      <p class="muted">This removes saved app records and photos from this browser. Only use it after confirming that you have a backup.</p>
+      <div class="quick"><button class="btn danger" onclick="clearAllData()">Clear all MyAssist data</button></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">Made with a little love ♡ MyAssist Pastel Planner</footer>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-'use strict';
-// MyAssist Supabase project settings are inserted below.
-// A Supabase admin must also configure the user_data table, RLS policies, and private photo bucket.
-// Never put a secret/service_role key in a browser app.
-const SUPABASE_URL='https://dtrzpobtczzqofersapk.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY='sb_publishable_rRqD7CjcBYQAJqI0tROelQ_pF6dEfnc';
-const CLOUD_TABLE='user_data';
-const PHOTO_BUCKET='myassist-photos';
-let supabaseClient=null;
-function initSupabase(){
- if(!window.supabase||SUPABASE_URL.includes('PASTE_')||SUPABASE_PUBLISHABLE_KEY.includes('PASTE_')) return null;
- if(!supabaseClient) supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
- return supabaseClient;
-}
-const K='myassist-ipad-v1';
-const $=id=>document.getElementById(id);
-const iso=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
-const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
-let db={events:[],expenses:[],tasks:[],priorities:[],settings:{name:'',currency:'PHP',monthlyBudget:0},gallery:[]};
-let galleryImages=[];
-let showAllExpenses=false;
-let taskFilter='open';
-const PHOTO_DB='myassist-photo-store-v1';
-function openPhotoDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(PHOTO_DB,1);req.onupgradeneeded=()=>{const d=req.result;if(!d.objectStoreNames.contains('photos'))d.createObjectStore('photos',{keyPath:'id'});};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
-async function photoPut(photo){const d=await openPhotoDB();return new Promise((resolve,reject)=>{const tx=d.transaction('photos','readwrite');tx.objectStore('photos').put(photo);tx.oncomplete=()=>{d.close();resolve()};tx.onerror=()=>{d.close();reject(tx.error)};});}
-async function photoGetAll(){const d=await openPhotoDB();return new Promise((resolve,reject)=>{const tx=d.transaction('photos','readonly'),req=tx.objectStore('photos').getAll();req.onsuccess=()=>{d.close();resolve(req.result||[])};req.onerror=()=>{d.close();reject(req.error)};});}
-async function photoDelete(id){const d=await openPhotoDB();return new Promise((resolve,reject)=>{const tx=d.transaction('photos','readwrite');tx.objectStore('photos').delete(id);tx.oncomplete=()=>{d.close();resolve()};tx.onerror=()=>{d.close();reject(tx.error)};});}
-async function photoClear(){const d=await openPhotoDB();return new Promise((resolve,reject)=>{const tx=d.transaction('photos','readwrite');tx.objectStore('photos').clear();tx.oncomplete=()=>{d.close();resolve()};tx.onerror=()=>{d.close();reject(tx.error)};});}
-const COVER_ID='myassist-cover-banner';
-const COVER_FALLBACK_KEY='myassist-cover-fallback-v1';
-function renderCover(){const cover=galleryImages.find(p=>p.id===COVER_ID),banner=$('coverBanner');if(!banner)return;if(cover&&cover.data){banner.style.backgroundImage=`url("${cover.data}")`;banner.classList.add('has-image');$('coverUploadLabel').textContent='Change cover photo';$('coverChangeButton').hidden=false;$('coverRemoveButton').hidden=false;}else{banner.style.backgroundImage='';banner.classList.remove('has-image');$('coverUploadLabel').textContent='＋ Add cover photo';$('coverChangeButton').hidden=true;$('coverRemoveButton').hidden=true;}}
-async function restoreCoverFallback(){try{const raw=localStorage.getItem(COVER_FALLBACK_KEY);if(galleryImages.some(p=>p.id===COVER_ID)){if(raw)localStorage.removeItem(COVER_FALLBACK_KEY);return}if(!raw)return;const cover=JSON.parse(raw);if(cover&&cover.data){await photoPut(cover);galleryImages=galleryImages.filter(p=>p.id!==COVER_ID);galleryImages.push(cover);renderCover();}localStorage.removeItem(COVER_FALLBACK_KEY);}catch(err){console.warn('Cover fallback restore skipped:',err)}}
-$('coverUpload').addEventListener('change',async e=>{const file=e.target.files&&e.target.files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('Please choose an image file.');e.target.value='';return}try{const data=await compressImage(file);const cover={id:COVER_ID,name:'MyAssist cover',data,addedAt:new Date().toISOString()};await photoPut(cover);galleryImages=galleryImages.filter(p=>p.id!==COVER_ID);galleryImages.push(cover);try{localStorage.removeItem(COVER_FALLBACK_KEY)}catch(storageErr){}renderCover();$('galleryStatus')&&($('galleryStatus').textContent='Cover photo automatically saved on this iPad in browser photo storage. Use Upload to cloud in Settings for another device. ♡');}catch(err){console.error(err);alert('The cover photo could not be saved. Please try a smaller image.')}e.target.value='';});
-async function removeCover(){if(!confirm('Remove your cover photo?'))return;try{await photoDelete(COVER_ID);try{localStorage.removeItem(COVER_FALLBACK_KEY)}catch(e){}galleryImages=galleryImages.filter(p=>p.id!==COVER_ID);renderCover()}catch(err){alert('The cover photo could not be removed. Please try again.')}}
-function persistCore(){const compact={...db,gallery:db.gallery.map(({id,name,addedAt})=>({id,name,addedAt}))};localStorage.setItem(K,JSON.stringify(compact));}
-async function requestPersistentStorage(){try{if(!navigator.storage||!navigator.storage.persist){const el=$('storageInfo');if(el)el.textContent='MyAssist auto-saves to this iPad browser, but this browser does not offer a persistent-storage request. Keep a backup in Files and use cloud upload as a second copy.';return false}let persisted=await navigator.storage.persisted();if(!persisted)persisted=await navigator.storage.persist();const el=$('storageInfo');if(el){el.textContent=persisted?'MyAssist auto-saves on this iPad. The browser granted persistent storage, which reduces the chance of automatic eviction; still keep a backup and cloud copy.':'MyAssist auto-saves on this iPad, but the browser did not grant persistent storage. Keep a backup in Files and upload to cloud; Safari may still clear site data.';}return persisted}catch(e){console.warn('Persistent storage request unavailable:',e);return false}}
-async function load(){let old={};try{old=JSON.parse(localStorage.getItem(K)||'{}');}catch(e){}db={...db,...old};db.events=Array.isArray(db.events)?db.events:[];db.expenses=Array.isArray(db.expenses)?db.expenses:[];db.tasks=Array.isArray(db.tasks)?db.tasks:[];db.gallery=Array.isArray(db.gallery)?db.gallery:[];db.priorities=Array.isArray(db.priorities)?db.priorities:[];db.settings={name:'',currency:'PHP',monthlyBudget:0,...(db.settings||{})};
-// Move legacy base64 photos out of localStorage into IndexedDB, then store only photo details in localStorage.
-try{for(const p of db.gallery){if(p.data)await photoPut(p);}const all=await photoGetAll();galleryImages=all;await restoreCoverFallback();renderCover();const ids=new Set(galleryImages.map(p=>p.id));db.gallery=db.gallery.filter(p=>ids.has(p.id)).map(p=>({id:p.id,name:p.name||'',addedAt:p.addedAt||''}));persistCore();}catch(e){console.error(e);galleryImages=db.gallery.filter(p=>p.data);alert('MyAssist could not finish moving photos to the larger browser photo store. Export a backup if possible, then try opening the app again.');}}
-function save(){try{persistCore();render();}catch(e){alert('Your browser storage is full. Photos are now stored separately, but the other app data could not be saved. Export a backup from Settings and free some browser storage.');}}
-function tab(n){document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.tab===n));document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===n));window.scrollTo({top:0,behavior:'smooth'});if(n==='gallery')renderGallery();if(n==='finance')renderFinanceOverview();}
-document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.tab)));
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function money(n){try{return new Intl.NumberFormat(undefined,{style:'currency',currency:db.settings.currency||'PHP'}).format(Number(n)||0)}catch(e){return (Number(n)||0).toFixed(2)}}
-function nice(s){return s?new Date(s+'T12:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}):''}
-function item(title,sub,type,id,check=false,done=false){return `<div class="item">${check?`<input type="checkbox" ${done?'checked':''} aria-label="Mark ${esc(title)} complete" onchange="toggleTask('${id}')">`:'<span class="dot"></span>'}<div class="main"><strong style="${done?'text-decoration:line-through;opacity:.5':''}">${esc(title)}</strong><small>${esc(sub)}</small></div>${type?`<button class="btn danger" style="padding:6px 9px" aria-label="Delete ${esc(title)}" onclick="del('${type}','${id}')">×</button>`:''}</div>`}
-function render(){
- const today=iso(),month=today.slice(0,7),monthExpenses=db.expenses.filter(x=>(x.date||'').startsWith(month)),open=db.tasks.filter(x=>!x.done),done=db.tasks.filter(x=>x.done);
- $('hello').textContent=db.settings.name?'Hello, '+db.settings.name+'! ♡':'Hello, lovely! ♡';$('todayDate').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'});$('eventCount').textContent=db.events.filter(x=>x.date===today).length+' events';$('taskCount').textContent=open.length+' left';$('doneCount').textContent=done.length+' done';
- const monthSum=monthExpenses.reduce((sum,x)=>sum+(+x.amount||0),0);$('monthTotal').textContent=money(monthSum);$('monthCount').textContent=monthExpenses.length+' expense entr'+(monthExpenses.length===1?'y':'ies')+' this month';
- $('todayEvents').innerHTML=db.events.filter(x=>x.date===today).sort((a,b)=>(a.time||'').localeCompare(b.time||'')).map(x=>item(x.title,nice(x.date)+' · '+x.time+' · '+x.type,'event',x.id)).join('')||'<div class="empty">Nothing scheduled today. Enjoy a little breathing room. ♡</div>';
- $('todayTasks').innerHTML=open.slice(0,4).map(x=>item(x.title,(x.type||'Task')+(x.date?' · '+nice(x.date):''),'task',x.id,true,x.done)).join('')||'<div class="empty">No open tasks. Lovely! ✨</div>';
- $('eventList').innerHTML=[...db.events].sort((a,b)=>((a.date||'')+(a.time||'')).localeCompare((b.date||'')+(b.time||''))).map(x=>item(x.title,nice(x.date)+' · '+x.time+' · '+x.type+' · alert '+(x.lead?x.lead+' min before':'at time'),'event',x.id)).join('')||'<div class="empty">Add your first reminder. ♡</div>';
- const cats={};monthExpenses.forEach(x=>cats[x.category]=(cats[x.category]||0)+(+x.amount||0));$('xTotal').textContent=money(monthSum);$('cats').innerHTML=Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([c,v])=>item(c,money(v))).join('')||'<div class="empty">Category totals will appear here.</div>';
- const expenses=[...db.expenses].sort((a,b)=>(b.date||'').localeCompare(a.date||'')),shown=showAllExpenses?expenses:expenses.slice(0,10);$('expenseList').innerHTML=shown.map(x=>item(x.description||x.category,nice(x.date)+' · '+x.category+' · '+x.payment+' · '+money(x.amount),'expense',x.id)).join('')||'<div class="empty">No expenses yet.</div>';$('expenseRangeBtn').textContent=showAllExpenses?'Show recent only':'Show all dates';
- const filteredTasks=[...db.tasks].filter(x=>taskFilter==='all'||(taskFilter==='completed'?x.done:!x.done)).sort((a,b)=>(Number(a.done)-Number(b.done)));$('taskList').innerHTML=filteredTasks.map(x=>`<div class="item ${x.done?'task-row-done':''}"><input class="task-check" type="checkbox" ${x.done?'checked':''} aria-label="Mark ${esc(x.title)} ${x.done?'not completed':'completed'}" onchange="toggleTask('${x.id}')"><div class="main"><strong>${esc(x.title)}</strong><small>${esc((x.type||'Task')+(x.date?' · Due '+nice(x.date):'')+(x.details?' · '+x.details:''))}</small>${x.done?'<span class="task-status">✓ Completed</span>':''}</div><button class="btn danger" style="padding:6px 9px" aria-label="Delete ${esc(x.title)}" onclick="del('task','${x.id}')">×</button></div>`).join('')||`<div class="task-list-empty">${taskFilter==='completed'?'No completed tasks yet. Check a task when you finish it. ♡':taskFilter==='all'?'No tasks yet. Add your first task above. ♡':'You are all caught up! No tasks waiting. ✨'}</div>`;document.querySelectorAll('.task-filter').forEach(b=>b.classList.toggle('active',b.dataset.filter===taskFilter));
- $('name').value=db.settings.name||'';$('currency').value=db.settings.currency||'PHP';$('monthlyBudget').value=db.settings.monthlyBudget||'';
- renderPriorities();renderCharts();renderFinanceOverview();renderGallery();
-}
-function renderPriorities(){const el=$('priorityList');if(!el)return;el.innerHTML=db.priorities.length?db.priorities.map(p=>`<div class="priority-item ${p.done?'done':''}"><input type="checkbox" ${p.done?'checked':''} aria-label="Complete priority" onchange="togglePriority('${p.id}')"><span>${esc(p.title)}</span><button class="btn danger" style="padding:6px 9px" onclick="deletePriority('${p.id}')" aria-label="Delete priority">×</button></div>`).join(''):'<div class="empty">Add your first priority above. ♡</div>'}
-function renderCharts(){const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');days.push({key,label:d.toLocaleDateString(undefined,{weekday:'short'}),spent:db.expenses.filter(x=>x.date===key).reduce((sum,x)=>sum+(+x.amount||0),0),completed:db.tasks.filter(x=>x.done&&x.completedAt&&x.completedAt.slice(0,10)===key).length})}
- const maxDone=Math.max(1,...days.map(d=>d.completed)),maxSpent=Math.max(1,...days.map(d=>d.spent));$('productivityChart').innerHTML=days.map(d=>`<div class="chart-col"><span class="chart-value">${d.completed||''}</span><div class="chart-track"><div class="chart-bar mint" style="height:${d.completed?Math.max(7,d.completed/maxDone*100):2}%"></div></div><span class="chart-label">${d.label}</span></div>`).join('');$('financeChart').innerHTML=days.map(d=>`<div class="chart-col"><span class="chart-value">${d.spent?esc(Math.round(d.spent).toLocaleString()):''}</span><div class="chart-track"><div class="chart-bar" style="height:${d.spent?Math.max(7,d.spent/maxSpent*100):2}%"></div></div><span class="chart-label">${d.label}</span></div>`).join('');const completed=db.tasks.filter(x=>x.done).length,total=db.tasks.length,pct=total?Math.round(completed/total*100):0;$('taskProgress').style.width=pct+'%';$('taskProgressText').textContent=total?completed+' of '+total+' tasks completed ('+pct+'%). The productivity graph tracks tasks you complete from now on.':'Add tasks and check them off to start tracking your productivity.';const budget=Number(db.settings.monthlyBudget)||0,currentSpend=db.expenses.filter(x=>(x.date||'').startsWith(iso().slice(0,7))).reduce((sum,x)=>sum+(+x.amount||0),0),bp=budget?Math.min(100,Math.round(currentSpend/budget*100)):0;$('budgetProgress').style.width=bp+'%';$('budgetText').textContent=budget?money(db.expenses.filter(x=>(x.date||'').startsWith(iso().slice(0,7))).reduce((sum,x)=>sum+(+x.amount||0),0))+' of '+money(budget)+' used this month ('+bp+'%'+(bp>=100?' · budget reached':'')+').':'Set a budget to track your spending progress.'}
-function renderFinanceOverview(){
- const now=new Date(),monthKey=iso().slice(0,7),monthExpenses=db.expenses.filter(x=>(x.date||'').startsWith(monthKey)),monthTotal=monthExpenses.reduce((sum,x)=>sum+(+x.amount||0),0),budget=Number(db.settings.monthlyBudget)||0,remaining=budget-monthTotal;
- $('financeMonthLabel').textContent=now.toLocaleDateString(undefined,{month:'long',year:'numeric'})+' snapshot';
- $('financeMonthTotal').textContent=money(monthTotal);$('financeExpenseCount').textContent=monthExpenses.length+' entr'+(monthExpenses.length===1?'y':'ies');$('financeRemaining').textContent=budget?money(remaining):'Set a budget';$('financeRemaining').style.color=budget&&remaining<0?'#b64d4d':'';
- $('financeBudgetInput').value=budget||'';const pct=budget?Math.min(100,Math.round(monthTotal/budget*100)):0;$('financeBudgetProgress').style.width=pct+'%';$('financeBudgetText').textContent=budget?money(monthTotal)+' spent of '+money(budget)+' ('+pct+'% used)'+(remaining<0?' · Over budget by '+money(Math.abs(remaining)):remaining===0?' · Budget reached':' · '+money(remaining)+' remaining'):'Set a budget to track monthly spending progress.';
- const months=[];for(let i=5;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth()-i,1),key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'),label=d.toLocaleDateString(undefined,{month:'short'});months.push({key,label,total:db.expenses.filter(x=>(x.date||'').startsWith(key)).reduce((sum,x)=>sum+(+x.amount||0),0)})}
- const max=Math.max(1,...months.map(m=>m.total));$('financeMonthChart').innerHTML=months.map(m=>`<div class="chart-col"><span class="chart-value">${m.total?esc(Math.round(m.total).toLocaleString()):'₱0'}</span><div class="chart-track"><div class="chart-bar" style="height:${m.total?Math.max(5,m.total/max*100):2}%"></div></div><span class="chart-label">${m.label}</span></div>`).join('');
- const totals={};monthExpenses.forEach(x=>{const c=x.category||'Other';totals[c]=(totals[c]||0)+(+x.amount||0)});const sorted=Object.entries(totals).sort((a,b)=>b[1]-a[1]),catMax=Math.max(1,...sorted.map(x=>x[1]));$('financeCategoryChart').innerHTML=sorted.length?sorted.map(([name,val])=>`<div class="category-row"><span class="category-name">${esc(name)}</span><div class="category-track"><div class="category-fill" style="width:${Math.max(2,val/catMax*100)}%"></div></div><span class="category-amount">${esc(money(val))}</span></div>`).join(''):'<div class="empty">No expenses recorded this month. Add an expense to start your breakdown. ♡</div>';
- $('financeTopCategory').textContent=sorted.length?'Your highest spending category is '+sorted[0][0]+' at '+money(sorted[0][1])+'.':'Your top spending category will appear here after you add expenses.';
-}
-function saveFinanceBudget(){db.settings.monthlyBudget=Math.max(0,Number($('financeBudgetInput').value)||0);save()}
-function saveBudget(){db.settings.monthlyBudget=Math.max(0,Number($('monthlyBudget').value)||0);save()}
-function togglePriority(id){const p=db.priorities.find(x=>x.id===id);if(p)p.done=!p.done;save()}
-function deletePriority(id){db.priorities=db.priorities.filter(p=>p.id!==id);save()}
-$('priorityForm').addEventListener('submit',e=>{e.preventDefault();const title=$('priorityInput').value.trim();if(!title)return;db.priorities.push({id:uid(),title,done:false});$('priorityInput').value='';save()});
-function del(type,id){const key={event:'events',expense:'expenses',task:'tasks'}[type];if(!key)return;db[key]=db[key].filter(x=>x.id!==id);save()}
-function setTaskFilter(filter){taskFilter=filter;render()}
-function toggleTask(id){const x=db.tasks.find(t=>t.id===id);if(x){x.done=!x.done;x.completedAt=x.done?new Date().toISOString():'';}save()}
-$('eventForm').addEventListener('submit',e=>{e.preventDefault();db.events.push({id:uid(),title:$('etitle').value.trim(),date:$('edate').value,time:$('etime').value,lead:+$('elead').value,type:$('etype').value,notes:$('enotes').value.trim()});save();e.target.reset();$('edate').value=iso();$('etime').value='09:00'});
-$('expenseForm').addEventListener('submit',e=>{e.preventDefault();db.expenses.push({id:uid(),amount:+$('amount').value,date:$('xdate').value,category:$('category').value,payment:$('payment').value,description:$('description').value.trim()});save();e.target.reset();$('xdate').value=iso()});
-$('taskForm').addEventListener('submit',e=>{e.preventDefault();db.tasks.push({id:uid(),title:$('ttitle').value.trim(),type:$('ttype').value,date:$('tdate').value,details:$('tdetails').value.trim(),done:false});save();e.target.reset()});
-$('settingsForm').addEventListener('submit',e=>{e.preventDefault();db.settings={...db.settings,name:$('name').value.trim(),currency:$('currency').value};save();alert('Preferences saved 🌷')});
-function saveQuick(){const s=$('quickNote').value.trim();if(!s)return;db.tasks.push({id:uid(),title:s,type:'Note',date:'',details:'',done:false});$('quickNote').value='';save()}
-function voice(target){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Voice recognition is not supported here. Try the microphone on your iPad keyboard.');return}const r=new SR();r.lang='en-PH';r.onresult=e=>$(target).value+=($(target).value?' ':'')+e.results[0][0].transcript;r.onerror=()=>alert('Could not capture speech. You can type instead.');r.start()}
-function voiceExpense(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Use iPad keyboard dictation in the description field, then enter the amount manually.');return}const r=new SR();r.lang='en-PH';$('voiceStatus').textContent='Listening…';r.onresult=e=>{const s=e.results[0][0].transcript,t=s.toLowerCase(),n=t.match(/[0-9]+(?:\.[0-9]{1,2})?/);if(n)$('amount').value=n[0];$('xdate').value=t.includes('yesterday')?new Date(Date.now()-86400000).toISOString().slice(0,10):iso();const map={'Food & Dining':['food','lunch','dinner','coffee','meal'],'Transport':['transport','fare','jeepney','taxi','bus'],'Shopping':['shopping','clothes'],'Bills':['bill','internet','electricity','rent'],'Health':['medicine','doctor'],'Education':['tuition','school'],'Entertainment':['movie','game']};for(const [c,words] of Object.entries(map)){if(words.some(w=>t.includes(w))){$('category').value=c;break}}$('description').value=s;$('voiceStatus').textContent='Heard: “'+s+'”. Review all fields before saving.'};r.onerror=()=>$('voiceStatus').textContent='Voice capture failed. You can type instead.';r.start()}
-function toggleExpenseDates(){showAllExpenses=!showAllExpenses;render()}
-function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n')}
-function ics(e){const d=new Date(e.date+'T'+e.time+':00'),fmt=x=>x.getFullYear()+String(x.getMonth()+1).padStart(2,'0')+String(x.getDate()).padStart(2,'0')+'T'+String(x.getHours()).padStart(2,'0')+String(x.getMinutes()).padStart(2,'0')+'00';return `BEGIN:VEVENT\r\nUID:${e.id}@myassist\r\nDTSTAMP:${fmt(new Date())}\r\nDTSTART:${fmt(d)}\r\nDTEND:${fmt(new Date(d.getTime()+1800000))}\r\nSUMMARY:${icsEscape(e.title)}\r\nDESCRIPTION:${icsEscape(e.notes||e.type)}\r\nBEGIN:VALARM\r\nTRIGGER:-PT${e.lead||0}M\r\nACTION:DISPLAY\r\nDESCRIPTION:${icsEscape(e.title)}\r\nEND:VALARM\r\nEND:VEVENT\r\n`}
-function download(name,content,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([content],{type}));a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
-function exportICS(){if(!db.events.length){alert('Add a reminder first.');return}download('MyAssist-Calendar.ics','BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//MyAssist//EN\r\nCALSCALE:GREGORIAN\r\n'+db.events.map(ics).join('')+'END:VCALENDAR\r\n','text/calendar')}
-function csv(){const rows=[['Date','Amount','Category','Payment','Description'],...db.expenses.map(x=>[x.date,x.amount,x.category,x.payment,x.description])];download('MyAssist-Expenses.csv',rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n'),'text/csv;charset=utf-8')}
-async function backup(){
- try{
-  persistCore();
-  const photos=await photoGetAll();
-  const coverImage=photos.find(p=>p.id===COVER_ID)||null;
-  const gallery=photos.filter(p=>p.id!==COVER_ID);
-  const full={...db,gallery,coverImage,backupInfo:{app:'MyAssist',version:2,createdAt:new Date().toISOString(),note:'This backup is a copy. It does not relocate live browser storage.'}};
-  const blob=new Blob([JSON.stringify(full)],{type:'application/json'});
-  const file=new File([blob],'MyAssist-backup.json',{type:'application/json',lastModified:Date.now()});
-  if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
-    await navigator.share({title:'MyAssist backup',text:'Save this backup to the Files app so you can restore your MyAssist data later.',files:[file]});
-    $('notif').textContent='Share sheet opened. Choose “Save to Files” and select a folder. Keep the file somewhere you can find it.';
-  }else{
-    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='MyAssist-backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
-    $('notif').textContent='Backup download started. On iPad, open the download/share controls and save the file to Files. If the share sheet did not appear, use Safari to open your GitHub Pages site and try again.';
-  }
- }catch(e){
-  if(e && e.name==='AbortError'){$('notif').textContent='Backup sharing was cancelled. Your live data was not changed.';return;}
-  console.error(e);alert('Could not create the backup. Check available browser storage and try again.');
- }
-}
-function formatBytes(n){if(!Number.isFinite(n)||n<0)return 'Unknown';if(n<1024)return n+' B';const units=['KB','MB','GB','TB'];let i=-1;do{n/=1024;i++}while(n>=1024&&i<units.length-1);return n.toFixed(1)+' '+units[i]}
-async function refreshStorageInfo(){const el=$('storageInfo');if(!el)return;try{let photoBytes=0;for(const p of await photoGetAll()){if(p.data)photoBytes+=Math.ceil(p.data.length*0.75)}let localBytes=0;try{localBytes=new Blob([localStorage.getItem(K)||'']).size}catch(e){}let text='Auto-save: on. MyAssist entries save in this browser and photos save separately in IndexedDB. Estimated MyAssist data: '+formatBytes(photoBytes+localBytes)+' (photos '+formatBytes(photoBytes)+', entries '+formatBytes(localBytes)+'). ';if(navigator.storage&&navigator.storage.estimate){const est=await navigator.storage.estimate();text+='Website storage: '+formatBytes(est.usage||0)+' used of '+formatBytes(est.quota||0)+' estimated quota. ';if(navigator.storage.persisted){text+=(await navigator.storage.persisted())?'Persistent storage is enabled. ':'Persistent storage is not enabled. ';}}else{text+='This browser does not report a storage estimate. ';}text+='This is browser storage on the iPad, not a file saved to the Files app. Save a backup to Files and upload to cloud for extra protection.';el.textContent=text;}catch(e){el.textContent='MyAssist auto-saves to browser storage when available. Export a backup to Files and use cloud upload as a second copy.'}}
 
-$('restore').addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;const x=JSON.parse(await f.text());if(confirm('Replace current data with this backup?')){const coverImage=x.coverImage||null;delete x.coverImage;db={...db,...x};db.gallery=Array.isArray(db.gallery)?db.gallery:[];await photoClear();for(const p of db.gallery){if(p.data)await photoPut(p);}if(coverImage&&coverImage.data)await photoPut(coverImage);galleryImages=await photoGetAll();renderCover();db.gallery=galleryImages.filter(p=>p.id!==COVER_ID).map(({id,name,addedAt})=>({id,name,addedAt}));save()}}catch(err){alert('Backup could not be imported.')}e.target.value=''})
-function notifyPermission(){if(!('Notification'in window)){$('notif').textContent='Notifications unavailable here. Export reminders to your calendar for alerts.';return}Notification.requestPermission().then(x=>$('notif').textContent=x==='granted'?'Permission granted, but alerts while closed are not guaranteed. Use Calendar export.':'Permission not granted; Calendar export is still available.')}
-async function wipe(){if(confirm('Delete all MyAssist data stored in this browser? Export a backup first if needed.')){localStorage.removeItem(K);localStorage.removeItem(COVER_FALLBACK_KEY);await photoClear();galleryImages=[];renderCover();db={events:[],expenses:[],tasks:[],priorities:[],settings:{name:'',currency:'PHP',monthlyBudget:0},gallery:[]};save()}}
-async function compressImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=()=>reject(new Error('Could not read this image.'));reader.onload=()=>{const img=new Image();img.onerror=()=>reject(new Error('This image could not be opened.'));img.onload=()=>{const max=1000,scale=Math.min(1,max/Math.max(img.width,img.height)),canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL('image/jpeg',0.68))};img.src=reader.result};reader.readAsDataURL(file)})}
-$('galleryUpload').addEventListener('change',async e=>{const files=Array.from(e.target.files||[]);if(!files.length)return;$('galleryStatus').textContent='Compressing and saving your photos…';let added=0;for(const file of files){if(!file.type.startsWith('image/'))continue;try{const data=await compressImage(file),photo={id:uid(),name:file.name.replace(/\.[^.]+$/,''),data,addedAt:new Date().toISOString()};await photoPut(photo);galleryImages.unshift(photo);db.gallery.unshift({id:photo.id,name:photo.name,addedAt:photo.addedAt});added++;persistCore()}catch(err){console.error(err);alert('This photo could not be saved. Try uploading one photo at a time or a smaller image.');break}}render();$('galleryStatus').textContent=added?added+' photo'+(added===1?'':'s')+' compressed and saved in browser photo storage. Save a backup to Files to keep a separate copy. ♡':'No photos were added. Please try another image.';e.target.value='';refreshStorageInfo()})
-function renderGallery(){const grid=$('galleryGrid'),home=$('homeMemories');if(!grid||!home)return;const photos=galleryImages.filter(p=>db.gallery.some(m=>m.id===p.id));$('galleryCount').textContent=photos.length+' photo'+(photos.length===1?'':'s');if(!photos.length){grid.innerHTML='<div class="card empty">Your photos will show up here after you upload them. ♡</div>';home.innerHTML='<div class="empty">Your favorite photos will appear here after you add them in Gallery. ♡</div>';return}grid.innerHTML=photos.map(p=>`<article class="gallery-photo"><img src="${p.data}" alt="${esc(p.name||'My memory')}"><p>${esc(p.name||'A little memory ♡')}</p><button class="btn danger" onclick="deletePhoto('${p.id}')">Remove</button></article>`).join('');home.innerHTML=photos.slice(0,3).map(p=>`<div class="memory-card"><img src="${p.data}" alt="${esc(p.name||'Memory')}"><p>${esc(p.name||'A little memory ♡')}</p></div>`).join('')}
-async function deletePhoto(id){if(!confirm('Remove this photo from your gallery?'))return;db.gallery=db.gallery.filter(p=>p.id!==id);galleryImages=galleryImages.filter(p=>p.id!==id);await photoDelete(id);save()}
-async function clearGallery(){if(!db.gallery.length){alert('Your gallery is already empty.');return}if(confirm('Remove all photos from your MyAssist gallery? Your dashboard cover photo will be kept.')){const ids=db.gallery.map(p=>p.id);for(const id of ids){await photoDelete(id)}db.gallery=[];galleryImages=galleryImages.filter(p=>p.id===COVER_ID);save();renderCover();$('galleryStatus').textContent='Gallery cleared. Your dashboard cover photo was kept.'}}
-// ---- Supabase account and manual cloud sync ----
-function cloudMessage(message,isError=false){const el=$('cloudStatus');if(el){el.textContent=message;el.style.color=isError?'#b64d4d':''}}
-function cloudAccountMessage(message){const el=$('cloudAccountStatus');if(el)el.textContent=message}
-async function currentCloudUser(){const client=initSupabase();if(!client){cloudMessage('Add your Supabase project URL and publishable key in the code first.',true);return null}const {data,error}=await client.auth.getUser();if(error||!data.user){cloudAccountMessage('Not signed in.');return null}cloudAccountMessage('Signed in as '+data.user.email);return data.user}
-async function cloudSignUp(){try{const c=initSupabase();if(!c){cloudMessage('First add your Supabase Project URL and publishable key in the code.',true);return}const email=$('cloudEmail').value.trim(),password=$('cloudPassword').value;if(!email||password.length<6){cloudMessage('Enter a valid email and a password of at least 6 characters.',true);return}const {data,error}=await c.auth.signUp({email,password});if(error)throw error;cloudAccountMessage(data.user?'Account created for '+email+'. If email confirmation is enabled, check your inbox before logging in.':'Check your email to finish creating your account.');cloudMessage('Sign-up request completed. If Supabase requires email confirmation, confirm the email and then log in.')}catch(e){cloudMessage('Sign-up failed: '+(e.message||e),true)}}
-async function cloudSignIn(){try{const c=initSupabase();if(!c){cloudMessage('First add your Supabase Project URL and publishable key in the code.',true);return}const email=$('cloudEmail').value.trim(),password=$('cloudPassword').value;if(!email||!password){cloudMessage('Enter your email and password.',true);return}const {data,error}=await c.auth.signInWithPassword({email,password});if(error)throw error;cloudAccountMessage('Signed in as '+data.user.email);cloudMessage('Signed in. Choose Upload or Restore below; no data has been overwritten.')}catch(e){cloudMessage('Login failed: '+(e.message||e),true)}}
-async function cloudSignOut(){try{const c=initSupabase();if(!c){cloudMessage('Supabase is not configured yet.',true);return}const {error}=await c.auth.signOut();if(error)throw error;cloudAccountMessage('Signed out. Your local data is unchanged.');cloudMessage('Signed out safely.')}catch(e){cloudMessage('Could not sign out: '+(e.message||e),true)}}
-function dataUrlToBlob(dataUrl){const parts=dataUrl.split(','),mime=(parts[0].match(/:(.*?);/)||[])[1]||'image/jpeg',raw=atob(parts[1]),arr=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)arr[i]=raw.charCodeAt(i);return new Blob([arr],{type:mime})}
-function blobToDataUrl(blob){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(r.error);r.readAsDataURL(blob)})}
-async function pushCloud(){
- const c=initSupabase();if(!c){cloudMessage('First add your Supabase Project URL and publishable key in the code.',true);return}
- try{const user=await currentCloudUser();if(!user)return;cloudMessage('Uploading photos and planner data… Please keep this page open.');
-  const photos=await photoGetAll(),photoIndex=[];
-  for(const p of photos){if(!p.data)continue;const path=user.id+'/'+p.id+'.jpg';const blob=dataUrlToBlob(p.data);const {error}=await c.storage.from(PHOTO_BUCKET).upload(path,blob,{contentType:'image/jpeg',upsert:true});if(error)throw new Error('Photo upload failed ('+p.name+'): '+error.message);photoIndex.push({id:p.id,name:p.name||'',addedAt:p.addedAt||'',path});}
-  const payload={...db,gallery:Array.isArray(db.gallery)?db.gallery.map(({id,name,addedAt})=>({id,name,addedAt})):[],myassistCloudVersion:1,photos:photoIndex,cloudSavedAt:new Date().toISOString()};
-  const {error}=await c.from(CLOUD_TABLE).upsert({user_id:user.id,data:payload,updated_at:new Date().toISOString()},{onConflict:'user_id'});if(error)throw new Error('Data upload failed: '+error.message);
-  cloudMessage('Upload complete. Your planner data and '+photoIndex.length+' photos are saved to your cloud account. You can log in on another device and choose Restore.');
- }catch(e){console.error(e);cloudMessage('Cloud upload failed: '+(e.message||e)+'. Check that the table columns are user_id, data (jsonb), updated_at, and that the photo bucket/policies are set up.',true)}
+<div id="toast" role="status" aria-live="polite" style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:20;max-width:90%;background:#604b69;color:white;padding:12px 18px;border-radius:14px;box-shadow:0 6px 25px #5b416633;font-size:13px;display:none"></div>
+<script>
+"use strict";
+
+/* =========================================
+   MYASSIST — PASTEL PLANNER
+   ========================================= */
+
+const DATA_KEY = "myassist-ipad-v1";
+const PHOTO_DB_NAME = "myassist-photo-store-v1";
+const PHOTO_STORE = "photos";
+const COVER_ID = "myassist-cover";
+const $ = id => document.getElementById(id);
+
+const todayISO = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+};
+
+const monthISO = () => todayISO().slice(0,7);
+
+const uid = () =>
+  Date.now().toString(36) + Math.random().toString(36).slice(2,9);
+
+const money = amount =>
+  "₱" + (Number(amount) || 0).toLocaleString("en-PH", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+
+const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+}[ch]));
+
+const shortDate = date => {
+  if (!date) return "";
+  const d = new Date(date + "T12:00:00");
+  return isNaN(d) ? date : d.toLocaleDateString("en-PH", {
+    month:"short", day:"numeric", year:"numeric"
+  });
+};
+
+const defaultData = () => ({
+  events: [],
+  expenses: [],
+  incomes: [],
+  tasks: [],
+  notes: [],
+  priorities: [],
+  quickNote: "",
+  budget: 0,
+  financeBudget: 0,
+  displayName: "Lovely",
+  cover: "",
+  photos: []
+});
+
+let data = defaultData();
+let taskFilter = "open";
+let photoDB = null;
+let coverURL = "";
+let toastTimer = null;
+
+/* =========================================
+   SAFE DATA LOADING AND SAVING
+   ========================================= */
+
+function loadData() {
+  try {
+    const saved = localStorage.getItem(DATA_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed && typeof parsed === "object") {
+        data = { ...defaultData(), ...parsed };
+      }
+    }
+  } catch (err) {
+    console.error("Unable to load MyAssist data:", err);
+    showToast("Some saved data could not be read. Please check your backup.");
+  }
+
+  for (const key of [
+    "events","expenses","incomes","tasks","notes","priorities","photos"
+  ]) {
+    if (!Array.isArray(data[key])) data[key] = [];
+  }
+
+  if (typeof data.quickNote !== "string") data.quickNote = "";
+  if (!Number.isFinite(Number(data.budget))) data.budget = 0;
+  if (!Number.isFinite(Number(data.financeBudget))) data.financeBudget = 0;
+
+  data.tasks = data.tasks.map(task => ({
+    ...task,
+    done: Boolean(task.done),
+    completedAt: task.completedAt || ""
+  }));
+
+  try {
+    $("quickNote").value = data.quickNote;
+    $("monthlyBudget").value = data.budget || "";
+    $("financeBudget").value = data.financeBudget || "";
+    $("displayName").value = data.displayName || "Lovely";
+  } catch (_) {}
 }
-async function pullCloud(){
- const c=initSupabase();if(!c){cloudMessage('First add your Supabase Project URL and publishable key in the code.',true);return}
- try{const user=await currentCloudUser();if(!user)return;if(!confirm('Restore cloud data to THIS device? This replaces its current MyAssist entries and photos. Export a backup first.'))return;
-  cloudMessage('Downloading cloud data and photos… Please keep this page open.');const {data:row,error}=await c.from(CLOUD_TABLE).select('data').eq('user_id',user.id).maybeSingle();if(error)throw error;if(!row||!row.data){cloudMessage('No cloud backup was found for this account. Upload from the device that has your data first.',true);return}
-  // Download and convert every cloud photo BEFORE changing local photo storage.
-  // If a download fails, the existing local photos and cover remain untouched.
-  const payload=row.data;const photoIndex=Array.isArray(payload.photos)?payload.photos:[];const downloadedPhotos=[];
-  for(const meta of photoIndex){const {data:blob,error:photoError}=await c.storage.from(PHOTO_BUCKET).download(meta.path);if(photoError)throw new Error('Could not download photo '+(meta.name||meta.id)+': '+photoError.message);const data=await blobToDataUrl(blob);downloadedPhotos.push({id:meta.id,name:meta.name||'',addedAt:meta.addedAt||'',data})}
-  await photoClear();galleryImages=[];for(const photo of downloadedPhotos){await photoPut(photo);galleryImages.push(photo)}
-  const clean={...payload};delete clean.photos;delete clean.myassistCloudVersion;delete clean.cloudSavedAt;db={events:[],expenses:[],tasks:[],priorities:[],settings:{name:'',currency:'PHP',monthlyBudget:0},gallery:[],...clean};db.events=Array.isArray(db.events)?db.events:[];db.expenses=Array.isArray(db.expenses)?db.expenses:[];db.tasks=Array.isArray(db.tasks)?db.tasks:[];db.priorities=Array.isArray(db.priorities)?db.priorities:[];db.settings={name:'',currency:'PHP',monthlyBudget:0,...(db.settings||{})};db.gallery=Array.isArray(db.gallery)?db.gallery:[];
-  const known=new Set(galleryImages.map(p=>p.id));db.gallery=db.gallery.filter(p=>known.has(p.id)).map(({id,name,addedAt})=>({id,name,addedAt}));persistCore();const restoredCover=galleryImages.find(p=>p.id===COVER_ID);try{localStorage.removeItem(COVER_FALLBACK_KEY)}catch(e){}renderCover();render();refreshStorageInfo();cloudMessage('Restore complete on this device. Check your dashboard and gallery. Your cloud copy remains available.');
- }catch(e){console.error(e);cloudMessage('Cloud restore failed: '+(e.message||e)+'. Your previous data may already have been replaced if the error occurred during photo download; restore from your backup if needed.',true)}
+
+function saveData() {
+  try {
+    localStorage.setItem(DATA_KEY, JSON.stringify(data));
+    return true;
+  } catch (err) {
+    console.error("Could not save MyAssist data:", err);
+    showToast("Browser storage may be full. Export a backup and remove large files if needed.");
+    return false;
+  }
 }
-async function updateCloudStatus(){try{if(!initSupabase()){cloudAccountMessage('Not configured yet — add your Supabase URL and publishable key in the code.');return}const {data}=await supabaseClient.auth.getUser();cloudAccountMessage(data.user?'Signed in as '+data.user.email:'Not signed in.')}catch(e){}}
-$('edate').value=iso();$('xdate').value=iso();requestPersistentStorage();load().then(()=>{render();refreshStorageInfo();updateCloudStatus()}).catch(e=>{console.error(e);render();refreshStorageInfo();updateCloudStatus()});
+
+function showToast(message) {
+  const el = $("toast");
+  if (!el) return;
+  el.textContent = message;
+  el.style.display = "block";
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    el.style.display = "none";
+  }, 3400);
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+function tab(name) {
+  document.querySelectorAll(".view").forEach(view => {
+    view.classList.toggle("active", view.id === name);
+  });
+
+  document.querySelectorAll(".tabs button").forEach(button => {
+    button.classList.toggle("active", button.dataset.tab === name);
+  });
+
+  window.scrollTo({ top:0, behavior:"smooth" });
+
+  if (name === "gallery") renderGallery();
+  if (name === "settings") refreshStorageInfo();
+}
+
+document.querySelectorAll(".tabs button").forEach(button => {
+  button.addEventListener("click", () => tab(button.dataset.tab));
+});
+
+/* =========================================
+   COVER PHOTO — NOTION-INSPIRED BANNER
+   ========================================= */
+
+function openPhotoDB() {
+  return new Promise((resolve, reject) => {
+    if (!("indexedDB" in window)) {
+      reject(new Error("IndexedDB is not available in this browser."));
+      return;
+    }
+
+    /*
+      Use the existing MyAssist photo database name.
+      If the previous app used a different object-store name,
+      this code creates its own "photos" store without deleting
+      existing databases.
+    */
+
+    const request = indexedDB.open(PHOTO_DB_NAME, 1);
+
+    request.onupgradeneeded = event => {
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains(PHOTO_STORE)) {
+        db.createObjectStore(PHOTO_STORE, { keyPath:"id" });
+      }
+    };
+
+    request.onsuccess = event => {
+      photoDB = event.target.result;
+      resolve(photoDB);
+    };
+
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function savePhotoBlob(id, blob, extra = {}) {
+  const db = await openPhotoDB();
+
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(PHOTO_STORE, "readwrite");
+    tx.objectStore(PHOTO_STORE).put({
+      id,
+      blob,
+      updatedAt: new Date().toISOString(),
+      ...extra
+    });
+
+    tx.oncomplete = () => resolve(true);
+    tx.onerror = () => reject(tx.error);
+    tx.onabort = () => reject(tx.error || new Error("Photo save failed."));
+  });
+}
+
+async function getPhotoRecord(id) {
+  const db = await openPhotoDB();
+
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(PHOTO_STORE, "readonly");
+    const request = tx.objectStore(PHOTO_STORE).get(id);
+    request.onsuccess = () => resolve(request.result || null);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function deletePhotoRecord(id) {
+  const db = await openPhotoDB();
+
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(PHOTO_STORE, "readwrite");
+    tx.objectStore(PHOTO_STORE).delete(id);
+    tx.oncomplete = () => resolve(true);
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+function compressImage(file, maxWidth = 1800, quality = 0.78) {
+  return new Promise((resolve, reject) => {
+    if (!file || !file.type.startsWith("image/")) {
+      reject(new Error("Please select an image."));
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onerror = () => reject(new Error("Could not read the selected image."));
+
+    reader.onload = () => {
+      const image = new Image();
+
+      image.onerror = () => reject(new Error("Could not open the image."));
+
+      image.onload = () => {
+        const scale = Math.min(1, maxWidth / image.width);
+        const width = Math.max(1, Math.round(image.width * scale));
+        const height = Math.max(1, Math.round(image.height * scale));
+
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+
+        const context = canvas.getContext("2d");
+        context.drawImage(image, 0, 0, width, height);
+
+        canvas.toBlob(blob => {
+          if (!blob) {
+            reject(new Error("Image compression failed."));
+            return;
+          }
+          resolve(blob);
+        }, "image/jpeg", quality);
+      };
+
+      image.src = reader.result;
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
+
+async function blobToDataURL(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function displayCover() {
+  const banner = $("coverBanner");
+  if (!banner) return;
+
+  if (coverURL) {
+    URL.revokeObjectURL(coverURL);
+    coverURL = "";
+  }
+
+  try {
+    const record = await getPhotoRecord(COVER_ID);
+
+    if (record && record.blob) {
+      coverURL = URL.createObjectURL(record.blob);
+      banner.style.backgroundImage = `url("${coverURL}")`;
+      banner.classList.add("has-image");
+      $("coverUploadLabel").textContent = "＋ Change cover";
+      $("coverChangeButton").hidden = false;
+      $("coverRemoveButton").hidden = false;
+    } else {
+      banner.style.backgroundImage = "";
+      banner.classList.remove("has-image");
+      $("coverUploadLabel").textContent = "＋ Add cover photo";
+      $("coverChangeButton").hidden = true;
+      $("coverRemoveButton").hidden = true;
+    }
+  } catch (err) {
+    console.warn("Cover photo could not be loaded:", err);
+    banner.classList.remove("has-image");
+  }
+}
+
+$("coverUpload").addEventListener("change", async event => {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  showToast("Preparing your cover photo…");
+
+  try {
+    const blob = await compressImage(file, 2000, 0.82);
+    await savePhotoBlob(COVER_ID, blob, { type:"cover" });
+    await displayCover();
+    await refreshStorageInfo();
+    showToast("Your cover photo has been saved! ♡");
+  } catch (err) {
+    console.error(err);
+    showToast("Could not save the cover photo. Please check browser storage.");
+  }
+
+  event.target.value = "";
+});
+
+async function removeCover() {
+  if (!confirm("Remove your cover photo?")) return;
+
+  try {
+    await deletePhotoRecord(COVER_ID);
+    await displayCover();
+    showToast("Cover photo removed.");
+  } catch (err) {
+    showToast("Unable to remove the cover photo.");
+  }
+}
+
+/* =========================================
+   SCHEDULE
+   ========================================= */
+
+$("eventForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  data.events.push({
+    id:uid(),
+    title:$("eventTitle").value.trim(),
+    date:$("eventDate").value,
+    time:$("eventTime").value,
+    details:$("eventDetails").value.trim(),
+    createdAt:new Date().toISOString()
+  });
+
+  saveData();
+  event.target.reset();
+  $("eventDate").value = todayISO();
+  render();
+  showToast("Event saved ♡");
+});
+
+$("eventSearch").addEventListener("input", renderEvents);
+$("eventFilterDate").addEventListener("change", renderEvents);
+
+function clearEventFilters() {
+  $("eventSearch").value = "";
+  $("eventFilterDate").value = "";
+  renderEvents();
+}
+
+function deleteEvent(id) {
+  if (!confirm("Delete this event?")) return;
+  data.events = data.events.filter(item => item.id !== id);
+  saveData();
+  render();
+}
+
+function renderEvents() {
+  const search = $("eventSearch").value.trim().toLowerCase();
+  const filterDate = $("eventFilterDate").value;
+
+  const events = [...data.events]
+    .filter(item => (item.title || "").toLowerCase().includes(search))
+    .filter(item => !filterDate || item.date === filterDate)
+    .sort((a,b) => `${a.date} ${a.time || ""}`.localeCompare(`${b.date} ${b.time || ""}`));
+
+  $("scheduleCount").textContent = `${events.length} event${events.length === 1 ? "" : "s"}`;
+
+  $("eventList").innerHTML = events.length ? events.map(item => `
+    <div class="item">
+      <span class="dot" style="background:#9d85d8"></span>
+      <div class="main">
+        <strong>${escapeHTML(item.title)}</strong>
+        <small>📅 ${escapeHTML(shortDate(item.date))}${item.time ? " · ⏰ " + escapeHTML(item.time) : ""}</small>
+        ${item.details ? `<small>${escapeHTML(item.details)}</small>` : ""}
+      </div>
+      <button class="small-link" onclick="deleteEvent('${item.id}')">Delete</button>
+    </div>
+  `).join("") : '<div class="empty">No events match your search. ♡</div>';
+}
+
+/* =========================================
+   EXPENSES AND INCOME
+   ========================================= */
+
+$("expenseForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  data.expenses.push({
+    id:uid(),
+    title:$("expenseTitle").value.trim(),
+    amount:Number($("expenseAmount").value),
+    date:$("expenseDate").value,
+    category:$("expenseCategory").value,
+    notes:$("expenseNotes").value.trim(),
+    createdAt:new Date().toISOString()
+  });
+
+  saveData();
+  event.target.reset();
+  $("expenseDate").value = todayISO();
+  render();
+  showToast("Expense saved ♡");
+});
+
+$("incomeForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  data.incomes.push({
+    id:uid(),
+    title:$("incomeTitle").value.trim(),
+    amount:Number($("incomeAmount").value),
+    date:$("incomeDate").value,
+    category:$("incomeCategory").value,
+    createdAt:new Date().toISOString()
+  });
+
+  saveData();
+  event.target.reset();
+  $("incomeDate").value = todayISO();
+  render();
+  showToast("Income saved ♡");
+});
+
+["expenseSearch","expenseFilterCategory","expenseFilterMonth"].forEach(id => {
+  $(id).addEventListener("input", renderExpenses);
+  $(id).addEventListener("change", renderExpenses);
+});
+
+function clearExpenseFilters() {
+  $("expenseSearch").value = "";
+  $("expenseFilterCategory").value = "";
+  $("expenseFilterMonth").value = "";
+  renderExpenses();
+}
+
+function deleteExpense(id) {
+  if (!confirm("Delete this expense?")) return;
+  data.expenses = data.expenses.filter(item => item.id !== id);
+  saveData();
+  render();
+}
+
+function deleteIncome(id) {
+  if (!confirm("Delete this income record?")) return;
+  data.incomes = data.incomes.filter(item => item.id !== id);
+  saveData();
+  render();
+}
+
+function renderExpenses() {
+  const search = $("expenseSearch").value.trim().toLowerCase();
+  const category = $("expenseFilterCategory").value;
+  const month = $("expenseFilterMonth").value;
+
+  const filtered = [...data.expenses]
+    .filter(item => (item.title || "").toLowerCase().includes(search))
+    .filter(item => !category || item.category === category)
+    .filter(item => !month || (item.date || "").startsWith(month))
+    .sort((a,b) => (b.date || "").localeCompare(a.date || ""));
+
+  $("expenseCount").textContent = `${filtered.length} record${filtered.length === 1 ? "" : "s"}`;
+
+  const total = filtered.reduce((sum,item) => sum + (Number(item.amount) || 0), 0);
+  $("expenseFilteredTotal").textContent = money(total);
+
+  $("expenseList").innerHTML = filtered.length ? filtered.map(item => `
+    <div class="item">
+      <span class="dot"></span>
+      <div class="main">
+        <strong>${escapeHTML(item.title)}</strong>
+        <small>${escapeHTML(item.category || "Other")} · ${escapeHTML(shortDate(item.date))}</small>
+        ${item.notes ? `<small>${escapeHTML(item.notes)}</small>` : ""}
+      </div>
+      <strong style="color:#c65e91;white-space:nowrap">${money(item.amount)}</strong>
+      <button class="small-link" onclick="deleteExpense('${item.id}')">✕</button>
+    </div>
+  `).join("") : '<div class="empty">No expenses found. Add your first expense above. ♡</div>';
+
+  renderFinance();
+}
+
+function renderIncomeList() {
+  const items = [...data.incomes]
+    .sort((a,b) => (b.date || "").localeCompare(a.date || ""))
+    .slice(0,15);
+
+  $("incomeList").innerHTML = items.length ? items.map(item => `
+    <div class="item">
+      <span class="dot" style="background:#62b991"></span>
+      <div class="main">
+        <strong>${escapeHTML(item.title)}</strong>
+        <small>${escapeHTML(item.category || "Other")} · ${escapeHTML(shortDate(item.date))}</small>
+      </div>
+      <strong style="color:#4eaa7e;white-space:nowrap">${money(item.amount)}</strong>
+      <button class="small-link" onclick="deleteIncome('${item.id}')">✕</button>
+    </div>
+  `).join("") : '<div class="empty">Your income records will appear here.</div>';
+}
+
+/* =========================================
+   TASKS — COMPLETION AND FILTERS
+   ========================================= */
+
+$("taskForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  data.tasks.push({
+    id:uid(),
+    title:$("taskTitle").value.trim(),
+    due:$("taskDue").value,
+    priority:$("taskPriority").value,
+    details:$("taskDetails").value.trim(),
+    done:false,
+    completedAt:"",
+    createdAt:new Date().toISOString()
+  });
+
+  saveData();
+  event.target.reset();
+  render();
+  showToast("Task added. One step at a time! ♡");
+});
+
+function setTaskFilter(filter) {
+  taskFilter = filter;
+  document.querySelectorAll(".task-filter").forEach(button => {
+    button.classList.toggle("active", button.dataset.filter === filter);
+  });
+  renderTasks();
+}
+
+function toggleTask(id) {
+  const task = data.tasks.find(item => item.id === id);
+  if (!task) return;
+
+  task.done = !task.done;
+  task.completedAt = task.done ? new Date().toISOString() : "";
+
+  saveData();
+  render();
+  showToast(task.done ? "Task completed! Well done ♡" : "Task moved back to to-do.");
+}
+
+function deleteTask(id) {
+  if (!confirm("Delete this task?")) return;
+  data.tasks = data.tasks.filter(item => item.id !== id);
+  saveData();
+  render();
+}
+
+function renderTasks() {
+  const tasks = [...data.tasks].sort((a,b) => {
+    if (a.done !== b.done) return Number(a.done) - Number(b.done);
+    return (a.due || "9999").localeCompare(b.due || "9999");
+  });
+
+  const filtered = tasks.filter(task => {
+    if (taskFilter === "open") return !task.done;
+    if (taskFilter === "completed") return task.done;
+    return true;
+  });
+
+  $("taskListCount").textContent = `${data.tasks.length} task${data.tasks.length === 1 ? "" : "s"}`;
+
+  $("taskList").innerHTML = filtered.length ? filtered.map(task => `
+    <div class="item ${task.done ? "task-row-done" : ""}">
+      <input class="task-check" type="checkbox" ${task.done ? "checked" : ""}
+        aria-label="Mark ${escapeHTML(task.title)} as ${task.done ? "not completed" : "completed"}"
+        onchange="toggleTask('${task.id}')">
+      <div class="main">
+        <strong>${escapeHTML(task.title)}</strong>
+        <small>${task.due ? "📅 Due " + escapeHTML(shortDate(task.due)) : "No due date"} · ${escapeHTML(task.priority || "Normal")} priority</small>
+        ${task.details ? `<small>${escapeHTML(task.details)}</small>` : ""}
+        ${task.done ? '<span class="task-status">✓ Completed</span>' : ""}
+      </div>
+      <button class="small-link" onclick="deleteTask('${task.id}')">✕</button>
+    </div>
+  `).join("") : `<div class="task-list-empty">${taskFilter === "open" ? "You're all caught up! Add a task whenever you're ready. ♡" : taskFilter === "completed" ? "No completed tasks yet. Your progress will appear here." : "No tasks yet. Add one above to get started."}</div>`;
+
+  $("taskCount").textContent = `${data.tasks.filter(t => !t.done).length} left`;
+  $("doneCount").textContent = `${data.tasks.filter(t => t.done).length} done`;
+
+  const total = data.tasks.length;
+  const completed = data.tasks.filter(t => t.done).length;
+  const percent = total ? Math.round(completed / total * 100) : 0;
+
+  $("taskProgress").style.width = percent + "%";
+  $("taskProgressText").textContent = total
+    ? `${completed} of ${total} tasks completed (${percent}%). Keep going at your own pace.`
+    : "Start with one small task. Every step counts.";
+
+  const todayTasks = data.tasks.filter(t => !t.done).slice(0,5);
+
+  $("todayTasks").innerHTML = todayTasks.length ? todayTasks.map(task => `
+    <div class="item">
+      <input class="task-check" type="checkbox" onchange="toggleTask('${task.id}')" aria-label="Complete task">
+      <div class="main">
+        <strong>${escapeHTML(task.title)}</strong>
+        <small>${task.due ? "Due " + escapeHTML(shortDate(task.due)) : "No due date"}</small>
+      </div>
+    </div>
+  `).join("") : '<div class="empty">Nothing waiting here. Take a breath! ♡</div>';
+
+  renderProductivityChart();
+}
+
+/* =========================================
+   NOTES
+   ========================================= */
+
+$("noteForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  data.notes.push({
+    id:uid(),
+    title:$("noteTitle").value.trim(),
+    body:$("noteBody").value.trim(),
+    createdAt:new Date().toISOString()
+  });
+
+  saveData();
+  event.target.reset();
+  renderNotes();
+  showToast("Note saved ♡");
+});
+
+function deleteNote(id) {
+  if (!confirm("Delete this note?")) return;
+  data.notes = data.notes.filter(item => item.id !== id);
+  saveData();
+  renderNotes();
+}
+
+function renderNotes() {
+  const items = [...data.notes].reverse();
+  $("noteCount").textContent = `${items.length} note${items.length === 1 ? "" : "s"}`;
+
+  $("noteList").innerHTML = items.length ? items.map(item => `
+    <div class="item">
+      <span class="dot" style="background:#b49ce7"></span>
+      <div class="main">
+        <strong>${escapeHTML(item.title)}</strong>
+        <small>${escapeHTML(item.body).replace(/\n/g,"<br>")}</small>
+        <small>${escapeHTML(new Date(item.createdAt || Date.now()).toLocaleDateString())}</small>
+      </div>
+      <button class="small-link" onclick="deleteNote('${item.id}')">Delete</button>
+    </div>
+  `).join("") : '<div class="empty">Your thoughts and ideas will be saved here. ♡</div>';
+}
+
+function saveQuick() {
+  data.quickNote = $("quickNote").value;
+  saveData();
+  showToast("Your note has been saved ♡");
+}
+
+function voice(id) {
+  const target = $(id);
+
+  if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
+    showToast("Voice typing is not supported here. Try your iPad keyboard microphone.");
+    return;
+  }
+
+  const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new Recognition();
+  recognition.lang = "en-US";
+  recognition.interimResults = false;
+
+  recognition.onresult = event => {
+    target.value += (target.value ? " " : "") + event.results[0][0].transcript;
+  };
+
+  recognition.onerror = () => showToast("Voice typing was unavailable. Please try again.");
+  recognition.start();
+}
+
+/* =========================================
+   PRIORITIES
+   ========================================= */
+
+$("priorityForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  data.priorities.push({
+    id:uid(),
+    title:$("priorityInput").value.trim(),
+    done:false
+  });
+
+  saveData();
+  $("priorityInput").value = "";
+  renderPriorities();
+});
+
+function togglePriority(id) {
+  const item = data.priorities.find(p => p.id === id);
+  if (!item) return;
+  item.done = !item.done;
+  saveData();
+  renderPriorities();
+}
+
+function deletePriority(id) {
+  data.priorities = data.priorities.filter(p => p.id !== id);
+  saveData();
+  renderPriorities();
+}
+
+function renderPriorities() {
+  $("priorityList").innerHTML = data.priorities.length
+    ? data.priorities.map(item => `
+      <div class="priority-item ${item.done ? "done" : ""}">
+        <input type="checkbox" ${item.done ? "checked" : ""} onchange="togglePriority('${item.id}')">
+        <span>${escapeHTML(item.title)}</span>
+        <button class="small-link" onclick="deletePriority('${item.id}')">✕</button>
+      </div>
+    `).join("")
+    : '<div class="empty">Add your first priority above. ♡</div>';
+}
+
+/* =========================================
+   FINANCE DASHBOARD AND CHARTS
+   ========================================= */
+
+function saveBudget() {
+  data.budget = Math.max(0, Number($("monthlyBudget").value) || 0);
+  saveData();
+  renderFinance();
+  showToast("Monthly budget saved ♡");
+}
+
+function saveFinanceBudget() {
+  data.financeBudget = Math.max(0, Number($("financeBudget").value) || 0);
+  saveData();
+  renderFinance();
+  showToast("Finance budget saved ♡");
+}
+
+function sumForMonth(items, month) {
+  return items
+    .filter(item => (item.date || "").startsWith(month))
+    .reduce((sum,item) => sum + (Number(item.amount) || 0), 0);
+}
+
+function renderFinance() {
+  const month = monthISO();
+  const expenseMonth = sumForMonth(data.expenses, month);
+  const incomeMonth = sumForMonth(data.incomes, month);
+  const balance = incomeMonth - expenseMonth;
+
+  $("financeIncome").textContent = money(incomeMonth);
+  $("financeExpense").textContent = money(expenseMonth);
+  $("financeBalance").textContent = money(balance);
+
+  $("monthTotal").textContent = money(expenseMonth);
+
+  const monthExpenseCount = data.expenses.filter(e => (e.date || "").startsWith(month)).length;
+  $("monthCount").textContent = `${monthExpenseCount} expense record${monthExpenseCount === 1 ? "" : "s"} this month.`;
+
+  const budget = Number(data.budget) || 0;
+  const budgetPercent = budget ? Math.min(100, expenseMonth / budget * 100) : 0;
+
+  $("budgetProgress").style.width = budgetPercent + "%";
+  $("budgetText").textContent = budget
+    ? `${money(expenseMonth)} spent of ${money(budget)}. ${expenseMonth > budget ? "You are over budget." : money(budget - expenseMonth) + " remaining."}`
+    : "Set a budget to track your spending progress.";
+
+  const financeBudget = Number(data.financeBudget) || 0;
+  const remaining = financeBudget - expenseMonth;
+  $("financeBudgetRemaining").textContent = money(financeBudget ? remaining : 0);
+  $("financeBudgetMessage").textContent = financeBudget
+    ? `${money(expenseMonth)} spent from your ${money(financeBudget)} budget.`
+    : "Set a budget to begin tracking.";
+
+  $("financeBudgetProgress").style.width =
+    (financeBudget ? Math.min(100, expenseMonth / financeBudget * 100) : 0) + "%";
+
+  renderIncomeList();
+  renderExpenses();
+  renderCategoryChart();
+  renderMonthlySpendingChart();
+  renderWeeklyFinanceChart();
+}
+
+function renderBarChart(containerId, entries, colorClass = "") {
+  const container = $(containerId);
+  if (!container) return;
+
+  const max = Math.max(1, ...entries.map(entry => entry.value));
+
+  container.innerHTML = entries.map(entry => {
+    const height = entry.value > 0 ? Math.max(4, entry.value / max * 100) : 2;
+
+    return `
+      <div class="chart-col">
+        <div class="chart-value">${escapeHTML(entry.display || "")}</div>
+        <div class="chart-track">
+          <div class="chart-bar ${colorClass}" style="height:${height}%"></div>
+        </div>
+        <div class="chart-label">${escapeHTML(entry.label)}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderProductivityChart() {
+  const entries = [];
+
+  for (let offset = 6; offset >= 0; offset--) {
+    const date = new Date();
+    date.setDate(date.getDate() - offset);
+    const iso = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`;
+
+    const value = data.tasks.filter(task =>
+      task.done && task.completedAt && task.completedAt.startsWith(iso)
+    ).length;
+
+    entries.push({
+      label:date.toLocaleDateString("en-US",{weekday:"short"}),
+      value,
+      display:String(value)
+    });
+  }
+
+  renderBarChart("productivityChart", entries, "mint");
+}
+
+function renderWeeklyFinanceChart() {
+  const entries = [];
+
+  for (let offset = 6; offset >= 0; offset--) {
+    const date = new Date();
+    date.setDate(date.getDate() - offset);
+    const iso = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`;
+
+    const value = data.expenses
+      .filter(item => item.date === iso)
+      .reduce((sum,item) => sum + (Number(item.amount) || 0), 0);
+
+    entries.push({
+      label:date.toLocaleDateString("en-US",{weekday:"short"}),
+      value,
+      display:value ? Math.round(value).toLocaleString() : "0"
+    });
+  }
+
+  renderBarChart("financeChart", entries);
+}
+
+function renderMonthlySpendingChart() {
+  const entries = [];
+
+  for (let offset = 5; offset >= 0; offset--) {
+    const date = new Date();
+    date.setDate(1);
+    date.setMonth(date.getMonth() - offset);
+
+    const month = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}`;
+
+    const value = data.expenses
+      .filter(item => (item.date || "").startsWith(month))
+      .reduce((sum,item) => sum + (Number(item.amount) || 0), 0);
+
+    entries.push({
+      label:date.toLocaleDateString("en-US",{month:"short"}),
+      value,
+      display:value ? Math.round(value).toLocaleString() : "0"
+    });
+  }
+
+  renderBarChart("monthlySpendingChart", entries);
+}
+
+function renderCategoryChart() {
+  const month = monthISO();
+
+  const items = data.expenses.filter(item =>
+    (item.date || "").startsWith(month)
+  );
+
+  const categories = {};
+
+  items.forEach(item => {
+    const name = item.category || "Other";
+    categories[name] = (categories[name] || 0) + (Number(item.amount) || 0);
+  });
+
+  const entries = Object.entries(categories).sort((a,b) => b[1] - a[1]);
+  const max = Math.max(1, ...entries.map(item => item[1]));
+
+  $("categorySpendingChart").innerHTML = entries.length
+    ? entries.map(([name,value]) => `
+      <div class="category-row">
+        <span class="category-name">${escapeHTML(name)}</span>
+        <div class="category-track">
+          <div class="category-fill" style="width:${value / max * 100}%"></div>
+        </div>
+        <span class="category-amount">${money(value)}</span>
+      </div>
+    `).join("")
+    : '<div class="empty">Add expenses to see your category breakdown.</div>';
+}
+
+/* =========================================
+   GALLERY — PHOTOS IN INDEXEDDB
+   ========================================= */
+
+$("photoForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const files = Array.from($("photoFiles").files || []);
+  if (!files.length) {
+    showToast("Choose at least one photo first.");
+    return;
+  }
+
+  const status = $("photoUploadStatus");
+  status.textContent = "Compressing and saving photos…";
+
+  let saved = 0;
+
+  for (const file of files) {
+    try {
+      const blob = await compressImage(file, 1600, 0.78);
+
+      const photo = {
+        id:uid(),
+        caption:$("photoCaption").value.trim(),
+        date:todayISO(),
+        mime:blob.type || "image/jpeg",
+        size:blob.size
+      };
+
+      await savePhotoBlob(photo.id, blob, { type:"gallery" });
+
+      data.photos.push(photo);
+      saved++;
+      saveData();
+    } catch (err) {
+      console.error("Photo upload error:", err);
+    }
+  }
+
+  status.textContent = `${saved} of ${files.length} photo(s) saved.`;
+  $("photoForm").reset();
+
+  renderGallery();
+  await refreshStorageInfo();
+
+  showToast(saved ? `${saved} photo(s) saved ♡` : "No photos could be saved.");
+});
+
+async function renderGallery() {
+  const container = $("galleryList");
+  const home = $("homeMemories");
+
+  $("galleryCount").textContent = `${data.photos.length} photo${data.photos.length === 1 ? "" : "s"}`;
+
+  if (!data.photos.length) {
+    container.innerHTML = '<div class="empty">Your memories will appear here after you upload photos.</div>';
+    home.innerHTML = '<div class="empty">Your favorite photos will appear here after you add them in Gallery. ♡</div>';
+    return;
+  }
+
+  container.innerHTML = '<div class="empty">Loading your pictures…</div>';
+  home.innerHTML = "";
+
+  const photos = [...data.photos].reverse();
+  const homePhotos = photos.slice(0,3);
+
+  let galleryHTML = "";
+  let homeHTML = "";
+
+  for (const photo of photos) {
+    try {
+      const record = await getPhotoRecord(photo.id);
+      if (!record || !record.blob) continue;
+
+      const url = URL.createObjectURL(record.blob);
+
+      galleryHTML += `
+        <article class="gallery-photo">
+          <img src="${url}" alt="${escapeHTML(photo.caption || "Saved memory")}" loading="lazy">
+          <p>${escapeHTML(photo.caption || "A little memory ♡")}</p>
+          <p>${escapeHTML(shortDate(photo.date))}</p>
+          <button class="btn danger" onclick="deleteGalleryPhoto('${photo.id}')">Remove</button>
+        </article>
+      `;
+    } catch (err) {
+      console.warn("Could not load gallery photo:", err);
+    }
+  }
+
+  for (const photo of homePhotos) {
+    try {
+      const record = await getPhotoRecord(photo.id);
+      if (!record || !record.blob) continue;
+
+      const url = URL.createObjectURL(record.blob);
+
+      homeHTML += `
+        <div class="memory-card">
+          <img src="${url}" alt="${escapeHTML(photo.caption || "Memory")}" loading="lazy">
+          <p>${escapeHTML(photo.caption || "A little memory ♡")}</p>
+        </div>
+      `;
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+
+  container.innerHTML = galleryHTML || '<div class="empty">No readable photos found. You may need to restore them from a backup.</div>';
+  home.innerHTML = homeHTML || '<div class="empty">Your favorite photos will appear here after you add them in Gallery. ♡</div>';
+}
+
+async function deleteGalleryPhoto(id) {
+  if (!confirm("Remove this photo from MyAssist?")) return;
+
+  try {
+    await deletePhotoRecord(id);
+    data.photos = data.photos.filter(photo => photo.id !== id);
+    saveData();
+    await renderGallery();
+    await refreshStorageInfo();
+    showToast("Photo removed.");
+  } catch (err) {
+    showToast("Could not remove this photo.");
+  }
+}
+
+/* =========================================
+   STORAGE INFORMATION
+   ========================================= */
+
+function formatBytes(bytes) {
+  if (!Number.isFinite(bytes) || bytes < 0) return "Unknown";
+
+  const units = ["B","KB","MB","GB"];
+  let size = bytes;
+  let unit = 0;
+
+  while (size >= 1024 && unit < units.length - 1) {
+    size /= 1024;
+    unit++;
+  }
+
+  return `${size.toFixed(unit === 0 ? 0 : 1)} ${units[unit]}`;
+}
+
+async function refreshStorageInfo() {
+  let estimate = null;
+
+  try {
+    if (navigator.storage && navigator.storage.estimate) {
+      estimate = await navigator.storage.estimate();
+    }
+  } catch (err) {
+    console.warn("Storage estimate unavailable:", err);
+  }
+
+  let used = estimate && Number.isFinite(estimate.usage)
+    ? estimate.usage : null;
+
+  let quota = estimate && Number.isFinite(estimate.quota)
+    ? estimate.quota : null;
+
+  let localBytes = 0;
+
+  try {
+    localBytes = new Blob([localStorage.getItem(DATA_KEY) || ""]).size;
+  } catch (_) {}
+
+  if (used === null) used = localBytes;
+
+  $("storageUsed").textContent = formatBytes(used);
+
+  if (quota) {
+    const percentage = Math.min(100, used / quota * 100);
+
+    $("storageProgress").style.width = percentage + "%";
+
+    $("storageDetails").textContent =
+      `Estimated browser storage: ${formatBytes(used)} used out of ${formatBytes(quota)} available (${percentage.toFixed(1)}%).`;
+
+    if (percentage > 85) {
+      $("storageDetails").textContent += " Storage is getting full. Export a backup and review large photos.";
+    }
+  } else {
+    $("storageProgress").style.width = "0%";
+
+    $("storageDetails").textContent =
+      `Estimated app record storage: ${formatBytes(localBytes)}. Your browser does not report a storage quota here.`;
+  }
+}
+
+/* =========================================
+   BACKUP EXPORT — INCLUDING PHOTO BLOBS
+   ========================================= */
+
+async function exportBackup() {
+  showToast("Preparing your backup…");
+
+  try {
+    const backup = {
+      app:"MyAssist",
+      formatVersion:2,
+      exportedAt:new Date().toISOString(),
+      data,
+      photoFiles:[]
+    };
+
+    const allPhotos = [
+      ...data.photos.map(photo => photo.id),
+      COVER_ID
+    ];
+
+    for (const id of [...new Set(allPhotos)]) {
+      try {
+        const record = await getPhotoRecord(id);
+        if (record && record.blob) {
+          const dataURL = await blobToDataURL(record.blob);
+
+          backup.photoFiles.push({
+            id,
+            type:record.type || (id === COVER_ID ? "cover" : "gallery"),
+            dataURL
+          });
+        }
+      } catch (err) {
+        console.warn("Could not include photo in backup:", id, err);
+      }
+    }
+
+    const blob = new Blob(
+      [JSON.stringify(backup)],
+      { type:"application/json" }
+    );
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `MyAssist-backup-${todayISO()}.json`;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 30000);
+
+    showToast("Backup created. Save it to Files when prompted. ♡");
+  } catch (err) {
+    console.error("Backup export failed:", err);
+    showToast("Could not create the backup. Browser storage may be full.");
+  }
+}
+
+/* =========================================
+   BACKUP IMPORT
+   ========================================= */
+
+function dataURLToBlob(dataURL) {
+  const parts = dataURL.split(",");
+  const mimeMatch = parts[0].match(/:(.*?);/);
+  const mime = mimeMatch ? mimeMatch[1] : "image/jpeg";
+
+  const binary = atob(parts[1]);
+  const bytes = new Uint8Array(binary.length);
+
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+
+  return new Blob([bytes], { type:mime });
+}
+
+async function importBackup() {
+  const file = $("backupFile").files[0];
+
+  if (!file) {
+    showToast("Choose a backup JSON file first.");
+    return;
+  }
+
+  if (!confirm("Importing this backup will replace your current MyAssist records. Export your current data first. Continue?")) {
+    return;
+  }
+
+  try {
+    const parsed = JSON.parse(await file.text());
+
+    if (!parsed || typeof parsed !== "object" || !parsed.data) {
+      throw new Error("This does not look like a MyAssist backup.");
+    }
+
+    const restored = { ...defaultData(), ...parsed.data };
+
+    for (const key of [
+      "events","expenses","incomes","tasks","notes","priorities","photos"
+    ]) {
+      if (!Array.isArray(restored[key])) restored[key] = [];
+    }
+
+    /*
+      Save new photo files before replacing the active data.
+      Existing photos are not automatically deleted, so this
+      operation avoids removing unrelated records from IndexedDB.
+    */
+
+    if (Array.isArray(parsed.photoFiles)) {
+      for (const item of parsed.photoFiles) {
+        if (!item || !item.id || !item.dataURL) continue;
+
+        const blob = dataURLToBlob(item.dataURL);
+
+        await savePhotoBlob(item.id, blob, {
+          type:item.type || "gallery"
+        });
+      }
+    }
+
+    data = restored;
+    saveData();
+
+    $("quickNote").value = data.quickNote || "";
+    $("monthlyBudget").value = data.budget || "";
+    $("financeBudget").value = data.financeBudget || "";
+    $("displayName").value = data.displayName || "Lovely";
+
+    await displayCover();
+    render();
+    await renderGallery();
+    await refreshStorageInfo();
+
+    $("backupFile").value = "";
+
+    showToast("Backup imported successfully! ♡");
+  } catch (err) {
+    console.error("Backup import failed:", err);
+    showToast("Could not import this backup. Check that the file is valid.");
+  }
+}
+
+/* =========================================
+   SETTINGS AND PERSONALIZATION
+   ========================================= */
+
+function saveDisplayName() {
+  data.displayName = $("displayName").value.trim() || "Lovely";
+  saveData();
+  renderGreeting();
+  showToast("Display name updated ♡");
+}
+
+function renderGreeting() {
+  $("hello").textContent = `Hello, ${data.displayName || "Lovely"}! ♡`;
+}
+
+async function clearAllData() {
+  const confirmed = confirm(
+    "This will remove your MyAssist records, photos, and cover photo from this browser. Export a backup first. Continue?"
+  );
+
+  if (!confirmed) return;
+
+  const secondConfirm = confirm(
+    "Are you absolutely sure? This cannot be undone unless you have a backup."
+  );
+
+  if (!secondConfirm) return;
+
+  try {
+    const db = await openPhotoDB();
+
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction(PHOTO_STORE, "readwrite");
+      tx.objectStore(PHOTO_STORE).clear();
+      tx.oncomplete = resolve;
+      tx.onerror = () => reject(tx.error);
+    });
+  } catch (err) {
+    console.warn("Could not clear stored photos:", err);
+  }
+
+  data = defaultData();
+  saveData();
+
+  $("quickNote").value = "";
+  $("monthlyBudget").value = "";
+  $("financeBudget").value = "";
+  $("displayName").value = "Lovely";
+
+  await displayCover();
+  render();
+  await renderGallery();
+  await refreshStorageInfo();
+
+  showToast("MyAssist data cleared.");
+}
+
+/* =========================================
+   MAIN RENDER
+   ========================================= */
+
+function renderGreeting() {
+  const name = data.displayName || "Lovely";
+  $("hello").textContent = `Hello, ${name}! ♡`;
+}
+
+function render() {
+  renderGreeting();
+
+  $("todayDate").textContent = new Date().toLocaleDateString("en-PH", {
+    weekday:"long",
+    month:"long",
+    day:"numeric",
+    year:"numeric"
+  });
+
+  $("eventCount").textContent =
+    `${data.events.filter(item => item.date === todayISO()).length} events`;
+
+  renderEvents();
+  renderTasks();
+  renderNotes();
+  renderPriorities();
+  renderExpenses();
+  renderFinance();
+}
+
+/* =========================================
+   INITIALIZE
+   ========================================= */
+
+async function initialize() {
+  loadData();
+
+  $("eventDate").value = todayISO();
+  $("expenseDate").value = todayISO();
+  $("incomeDate").value = todayISO();
+  $("taskDue").value = todayISO();
+
+  if (!$("expenseFilterMonth").value) {
+    $("expenseFilterMonth").value = monthISO();
+  }
+
+  if (!$("eventFilterDate").value) {
+    $("eventFilterDate").value = "";
+  }
+
+  render();
+
+  try {
+    await openPhotoDB();
+    await displayCover();
+    await renderGallery();
+  } catch (err) {
+    console.error("Photo storage initialization failed:", err);
+    showToast("Photo storage is unavailable. Your other MyAssist features may still work.");
+  }
+
+  await refreshStorageInfo();
+}
+
+initialize();
 </script>
 </body>
 </html>
