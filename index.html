@@ -2,259 +2,705 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fff0f6">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="MyAssist">
+
 <title>MyAssist — Your Personal Space</title>
 
 <style>
-:root{
-  --pink:#f5d9e8;
-  --pink-dark:#c17ca5;
-  --pink-light:#fff3f8;
-  --purple:#e8e0fb;
-  --purple-dark:#9481c4;
-  --blue:#e0efff;
-  --blue-dark:#7ba8d1;
-  --green:#e2f1dc;
-  --yellow:#fff2c9;
-  --ink:#474458;
-  --muted:#89869b;
-  --line:#eee6ef;
-  --bg:#fffafd;
-  --white:#fff;
-  --shadow:0 7px 22px rgba(140,105,140,.09);
+:root {
+  --pink:#f6a9c7;
+  --pink-dark:#d95d91;
+  --pink-light:#fff0f6;
+  --pink-pale:#fff8fb;
+  --purple:#b9a3e3;
+  --text:#493743;
+  --muted:#927b8a;
+  --white:#ffffff;
+  --green:#7dbb9a;
+  --yellow:#f0c978;
+  --border:#f1dce7;
+  --shadow:0 5px 20px rgba(190,100,145,.09);
 }
-*{box-sizing:border-box}
-body{
+
+* { box-sizing:border-box; }
+
+body {
   margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--pink-pale);
+  color:var(--text);
 }
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
-  outline:2px solid var(--purple-dark);
-  outline-offset:2px
+
+button,input,textarea,select { font:inherit; }
+
+button { cursor:pointer; }
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline:2px solid var(--pink-dark);
+  outline-offset:2px;
 }
-header{
-  background:linear-gradient(120deg,#ffe8f2,#eee7ff,#e5f3ff);
-  border-bottom:1px solid var(--line);
-  padding:20px 17px
+
+header {
+  background:linear-gradient(135deg,#ffe2ed,#fff3f8);
+  padding:23px 18px 18px;
+  border-bottom:1px solid var(--border);
 }
-.header-inner{
-  max-width:1150px;
+
+.header-inner {
+  max-width:1200px;
   margin:auto;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:12px
+  justify-content:space-between;
+  gap:12px;
 }
-.brand{font-size:27px;font-weight:850;letter-spacing:-1px}
-.brand span{color:var(--pink-dark)}
-.subtitle{font-size:12px;color:var(--muted);margin-top:5px}
-.avatar{
-  width:46px;height:46px;border-radius:50%;
-  display:grid;place-items:center;background:#fff;
-  border:2px solid var(--pink);font-size:22px
+
+.brand {
+  font-size:27px;
+  font-weight:800;
+  letter-spacing:-1px;
 }
-main{max-width:1150px;margin:auto;padding:17px 15px 90px}
-.tabs{
-  display:flex;gap:7px;overflow-x:auto;
-  padding:3px 0 16px;scrollbar-width:thin
+
+.brand span { color:var(--pink-dark); }
+
+.header-subtitle {
+  margin-top:5px;
+  font-size:12px;
+  color:var(--muted);
 }
-.tab{
-  flex-shrink:0;border:1px solid var(--line);
-  background:#fff;color:var(--muted);
-  border-radius:22px;padding:10px 13px;
-  font-size:12px;font-weight:750
+
+.avatar {
+  width:47px;
+  height:47px;
+  border-radius:50%;
+  background:white;
+  border:2px solid #f7c2d8;
+  display:grid;
+  place-items:center;
+  font-size:23px;
+  flex-shrink:0;
 }
-.tab.active{background:var(--pink-dark);color:#fff;border-color:var(--pink-dark)}
-.page{display:none}
-.page.active{display:block}
-.card,.stat{
-  background:#fff;border:1px solid var(--line);
-  border-radius:18px;box-shadow:var(--shadow);min-width:0
+
+main {
+  max-width:1200px;
+  margin:auto;
+  padding:18px;
+  padding-bottom:100px;
 }
-.card{padding:16px;margin-bottom:14px}
-.card h2{font-size:16px;margin:0 0 13px}
-.card h3{font-size:14px;margin:0 0 10px}
-.welcome{
-  position:relative;overflow:hidden;border-radius:22px;
-  padding:23px;margin-bottom:15px;min-height:180px;
-  background:linear-gradient(115deg,#ffe5f1,#eee5ff 58%,#e2f2ff);
-  background-size:cover;background-position:center;
-  box-shadow:var(--shadow)
+
+.tabs {
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:4px 0 15px;
+  scrollbar-width:thin;
 }
-.welcome h1{font-size:26px;margin:9px 0;position:relative}
-.welcome p{font-size:13px;color:#70677e;max-width:570px;position:relative}
-.date-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
-.welcome-buttons,.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:14px}
-.stat{padding:14px}
-.stat-icon{font-size:21px}
-.stat-label{font-size:11px;color:var(--muted);margin-top:7px}
-.stat-value{font-size:20px;font-weight:850;margin-top:4px;overflow-wrap:anywhere}
-.stat small{font-size:10px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.stack{display:flex;flex-direction:column;gap:11px}
-label{display:block;font-size:12px;font-weight:750;margin-bottom:5px}
-input,textarea,select{
-  width:100%;min-width:0;border:1px solid var(--line);
-  border-radius:10px;padding:11px;background:#fffafd;color:var(--ink)
+
+.tab {
+  border:1px solid var(--border);
+  background:white;
+  color:var(--muted);
+  border-radius:22px;
+  padding:11px 16px;
+  white-space:nowrap;
+  font-size:13px;
+  font-weight:650;
 }
-textarea{min-height:80px;resize:vertical}
-input[type=checkbox]{width:19px;height:19px;accent-color:var(--pink-dark)}
-input[type=file]{padding:9px}
-button.primary{
-  background:var(--pink-dark);color:#fff;border:0;
-  border-radius:10px;padding:11px 14px;font-weight:750
+
+.tab.active {
+  background:var(--pink-dark);
+  border-color:var(--pink-dark);
+  color:white;
 }
-button.secondary{
-  background:var(--purple);color:#6f6099;
-  border:1px solid #e2d9f5;border-radius:10px;
-  padding:10px 12px;font-weight:700
+
+.page { display:none; }
+.page.active { display:block; }
+
+.welcome {
+  background:linear-gradient(115deg,#f7c4d9,#f3dff5);
+  border-radius:22px;
+  padding:23px;
+  margin-bottom:17px;
+  position:relative;
+  overflow:hidden;
+  min-height:150px;
+  background-size:cover;
+  background-position:center;
 }
-button.ghost{
-  background:#fff;color:var(--muted);border:1px solid var(--line);
-  border-radius:9px;padding:7px 10px;font-size:12px
+
+.welcome h1 {
+  margin:7px 0;
+  font-size:25px;
 }
-button.danger{
-  color:#a85175;background:#fff1f6;border:1px solid #f1dbe7;
-  border-radius:9px;padding:7px 10px;font-size:12px
+
+.welcome p {
+  margin:7px 0;
+  font-size:13px;
+  color:#735568;
 }
-.item{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:12px 0;border-bottom:1px solid #f3edf4
+
+.welcome .date-label {
+  font-size:12px;
+  font-weight:750;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
-.item:last-child{border-bottom:0}
-.item-body{flex:1;min-width:0}
-.item-title{font-size:13px;font-weight:750;overflow-wrap:anywhere}
-.item-meta{font-size:11px;color:var(--muted);margin-top:5px;overflow-wrap:anywhere;line-height:1.5}
-.item.done .item-title{text-decoration:line-through;opacity:.55}
-.empty{text-align:center;color:var(--muted);padding:23px 8px;font-size:13px}
-.small-muted{font-size:11px;color:var(--muted);line-height:1.6}
-.badge{
-  display:inline-block;border-radius:20px;padding:4px 8px;
-  background:#fff4d4;color:#8b742d;font-size:10px;font-weight:800
+
+.welcome .welcome-buttons {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:13px;
 }
-.progress{height:8px;background:#f0edf5;border-radius:20px;overflow:hidden;margin:9px 0}
-.progress>div{
-  height:100%;width:0;
-  background:linear-gradient(90deg,var(--pink-dark),var(--purple-dark),var(--blue-dark))
+
+.card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:17px;
+  margin-bottom:15px;
+  box-shadow:var(--shadow);
+  min-width:0;
 }
-.calendar-head,.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
-.calendar-head div{text-align:center;font-size:10px;font-weight:800;color:var(--muted);padding:8px 0}
-.day{
-  min-width:0;min-height:39px;border:1px solid var(--line);
-  border-radius:9px;background:#fff;font-size:12px;color:var(--ink)
+
+.card h2 {
+  font-size:16px;
+  margin:0 0 13px;
 }
-.day.selected{background:var(--purple);border-color:var(--purple-dark)}
-.day.today{border:2px solid var(--pink-dark)}
-.day:disabled{background:transparent;border-color:transparent}
-.day .dot{display:block;font-size:10px;color:var(--pink-dark);height:8px}
-hr{border:0;border-top:1px solid var(--line);margin:16px 0}
-.chart-box{height:180px;margin-top:12px;position:relative}
-canvas{width:100%;height:100%}
-.donut-wrap{display:flex;align-items:center;gap:17px;flex-wrap:wrap}
-.donut{
-  width:120px;height:120px;border-radius:50%;
-  display:grid;place-items:center;
-  background:conic-gradient(var(--pink-dark) 0deg,#f0edf5 0deg)
+
+.card h3 {
+  font-size:14px;
+  margin:0 0 10px;
 }
-.donut-hole{
-  width:83px;height:83px;background:#fff;border-radius:50%;
-  display:grid;place-content:center;text-align:center;font-size:14px;font-weight:850
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
 }
-.legend{display:flex;flex-direction:column;gap:8px;font-size:11px;color:var(--muted)}
-.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
-.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.photo-card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff}
-.photo-card img{width:100%;height:160px;object-fit:cover;display:block;background:#f5eff8}
-.photo-actions{padding:9px}
-.note-entry,.journal-entry{padding:12px 0;border-bottom:1px solid var(--line)}
-.note-entry:last-child,.journal-entry:last-child{border-bottom:0}
-.editor-toolbar{display:flex;flex-wrap:wrap;gap:7px}
-#journalEditor{
-  min-height:190px;border:1px solid var(--line);border-radius:11px;
-  padding:12px;background:#fffafd;outline:none;line-height:1.6;overflow-wrap:anywhere
+
+.stats-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-bottom:15px;
 }
-#journalEditor img{max-width:100%;height:auto;border-radius:10px}
-.toast{
-  position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);
-  opacity:0;pointer-events:none;z-index:999;background:#474458;color:#fff;
-  padding:12px 17px;border-radius:12px;font-size:13px;
-  transition:.2s;max-width:90%;text-align:center
+
+.stat {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:15px;
+  box-shadow:var(--shadow);
+  min-width:0;
 }
-.toast.show{opacity:1;transform:translate(-50%,0)}
-footer{text-align:center;color:var(--muted);font-size:11px;padding:22px}
-@media(min-width:700px){
-  main{padding:24px 24px 100px}
-  .stats-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .photo-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .welcome h1{font-size:31px}
-  .card{padding:20px}
+
+.stat-icon { font-size:21px; }
+
+.stat-label {
+  font-size:11px;
+  color:var(--muted);
+  margin-top:9px;
 }
-@media(max-width:430px){
-  main{padding:11px 10px 80px}
-  .grid{grid-template-columns:1fr}
-  .tab{padding:10px 11px}
-  .welcome{padding:18px}
-  .welcome h1{font-size:23px}
+
+.stat-value {
+  font-size:23px;
+  font-weight:800;
+  margin-top:4px;
+  overflow-wrap:anywhere;
+}
+
+.stat small {
+  font-size:11px;
+  color:var(--muted);
+}
+
+.row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.stack {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+label {
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:5px;
+}
+
+input,textarea,select {
+  width:100%;
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:11px;
+  background:#fffafd;
+  color:var(--text);
+}
+
+textarea {
+  min-height:85px;
+  resize:vertical;
+}
+
+input[type="checkbox"] {
+  width:19px;
+  height:19px;
+  accent-color:var(--pink-dark);
+  flex-shrink:0;
+}
+
+input[type="color"] {
+  height:42px;
+  padding:4px;
+}
+
+button.primary {
+  background:var(--pink-dark);
+  color:white;
+  border:0;
+  border-radius:10px;
+  padding:11px 15px;
+  font-weight:700;
+}
+
+button.secondary {
+  background:var(--pink-light);
+  color:var(--pink-dark);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 13px;
+  font-weight:650;
+}
+
+button.ghost {
+  background:white;
+  color:var(--muted);
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:7px 10px;
+  font-size:12px;
+}
+
+button.danger {
+  color:#bd466e;
+  background:#fff0f3;
+  border:1px solid #f4d4df;
+  border-radius:9px;
+  padding:7px 10px;
+  font-size:12px;
+}
+
+button:disabled { opacity:.5; }
+
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  align-items:center;
+}
+
+.item {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid #f7eaf0;
+}
+
+.item:last-child { border-bottom:0; }
+
+.item-body {
+  flex:1;
+  min-width:0;
+}
+
+.item-title {
+  font-size:13px;
+  font-weight:750;
+  overflow-wrap:anywhere;
+}
+
+.item-meta {
+  font-size:11px;
+  color:var(--muted);
+  margin-top:5px;
+  overflow-wrap:anywhere;
+}
+
+.item.done .item-title {
+  text-decoration:line-through;
+  opacity:.55;
+}
+
+.item.done { opacity:.75; }
+
+.badge {
+  display:inline-block;
+  border-radius:20px;
+  padding:4px 8px;
+  background:var(--pink-light);
+  color:var(--pink-dark);
+  font-size:10px;
+  font-weight:700;
+}
+
+.empty {
+  text-align:center;
+  color:var(--muted);
+  padding:24px 8px;
+  font-size:13px;
+}
+
+.progress {
+  height:8px;
+  background:#f9e8f0;
+  border-radius:20px;
+  overflow:hidden;
+  margin:9px 0;
+}
+
+.progress > div {
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#f5a5c5,#bd9de9);
+  transition:width .2s;
+}
+
+.calendar-head {
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  text-align:center;
+  gap:3px;
+  margin:12px 0 7px;
+}
+
+.calendar-head div {
+  font-size:10px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.calendar-grid {
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:4px;
+}
+
+.day {
+  min-width:0;
+  min-height:43px;
+  padding:5px 0;
+  background:#fffafd;
+  border:1px solid transparent;
+  border-radius:9px;
+  text-align:center;
+  color:var(--text);
+  font-size:12px;
+}
+
+.day.selected {
+  border-color:var(--pink-dark);
+  background:#ffe2ed;
+  font-weight:800;
+}
+
+.day.today { box-shadow:inset 0 0 0 1px #e7a1bf; }
+
+.day .dot {
+  display:block;
+  color:var(--pink-dark);
+  font-size:10px;
+  height:10px;
+}
+
+.day:disabled {
+  background:transparent;
+  cursor:default;
+}
+
+.chart-box { width:100%; }
+
+.chart-box canvas {
+  width:100%;
+  height:230px;
+  display:block;
+}
+
+.donut-wrap {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  padding:12px 0;
+}
+
+.donut {
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:conic-gradient(#f2a6c5 0deg 360deg);
+  flex-shrink:0;
+}
+
+.donut-hole {
+  background:white;
+  width:95px;
+  height:95px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  font-size:12px;
+  font-weight:800;
+  padding:8px;
+}
+
+.legend {
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  font-size:12px;
+}
+
+.legend span {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+
+.legend i {
+  display:inline-block;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+}
+
+.editor-toolbar {
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-bottom:9px;
+}
+
+.editor-toolbar button,
+.editor-toolbar select {
+  width:auto;
+  font-size:12px;
+  padding:7px;
+}
+
+.editor {
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:13px;
+  min-height:230px;
+  outline:none;
+  line-height:1.7;
+  overflow-wrap:anywhere;
+  background:#fffafd;
+}
+
+.editor img {
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
+}
+
+.notebook-entry {
+  border:1px solid var(--border);
+  background:#fffafd;
+  border-radius:12px;
+  padding:12px;
+  margin-top:10px;
+}
+
+.notebook-entry img {
+  max-width:100%;
+  border-radius:9px;
+}
+
+.notebook-entry-content {
+  overflow-wrap:anywhere;
+  line-height:1.6;
+}
+
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.photo-card {
+  border:1px solid var(--border);
+  border-radius:13px;
+  overflow:hidden;
+  background:#fffafd;
+}
+
+.photo-card img {
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  display:block;
+}
+
+.photo-card .photo-actions { padding:9px; }
+
+.small-muted {
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+hr {
+  border:0;
+  border-top:1px solid var(--border);
+  margin:15px 0;
+}
+
+.toast {
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,20px);
+  opacity:0;
+  pointer-events:none;
+  z-index:999;
+  background:#523b4b;
+  color:white;
+  padding:12px 17px;
+  border-radius:12px;
+  font-size:13px;
+  box-shadow:var(--shadow);
+  transition:.2s;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show {
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+footer {
+  text-align:center;
+  padding:20px 10px;
+  font-size:11px;
+  color:var(--muted);
+}
+
+@media(min-width:700px) {
+  main { padding:24px; }
+  .stats-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .gallery { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .welcome h1 { font-size:31px; }
+  .card { padding:20px; }
+}
+
+@media(max-width:380px) {
+  main { padding:11px; padding-bottom:90px; }
+  .grid { grid-template-columns:1fr; }
+  .stat-value { font-size:19px; }
+  .tab { padding:10px 12px; }
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="header-inner">
     <div>
-      <div class="brand">My<span>Assist</span> ✦</div>
-      <div class="subtitle">Your little space to plan, grow & bloom</div>
+      <div class="brand">My<span>Assist</span> ♡</div>
+      <div class="header-subtitle">Your little space to plan, grow & bloom</div>
     </div>
-    <div class="avatar">🌷</div>
+    <div class="avatar">🌸</div>
   </div>
 </header>
 
 <main>
+
 <nav class="tabs" aria-label="Main navigation">
   <button class="tab active" data-page="dashboard">🏡 Home</button>
   <button class="tab" data-page="tasks">✅ Tasks</button>
   <button class="tab" data-page="planner">🗓️ Planner</button>
   <button class="tab" data-page="notes">📝 Notes</button>
-  <button class="tab" data-page="notebook">📓 Notebook</button>
+  <button class="tab" data-page="notebooks">📓 Notebooks</button>
   <button class="tab" data-page="finance">💰 Finance</button>
   <button class="tab" data-page="gallery">🖼️ Photos</button>
   <button class="tab" data-page="settings">⚙️ Settings</button>
 </nav>
 
+<!-- DASHBOARD -->
+
 <section id="page-dashboard" class="page active">
+
   <div class="welcome" id="welcomeBanner">
     <div class="date-label" id="welcomeDate"></div>
-    <h1 id="welcomeHeading">A little progress every day ✨</h1>
-    <p>Make room for your goals, plans, and happy memories.</p>
+    <h1 id="welcomeHeading">A little progress every day 🌷</h1>
+    <p>Your goals are growing, one step at a time.</p>
     <div class="welcome-buttons">
-      <button class="secondary" data-go="tasks">View tasks</button>
+      <button class="secondary" data-go="tasks">View my tasks</button>
       <button class="secondary" data-go="planner">Open planner</button>
-      <button class="secondary" data-go="settings">Change cover photo</button>
     </div>
   </div>
 
   <div class="stats-grid">
-    <div class="stat"><div class="stat-icon">🌱</div><div class="stat-label">Tasks completed</div><div class="stat-value" id="statCompleted">0/0</div><small>This month</small></div>
-    <div class="stat"><div class="stat-icon">🎯</div><div class="stat-label">Tasks remaining</div><div class="stat-value" id="statRemaining">0</div><small>One step at a time</small></div>
-    <div class="stat"><div class="stat-icon">💵</div><div class="stat-label">Monthly income</div><div class="stat-value" id="statIncome">₱0</div><small>This month</small></div>
-    <div class="stat"><div class="stat-icon">🛍️</div><div class="stat-label">Monthly expenses</div><div class="stat-value" id="statExpenses">₱0</div><small>This month</small></div>
+    <div class="stat">
+      <div class="stat-icon">🌷</div>
+      <div class="stat-label">Tasks completed</div>
+      <div class="stat-value" id="statCompleted">0/0</div>
+      <small>This month</small>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">🎯</div>
+      <div class="stat-label">Tasks remaining</div>
+      <div class="stat-value" id="statRemaining">0</div>
+      <small>Keep going!</small>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">💵</div>
+      <div class="stat-label">Monthly income</div>
+      <div class="stat-value" id="statIncome">₱0</div>
+      <small>This month</small>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">🛍️</div>
+      <div class="stat-label">Monthly expenses</div>
+      <div class="stat-value" id="statExpenses">₱0</div>
+      <small>This month</small>
+    </div>
   </div>
 
   <div class="grid">
+
     <div class="card">
-      <div class="row"><h2>My productivity</h2><span class="badge">This month</span></div>
+      <div class="row">
+        <h2>My productivity 🌱</h2>
+        <span class="badge">This month</span>
+      </div>
       <div class="donut-wrap">
-        <div class="donut" id="productivityDonut"><div class="donut-hole" id="productivityPercent">0%<br>completed</div></div>
+        <div class="donut" id="productivityDonut">
+          <div class="donut-hole" id="productivityPercent">0%<br>completed</div>
+        </div>
         <div class="legend" id="productivityLegend"></div>
       </div>
       <div class="progress"><div id="productivityProgress"></div></div>
@@ -262,9 +708,16 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:22px}
     </div>
 
     <div class="card">
-      <div class="row"><h2>Monthly schedule</h2><span class="badge">Planner</span></div>
-      <div class="row"><button class="ghost" id="dashPrevMonth">‹</button><strong id="dashMonthLabel"></strong><button class="ghost" id="dashNextMonth">›</button></div>
-      <div class="calendar-head"><div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div></div>
+      <h2>This month's schedule 🗓️</h2>
+      <div class="row">
+        <button class="ghost" id="dashPrevMonth">‹</button>
+        <strong id="dashMonthLabel"></strong>
+        <button class="ghost" id="dashNextMonth">›</button>
+      </div>
+      <div class="calendar-head">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div>
+        <div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
       <div class="calendar-grid" id="dashCalendar"></div>
       <div class="small-muted" id="dashSelectedDate" style="margin-top:12px"></div>
       <div id="dashDayItems"></div>
@@ -272,55 +725,87 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:22px}
     </div>
 
     <div class="card">
-      <div class="row"><h2>My upcoming tasks</h2><button class="ghost" data-go="tasks">View all</button></div>
+      <h2>My upcoming tasks ✨</h2>
       <div id="dashTasks"></div>
+      <button class="secondary" data-go="tasks">View all tasks</button>
     </div>
 
     <div class="card">
-      <div class="row"><h2>Money overview</h2><button class="ghost" data-go="finance">Details</button></div>
-      <div class="row"><span class="small-muted">Income minus expenses</span><strong id="dashBalance">₱0</strong></div>
-      <div class="chart-box"><canvas id="dashboardFinanceChart"></canvas></div>
+      <h2>My money overview 💗</h2>
+      <div class="row">
+        <span class="small-muted">Income minus expenses</span>
+        <strong id="dashBalance">₱0</strong>
+      </div>
+      <div class="chart-box">
+        <canvas id="dashboardFinanceChart"></canvas>
+      </div>
+      <button class="secondary" data-go="finance">Open finances</button>
     </div>
-  </div>
 
-  <div class="card">
-    <div class="row"><div><h2>My photo stack 📸</h2><div class="small-muted">A little collection of your favorite memories.</div></div><button class="secondary" data-go="gallery">Open gallery</button></div>
-    <div id="dashboardPhotoStack" class="photo-grid"></div>
-    <div class="actions"><button class="secondary" id="dashboardAddPhotos">＋ Add photos</button></div>
-    <input type="file" id="dashboardPhotoInput" accept="image/*" multiple hidden>
   </div>
 </section>
 
+<!-- TASKS -->
+
 <section id="page-tasks" class="page">
   <div class="card">
-    <h2>My tasks 🌱</h2>
+    <h2>My tasks 🌸</h2>
     <form id="taskForm" class="stack">
-      <div><label for="taskTitle">Task name</label><input id="taskTitle" required maxlength="200" placeholder="What do you need to do?"></div>
-      <div class="grid">
-        <div><label for="taskDate">Due date</label><input id="taskDate" type="date" required></div>
-        <div><label for="taskPriority">Priority</label><select id="taskPriority"><option>Normal</option><option>High</option><option>Low</option></select></div>
+      <div>
+        <label for="taskTitle">Task name</label>
+        <input id="taskTitle" required maxlength="200" placeholder="What do you need to do?">
       </div>
-      <div><label for="taskDetails">Details</label><textarea id="taskDetails" placeholder="Add more information..."></textarea></div>
+      <div class="grid">
+        <div>
+          <label for="taskDate">Due date</label>
+          <input id="taskDate" type="date" required>
+        </div>
+        <div>
+          <label for="taskPriority">Priority</label>
+          <select id="taskPriority">
+            <option>Normal</option>
+            <option>High</option>
+            <option>Low</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="taskDetails">Details (optional)</label>
+        <textarea id="taskDetails" placeholder="Add more information..."></textarea>
+      </div>
       <button class="primary" type="submit">＋ Add task</button>
     </form>
   </div>
+
   <div class="card">
-    <div class="row"><h2>My to-do list</h2><select id="taskFilter" style="width:auto;max-width:150px"><option value="all">All tasks</option><option value="active">Incomplete</option><option value="done">Completed</option></select></div>
+    <div class="row">
+      <h2>My to-do list</h2>
+      <select id="taskFilter" style="width:auto;max-width:150px">
+        <option value="all">All tasks</option>
+        <option value="active">Incomplete</option>
+        <option value="done">Completed</option>
+      </select>
+    </div>
     <div class="progress"><div id="taskProgress"></div></div>
     <div class="small-muted" id="taskProgressText"></div>
     <div id="taskList"></div>
   </div>
 </section>
 
+<!-- PLANNER -->
+
 <section id="page-planner" class="page">
   <div class="card">
+    <h2>My monthly planner 🗓️</h2>
     <div class="row">
-      <h2>My monthly planner 🗓️</h2>
-      <button class="primary" id="exportCalendar" type="button">↗ Export to calendar</button>
+      <button class="secondary" id="plannerPrev">‹ Previous</button>
+      <strong id="plannerMonth"></strong>
+      <button class="secondary" id="plannerNext">Next ›</button>
     </div>
-    <p class="small-muted">Choose a start and end time for each event. Export your schedules to a calendar file compatible with Apple Calendar and other calendar apps.</p>
-    <div class="row"><button class="secondary" id="plannerPrev">‹ Previous</button><strong id="plannerMonth"></strong><button class="secondary" id="plannerNext">Next ›</button></div>
-    <div class="calendar-head"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+    <div class="calendar-head">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+      <div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
     <div class="calendar-grid" id="plannerCalendar"></div>
     <hr>
     <h3 id="plannerSelectedTitle">Selected date</h3>
@@ -328,122 +813,269 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:22px}
   </div>
 
   <div class="card">
-    <h2>Add a schedule or goal</h2>
+    <h2>Add a schedule or goal ✨</h2>
     <form id="eventForm" class="stack">
-      <div><label for="eventTitle">Title</label><input id="eventTitle" required maxlength="200" placeholder="e.g. Study finance"></div>
-      <div class="grid">
-        <div><label for="eventDate">Date</label><input id="eventDate" type="date" required></div>
-        <div><label for="eventType">Type</label><select id="eventType"><option>Goal</option><option>Appointment</option><option>Study</option><option>Work</option><option>Personal</option><option>Reminder</option></select></div>
+      <div>
+        <label for="eventTitle">Title</label>
+        <input id="eventTitle" required maxlength="200" placeholder="e.g. Study finance">
       </div>
       <div class="grid">
-        <div><label for="eventStartTime">Start time</label><select id="eventStartTime" required></select></div>
-        <div><label for="eventEndTime">End time</label><select id="eventEndTime" required></select></div>
+        <div>
+          <label for="eventDate">Date</label>
+          <input id="eventDate" type="date" required>
+        </div>
+        <div>
+          <label for="eventType">Type</label>
+          <select id="eventType">
+            <option>Goal</option>
+            <option>Appointment</option>
+            <option>Study</option>
+            <option>Work</option>
+            <option>Personal</option>
+            <option>Reminder</option>
+          </select>
+        </div>
       </div>
-      <div><label for="eventDetails">Details / location</label><textarea id="eventDetails" placeholder="Add a location or notes (optional)..."></textarea></div>
+      <div>
+        <label for="eventDetails">Details</label>
+        <textarea id="eventDetails" placeholder="Time, location, or notes..."></textarea>
+      </div>
       <button class="primary" type="submit">＋ Add to planner</button>
     </form>
   </div>
 </section>
 
+<!-- NOTES -->
+
 <section id="page-notes" class="page">
   <div class="card">
     <h2>Quick notes 📝</h2>
     <form id="noteForm" class="stack">
-      <div><label for="noteTitle">Note title</label><input id="noteTitle" required maxlength="200" placeholder="Give your note a title"></div>
-      <div><label for="noteContent">Your note</label><textarea id="noteContent" required placeholder="Write anything you want to remember..."></textarea></div>
+      <div>
+        <label for="noteTitle">Note title</label>
+        <input id="noteTitle" required maxlength="200" placeholder="Give your note a title">
+      </div>
+      <div>
+        <label for="noteContent">Your note</label>
+        <textarea id="noteContent" required placeholder="Write anything you want to remember..."></textarea>
+      </div>
       <button class="primary" type="submit">♡ Save note</button>
     </form>
   </div>
-  <div class="card"><h2>Saved notes</h2><div id="notesList"></div></div>
+
+  <div class="card">
+    <h2>Saved notes</h2>
+    <div id="notesList"></div>
+  </div>
 </section>
 
-<section id="page-notebook" class="page">
+<!-- NOTEBOOKS -->
+
+<section id="page-notebooks" class="page">
   <div class="card">
     <h2>My journal & notebook 📓</h2>
-    <p class="small-muted">Write freely, format your text, and add pictures.</p>
+    <p class="small-muted">Write freely, decorate your pages, and keep your memories together.</p>
+
     <form id="journalForm" class="stack">
-      <div><label for="journalTitle">Entry title</label><input id="journalTitle" maxlength="200" placeholder="Today's thoughts..."></div>
+      <div>
+        <label for="journalTitle">Entry title</label>
+        <input id="journalTitle" maxlength="200" placeholder="Today's thoughts...">
+      </div>
+
       <div class="editor-toolbar">
         <button class="secondary" type="button" data-command="bold"><b>B</b></button>
         <button class="secondary" type="button" data-command="italic"><i>I</i></button>
         <button class="secondary" type="button" data-command="underline"><u>U</u></button>
         <button class="secondary" type="button" data-command="insertUnorderedList">• List</button>
+        <select id="journalTextColor" aria-label="Text color">
+          <option value="#493743">Text color</option>
+          <option value="#d95d91">Pink</option>
+          <option value="#9878ce">Purple</option>
+          <option value="#47866a">Green</option>
+          <option value="#3f78bd">Blue</option>
+          <option value="#d88c32">Orange</option>
+        </select>
         <button class="secondary" id="addSticker" type="button">🌸 Sticker</button>
         <button class="secondary" id="journalPhotoButton" type="button">🖼️ Picture</button>
       </div>
+
+      <div id="journalEditor" class="editor" contenteditable="true" role="textbox" aria-label="Journal entry" data-placeholder="Dear diary..."></div>
+
       <input type="file" id="journalPhotoInput" accept="image/*" hidden>
-      <div id="journalEditor" contenteditable="true" aria-label="Journal editor"></div>
-      <button class="primary" type="submit">Save journal entry</button>
+
+      <button class="primary" type="submit">♡ Save journal entry</button>
     </form>
   </div>
-  <div class="card"><h2>Saved journal entries</h2><div id="journalEntries"></div></div>
+
+  <div class="card">
+    <h2>My saved entries</h2>
+    <div id="journalEntries"></div>
+  </div>
 </section>
 
+<!-- FINANCE -->
+
 <section id="page-finance" class="page">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-icon">💵</div>
+      <div class="stat-label">Total income</div>
+      <div class="stat-value" id="financeIncome">₱0</div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">🛍️</div>
+      <div class="stat-label">Total expenses</div>
+      <div class="stat-value" id="financeExpenses">₱0</div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">💗</div>
+      <div class="stat-label">Balance</div>
+      <div class="stat-value" id="financeBalance">₱0</div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">🎯</div>
+      <div class="stat-label">Budget remaining</div>
+      <div class="stat-value" id="financeRemaining">₱0</div>
+    </div>
+  </div>
+
   <div class="card">
-    <h2>Monthly budget 💰</h2>
+    <h2>Monthly budget 🌷</h2>
     <form id="budgetForm" class="stack">
-      <div><label for="budgetAmount">Monthly budget (₱)</label><input id="budgetAmount" type="number" min="0" step="0.01" required></div>
+      <div>
+        <label for="budgetAmount">Monthly spending budget (₱)</label>
+        <input id="budgetAmount" type="number" min="0" step="0.01" required placeholder="e.g. 10000">
+      </div>
       <button class="primary" type="submit">Save budget</button>
     </form>
     <div class="progress"><div id="budgetProgress"></div></div>
-    <div class="small-muted" id="budgetSummary"></div>
+    <div class="small-muted" id="budgetMessage"></div>
   </div>
 
   <div class="grid">
     <div class="card">
-      <h2>Record income</h2>
+      <h2>Add income 💵</h2>
       <form id="incomeForm" class="stack">
-        <div><label for="incomeTitle">Income source</label><input id="incomeTitle" required maxlength="150" placeholder="Salary, side income..."></div>
-        <div><label for="incomeAmount">Amount (₱)</label><input id="incomeAmount" type="number" min="0.01" step="0.01" required></div>
-        <div><label for="incomeDate">Date received</label><input id="incomeDate" type="date" required></div>
+        <div>
+          <label for="incomeTitle">Income source</label>
+          <input id="incomeTitle" required maxlength="200" placeholder="e.g. Salary">
+        </div>
+        <div>
+          <label for="incomeAmount">Amount (₱)</label>
+          <input id="incomeAmount" type="number" min="0.01" step="0.01" required>
+        </div>
+        <div>
+          <label for="incomeDate">Date received</label>
+          <input id="incomeDate" type="date" required>
+        </div>
         <button class="primary" type="submit">＋ Add income</button>
       </form>
     </div>
+
     <div class="card">
-      <h2>Record expense</h2>
+      <h2>Add expense 🛍️</h2>
       <form id="expenseForm" class="stack">
-        <div><label for="expenseTitle">Expense name</label><input id="expenseTitle" required maxlength="150" placeholder="Food, bills..."></div>
-        <div><label for="expenseAmount">Amount (₱)</label><input id="expenseAmount" type="number" min="0.01" step="0.01" required></div>
-        <div><label for="expenseDate">Date paid</label><input id="expenseDate" type="date" required></div>
-        <div><label for="expenseCategory">Category</label><select id="expenseCategory"><option>Food</option><option>Transport</option><option>Bills</option><option>Shopping</option><option>Education</option><option>Health</option><option>Personal</option><option>Other</option></select></div>
+        <div>
+          <label for="expenseTitle">Expense name</label>
+          <input id="expenseTitle" required maxlength="200" placeholder="e.g. Groceries">
+        </div>
+        <div>
+          <label for="expenseAmount">Amount (₱)</label>
+          <input id="expenseAmount" type="number" min="0.01" step="0.01" required>
+        </div>
+        <div>
+          <label for="expenseDate">Date</label>
+          <input id="expenseDate" type="date" required>
+        </div>
+        <div>
+          <label for="expenseCategory">Category</label>
+          <select id="expenseCategory">
+            <option>Food</option>
+            <option>Transportation</option>
+            <option>Bills</option>
+            <option>Education</option>
+            <option>Shopping</option>
+            <option>Health</option>
+            <option>Savings</option>
+            <option>Other</option>
+          </select>
+        </div>
         <button class="primary" type="submit">＋ Add expense</button>
       </form>
     </div>
   </div>
 
-  <div class="card"><h2>Income and expenses</h2><div class="chart-box"><canvas id="financeChart"></canvas></div></div>
-  <div class="card"><h2>Income history</h2><div id="incomeList"></div></div>
-  <div class="card"><h2>Expense history</h2><div id="expenseList"></div></div>
+  <div class="card">
+    <h2>Monthly financial graph 📊</h2>
+    <div class="chart-box">
+      <canvas id="financeChart"></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Expenses by category</h2>
+    <div class="donut-wrap">
+      <div class="donut" id="expenseDonut">
+        <div class="donut-hole" id="expenseDonutLabel">₱0<br>spent</div>
+      </div>
+      <div class="legend" id="expenseLegend"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Income history</h2>
+    <div id="incomeList"></div>
+  </div>
+
+  <div class="card">
+    <h2>Expense history</h2>
+    <div id="expenseList"></div>
+  </div>
 </section>
+
+<!-- GALLERY -->
 
 <section id="page-gallery" class="page">
   <div class="card">
-    <h2>My photo gallery 🖼️</h2>
-    <p class="small-muted">Add photos to your gallery and display your favorites on the dashboard.</p>
+    <h2>My memories 🖼️</h2>
+    <p class="small-muted">Upload pictures to keep them in your personal gallery.</p>
     <label for="galleryInput">Choose photos</label>
-    <input id="galleryInput" type="file" accept="image/*" multiple>
+    <input type="file" id="galleryInput" accept="image/*" multiple>
     <div id="galleryStatus" class="small-muted" style="margin-top:10px"></div>
   </div>
-  <div class="card"><h2>Your photos</h2><div id="galleryGrid" class="photo-grid"></div></div>
+
+  <div class="card">
+    <h2>Photo gallery</h2>
+    <div id="galleryGrid" class="gallery"></div>
+  </div>
 </section>
+
+<!-- SETTINGS -->
 
 <section id="page-settings" class="page">
   <div class="card">
     <h2>Personalize MyAssist ⚙️</h2>
     <form id="settingsForm" class="stack">
-      <div><label for="displayName">Your preferred name</label><input id="displayName" maxlength="80" placeholder="Your name"></div>
-      <div><label for="welcomeMessage">Dashboard greeting</label><input id="welcomeMessage" maxlength="150" placeholder="A little progress every day"></div>
+      <div>
+        <label for="displayName">Your preferred name</label>
+        <input id="displayName" maxlength="80" placeholder="What should your dashboard say?">
+      </div>
+      <div>
+        <label for="welcomeMessage">Dashboard greeting</label>
+        <input id="welcomeMessage" maxlength="150" placeholder="A little progress every day">
+      </div>
       <button class="primary" type="submit">Save preferences</button>
     </form>
   </div>
 
   <div class="card">
-    <h2>Dashboard cover photo</h2>
+    <h2>Dashboard cover photo 🌸</h2>
     <label for="coverInput">Choose a cover photo</label>
     <input type="file" id="coverInput" accept="image/*">
-    <div class="actions"><button class="secondary" id="removeCover" type="button">Remove cover photo</button></div>
-    <p class="small-muted">Your cover photo is stored separately from your planner entries.</p>
+    <div class="actions" style="margin-top:10px">
+      <button class="secondary" id="removeCover" type="button">Remove cover photo</button>
+    </div>
+    <p class="small-muted">Your cover image is stored in the browser's local database.</p>
   </div>
 
   <div class="card">
@@ -452,837 +1084,1495 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:22px}
     <hr>
     <div class="stack">
       <button class="primary" id="exportBackup" type="button">⬇ Export backup</button>
-      <label for="importBackup">Restore a MyAssist backup</label>
+      <label for="importBackup">Restore from a MyAssist backup</label>
       <input type="file" id="importBackup" accept=".json,application/json">
       <button class="danger" id="clearData" type="button">Delete all MyAssist data</button>
     </div>
-    <p class="small-muted">Export backups regularly and before major changes. Browser data can be cleared by the browser or device.</p>
+    <p class="small-muted">
+      Keep backup files somewhere safe. Browser data can be removed when website data is cleared,
+      when browser storage is evicted, or when the device runs out of space.
+      Export backups regularly, especially before updating this app.
+    </p>
   </div>
 </section>
 
-<footer>Made with ♡ for your goals, plans, and memories.</footer>
+<footer>Made with ♡ for your goals, memories, and future.</footer>
+
 </main>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 "use strict";
 
-/* Storage names used by the earlier MyAssist version */
-const DATA_KEY = "myassist-ipad-v1";
-const PHOTO_DB_NAME = "myassist-photo-store-v1";
-const PHOTO_STORE = "photos";
-const COVER_ID = "myassist-cover";
+/* =========================================================
+   MyAssist — IndexedDB storage and event handlers
+   ========================================================= */
 
-let state;
-let photoDB;
-let selectedPlannerDate = dateKey(new Date());
+const DB_NAME = "MyAssistCompleteV1";
+const DB_VERSION = 1;
+const STORE = "records";
+
+let db = null;
+let state = null;
+let selectedPlannerDate = today();
 let plannerMonthDate = new Date();
 let dashboardMonthDate = new Date();
-let toastTimer;
+let toastTimer = null;
+let chartResizeTimer = null;
 
 const $ = id => document.getElementById(id);
 
-function dateKey(d){
-  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+function today() {
+  const d = new Date();
+  return dateKey(d);
 }
-function today(){return dateKey(new Date());}
-function parseDate(s){
-  const p=String(s||today()).split("-").map(Number);
-  return new Date(p[0],p[1]-1,p[2]||1);
+
+function dateKey(d) {
+  return d.getFullYear() + "-" +
+    String(d.getMonth() + 1).padStart(2, "0") + "-" +
+    String(d.getDate()).padStart(2, "0");
 }
-function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8);}
-function esc(s){
-  return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function parseDate(s) {
+  const parts = String(s || today()).split("-").map(Number);
+  return new Date(parts[0], parts[1] - 1, parts[2] || 1);
 }
-function money(n){
-  return new Intl.NumberFormat("en-PH",{style:"currency",currency:"PHP",maximumFractionDigits:2}).format(Number(n)||0);
+
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 9);
 }
-function displayDate(s){
-  return s?parseDate(s).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}):"";
+
+function money(n) {
+  return new Intl.NumberFormat("en-PH", {
+    style: "currency",
+    currency: "PHP",
+    maximumFractionDigits: 2
+  }).format(Number(n) || 0);
 }
-function monthName(d){return d.toLocaleDateString(undefined,{month:"long",year:"numeric"});}
-function notify(message){
-  const el=$("toast");el.textContent=message;el.classList.add("show");
-  clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2800);
+
+function escapeHTML(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;",
+    '"':"&quot;", "'":"&#39;"
+  })[c]);
 }
-function defaultState(){
+
+function monthKey(s) {
+  return String(s || today()).slice(0, 7);
+}
+
+function sameMonth(a, b) {
+  return monthKey(a) === monthKey(b);
+}
+
+function monthName(d) {
+  return d.toLocaleDateString(undefined, {month:"long", year:"numeric"});
+}
+
+function displayDate(s) {
+  if (!s) return "";
+  return parseDate(s).toLocaleDateString(undefined, {
+    month:"short", day:"numeric", year:"numeric"
+  });
+}
+
+function monthItems(list, date) {
+  const key = dateKey(date).slice(0, 7);
+  return list.filter(x => String(x.date || "").slice(0, 7) === key);
+}
+
+function defaultState() {
   return {
-    tasks:[],events:[],notes:[],journals:[],
-    incomes:[],expenses:[],budget:0,
-    settings:{name:"",greeting:"A little progress every day"},
-    gallery:[],coverId:null
+    tasks: [],
+    events: [],
+    notes: [],
+    journals: [],
+    incomes: [],
+    expenses: [],
+    budget: 0,
+    settings: {
+      name: "",
+      greeting: "A little progress every day"
+    },
+    coverId: null
   };
 }
-function normalizeState(input){
-  const d=defaultState();
-  const result=Object.assign(d,input||{});
-  result.settings=Object.assign(d.settings,result.settings||{});
-  ["tasks","events","notes","journals","incomes","expenses","gallery"].forEach(k=>{
-    if(!Array.isArray(result[k]))result[k]=[];
-  });
-  return result;
+
+function notify(message) {
+  const el = $("toast");
+  el.textContent = message;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), 2800);
 }
 
-/* IndexedDB photo storage */
-function openPhotoDB(){
-  return new Promise((resolve,reject)=>{
-    if(!("indexedDB" in window))return reject(new Error("IndexedDB is not available."));
-    const request=indexedDB.open(PHOTO_DB_NAME,1);
-    request.onupgradeneeded=()=>{
-      const db=request.result;
-      if(!db.objectStoreNames.contains(PHOTO_STORE)){
-        db.createObjectStore(PHOTO_STORE,{keyPath:"id"});
+/* ---------- IndexedDB ---------- */
+
+function openDatabase() {
+  return new Promise((resolve, reject) => {
+    if (!("indexedDB" in window)) {
+      reject(new Error("IndexedDB is not available in this browser."));
+      return;
+    }
+
+    let request;
+    try {
+      request = indexedDB.open(DB_NAME, DB_VERSION);
+    } catch (e) {
+      reject(e);
+      return;
+    }
+
+    request.onupgradeneeded = () => {
+      const database = request.result;
+      if (!database.objectStoreNames.contains(STORE)) {
+        database.createObjectStore(STORE, {keyPath:"key"});
       }
     };
-    request.onsuccess=()=>{photoDB=request.result;resolve(photoDB);};
-    request.onerror=()=>reject(request.error);
-  });
-}
-function photoPut(record){
-  return new Promise((resolve,reject)=>{
-    const tx=photoDB.transaction(PHOTO_STORE,"readwrite");
-    tx.objectStore(PHOTO_STORE).put(record);
-    tx.oncomplete=()=>resolve();
-    tx.onerror=()=>reject(tx.error);
-    tx.onabort=()=>reject(tx.error);
-  });
-}
-function photoGet(id){
-  return new Promise((resolve,reject)=>{
-    const tx=photoDB.transaction(PHOTO_STORE,"readonly");
-    const req=tx.objectStore(PHOTO_STORE).get(id);
-    req.onsuccess=()=>resolve(req.result||null);
-    req.onerror=()=>reject(req.error);
-  });
-}
-function photoAll(){
-  return new Promise((resolve,reject)=>{
-    const tx=photoDB.transaction(PHOTO_STORE,"readonly");
-    const req=tx.objectStore(PHOTO_STORE).getAll();
-    req.onsuccess=()=>resolve(req.result||[]);
-    req.onerror=()=>reject(req.error);
-  });
-}
-function photoDelete(id){
-  return new Promise((resolve,reject)=>{
-    const tx=photoDB.transaction(PHOTO_STORE,"readwrite");
-    tx.objectStore(PHOTO_STORE).delete(id);
-    tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);
-  });
-}
-async function savePhoto(file){
-  if(!file||!file.type.startsWith("image/"))throw new Error("Choose an image file.");
-  const record={id:uid(),name:file.name||"Photo",type:file.type,blob:file,createdAt:new Date().toISOString()};
-  await photoPut(record);
-  return record.id;
-}
-async function photoURL(id){
-  if(!id)return null;
-  const p=await photoGet(id);
-  if(!p||!p.blob)return null;
-  return URL.createObjectURL(p.blob);
-}
-function fileToDataURL(blob){
-  return new Promise((resolve,reject)=>{
-    const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(r.error);r.readAsDataURL(blob);
-  });
-}
-async function dataURLToBlob(data){return await (await fetch(data)).blob();}
 
-/* Load and save app data */
-function loadState(){
-  try{
-    const raw=localStorage.getItem(DATA_KEY);
-    if(raw)state=normalizeState(JSON.parse(raw));
-    else state=defaultState();
-  }catch(error){
-    console.error(error);
-    state=defaultState();
-    notify("Could not read saved data. Please restore a backup if you have one.");
-  }
+    request.onsuccess = () => {
+      db = request.result;
+      db.onversionchange = () => db.close();
+      resolve(db);
+    };
+
+    request.onerror = () => reject(request.error || new Error("Could not open storage."));
+    request.onblocked = () => reject(new Error("Close other MyAssist tabs and reload."));
+  });
 }
-function saveState(message="Saved successfully ♡"){
-  try{
-    localStorage.setItem(DATA_KEY,JSON.stringify(state));
-    if(message)notify(message);
+
+function getRecord(key) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readonly");
+    const request = tx.objectStore(STORE).get(key);
+    request.onsuccess = () => resolve(request.result ? request.result.value : undefined);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+function putRecord(key, value) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readwrite");
+    tx.objectStore(STORE).put({key, value});
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error || new Error("Could not save."));
+    tx.onabort = () => reject(tx.error || new Error("Save was cancelled."));
+  });
+}
+
+function deleteRecord(key) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readwrite");
+    tx.objectStore(STORE).delete(key);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+function getAllRecords() {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readonly");
+    const request = tx.objectStore(STORE).getAll();
+    request.onsuccess = () => resolve(request.result || []);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function loadState() {
+  const stored = await getRecord("app-state");
+  state = Object.assign(defaultState(), stored || {});
+  state.settings = Object.assign(
+    defaultState().settings,
+    state.settings || {}
+  );
+
+  for (const key of [
+    "tasks","events","notes","journals","incomes","expenses"
+  ]) {
+    if (!Array.isArray(state[key])) state[key] = [];
+  }
+
+  if (!Number.isFinite(Number(state.budget))) state.budget = 0;
+}
+
+async function saveState(message = "Saved successfully ♡") {
+  try {
+    await putRecord("app-state", state);
     updateStorageInfo();
+    if (message) notify(message);
     return true;
-  }catch(error){
-    console.error(error);
-    notify("Could not save. Export a backup and check your available browser storage.");
+  } catch (error) {
+    console.error("MyAssist save failed:", error);
+    notify("Could not save. Export a backup and check your iPad storage.");
     return false;
   }
 }
 
-/* Navigation */
-function showPage(page){
-  if(!$("page-"+page))return;
-  document.querySelectorAll(".page").forEach(el=>el.classList.toggle("active",el.id==="page-"+page));
-  document.querySelectorAll(".tab").forEach(el=>el.classList.toggle("active",el.dataset.page===page));
-  if(page==="planner")renderPlanner();
-  if(page==="finance")renderFinance();
-  if(page==="gallery")renderGallery();
-  if(page==="dashboard")renderDashboard();
-  window.scrollTo({top:0,behavior:"smooth"});
+/* Store images as blobs, not base64 strings in localStorage. */
+async function saveImage(file) {
+  if (!file || !file.type || !file.type.startsWith("image/")) {
+    throw new Error("Please choose a valid image.");
+  }
+
+  const id = "photo-" + uid();
+
+  await putRecord(id, {
+    blob: file,
+    name: file.name || "photo",
+    type: file.type,
+    savedAt: new Date().toISOString()
+  });
+
+  return id;
 }
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
-document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.go)));
 
-/* Tasks */
-$("taskDate").value=today();
-$("eventDate").value=today();
-$("incomeDate").value=today();
-$("expenseDate").value=today();
+async function getImage(id) {
+  if (!id) return null;
+  const record = await getRecord(id);
+  if (!record) return null;
+  const blob = record.blob;
+  if (!(blob instanceof Blob)) return null;
+  return URL.createObjectURL(blob);
+}
 
-$("taskForm").addEventListener("submit",e=>{
+async function removeImage(id) {
+  if (id) await deleteRecord(id);
+}
+
+async function getAllPhotos() {
+  const records = await getAllRecords();
+  return records
+    .filter(r => r.key.startsWith("photo-") && r.value && r.value.blob instanceof Blob)
+    .map(r => ({id:r.key, ...r.value}));
+}
+
+async function fileToDataURL(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function dataURLToBlob(dataURL) {
+  const response = await fetch(dataURL);
+  return response.blob();
+}
+
+/* ---------- Navigation ---------- */
+
+function showPage(page) {
+  if (!$("page-" + page)) return;
+
+  document.querySelectorAll(".page").forEach(el => {
+    el.classList.toggle("active", el.id === "page-" + page);
+  });
+
+  document.querySelectorAll(".tab").forEach(el => {
+    el.classList.toggle("active", el.dataset.page === page);
+  });
+
+  if (page === "finance") renderFinance();
+  if (page === "planner") renderPlanner();
+  if (page === "gallery") renderGallery();
+  if (page === "dashboard") renderDashboard();
+
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+document.querySelectorAll(".tab").forEach(button => {
+  button.addEventListener("click", () => showPage(button.dataset.page));
+});
+
+document.querySelectorAll("[data-go]").forEach(button => {
+  button.addEventListener("click", () => showPage(button.dataset.go));
+});
+
+/* ---------- Tasks ---------- */
+
+$("taskDate").value = today();
+$("eventDate").value = today();
+$("incomeDate").value = today();
+$("expenseDate").value = today();
+
+$("taskForm").addEventListener("submit", async e => {
   e.preventDefault();
-  const title=$("taskTitle").value.trim(),date=$("taskDate").value;
-  if(!title||!date)return;
+
+  const title = $("taskTitle").value.trim();
+  const date = $("taskDate").value;
+
+  if (!title || !date) return;
+
   state.tasks.unshift({
-    id:uid(),title,date,priority:$("taskPriority").value,
-    details:$("taskDetails").value.trim(),done:false,
+    id:uid(),
+    title,
+    date,
+    priority:$("taskPriority").value,
+    details:$("taskDetails").value.trim(),
+    done:false,
     createdAt:new Date().toISOString()
   });
-  if(saveState("Task added ♡")){
-    e.target.reset();$("taskDate").value=today();renderAll();
-  }
-});
-$("taskFilter").addEventListener("change",renderTasks);
-$("taskList").addEventListener("change",e=>{
-  const box=e.target.closest("[data-task-check]");if(!box)return;
-  const task=state.tasks.find(t=>t.id===box.dataset.taskCheck);if(!task)return;
-  task.done=box.checked;
-  if(saveState("Task updated ♡"))renderAll();
-});
-$("taskList").addEventListener("click",e=>{
-  const b=e.target.closest("[data-delete-task]");if(!b)return;
-  state.tasks=state.tasks.filter(t=>t.id!==b.dataset.deleteTask);
-  if(saveState("Task deleted"))renderAll();
-});
-function taskHTML(t){
-  return `<div class="item ${t.done?"done":""}">
-    <input type="checkbox" data-task-check="${esc(t.id)}" ${t.done?"checked":""} aria-label="Mark task complete">
-    <div class="item-body"><div class="item-title">${esc(t.title)}</div>
-    <div class="item-meta">${esc(displayDate(t.date))} · ${esc(t.priority||"Normal")}${t.details?"<br>"+esc(t.details):""}</div></div>
-    <button class="danger" data-delete-task="${esc(t.id)}">Delete</button>
-  </div>`;
-}
-function renderTasks(){
-  let tasks=[...state.tasks].sort((a,b)=>String(a.date).localeCompare(String(b.date)));
-  const filter=$("taskFilter").value;
-  if(filter==="active")tasks=tasks.filter(t=>!t.done);
-  if(filter==="done")tasks=tasks.filter(t=>t.done);
-  $("taskList").innerHTML=tasks.length?tasks.map(taskHTML).join(""):'<div class="empty">No tasks here yet. Add your first task 🌱</div>';
-  const total=state.tasks.length,done=state.tasks.filter(t=>t.done).length;
-  const pct=total?done/total*100:0;
-  $("taskProgress").style.width=pct+"%";
-  $("taskProgressText").textContent=`${done} of ${total} tasks completed · ${Math.round(pct)}%`;
-}
 
-/* Planner time options */
-function populateTimeOptions(){
-  const start=$("eventStartTime"),end=$("eventEndTime");
-  const options=selected=>{
-    let html="";
-    for(let mins=0;mins<1440;mins+=15){
-      const h=Math.floor(mins/60),m=mins%60;
-      const value=String(h).padStart(2,"0")+":"+String(m).padStart(2,"0");
-      const label=new Date(2000,0,1,h,m).toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});
-      html+=`<option value="${value}" ${value===selected?"selected":""}>${label}</option>`;
-    }
-    return html;
-  };
-  start.innerHTML=options("09:00");
-  end.innerHTML=options("09:30");
-}
-function timeLabel(value){
-  if(!value)return "Time not set";
-  const [h,m]=value.split(":").map(Number);
-  return new Date(2000,0,1,h,m).toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});
-}
-function validEventTimes(start,end){return Boolean(start&&end&&start<end);}
-
-$("eventForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const title=$("eventTitle").value.trim();
-  const date=$("eventDate").value;
-  const startTime=$("eventStartTime").value;
-  const endTime=$("eventEndTime").value;
-  if(!title||!date)return;
-  if(!validEventTimes(startTime,endTime)){
-    notify("End time must be later than start time.");
-    return;
-  }
-  state.events.unshift({
-    id:uid(),title,date,startTime,endTime,
-    type:$("eventType").value,
-    details:$("eventDetails").value.trim(),
-    createdAt:new Date().toISOString()
-  });
-  selectedPlannerDate=date;
-  plannerMonthDate=parseDate(date);
-  if(saveState("Added to planner ♡")){
+  if (await saveState()) {
     e.target.reset();
-    $("eventDate").value=selectedPlannerDate;
-    $("eventStartTime").value="09:00";
-    $("eventEndTime").value="09:30";
+    $("taskDate").value = today();
+    $("taskPriority").value = "Normal";
     renderAll();
   }
 });
-$("plannerPrev").addEventListener("click",()=>{
-  plannerMonthDate.setMonth(plannerMonthDate.getMonth()-1);renderPlanner();
-});
-$("plannerNext").addEventListener("click",()=>{
-  plannerMonthDate.setMonth(plannerMonthDate.getMonth()+1);renderPlanner();
-});
-$("plannerCalendar").addEventListener("click",e=>{
-  const b=e.target.closest("[data-planner-day]");if(!b)return;
-  selectedPlannerDate=b.dataset.plannerDay;
-  $("eventDate").value=selectedPlannerDate;
-  renderPlanner();
-});
-$("plannerDayItems").addEventListener("click",e=>{
-  const b=e.target.closest("[data-delete-event]");if(!b)return;
-  state.events=state.events.filter(ev=>ev.id!==b.dataset.deleteEvent);
-  if(saveState("Schedule item deleted"))renderAll();
+
+$("taskFilter").addEventListener("change", renderTasks);
+
+$("taskList").addEventListener("change", async e => {
+  const box = e.target.closest("[data-task-check]");
+  if (!box) return;
+
+  const task = state.tasks.find(t => t.id === box.dataset.taskCheck);
+  if (!task) return;
+
+  task.done = box.checked;
+
+  if (await saveState("Task updated ♡")) renderAll();
+  else box.checked = !box.checked;
 });
 
-function icsEscape(value){
-  return String(value??"")
-    .replace(/\\/g,"\\\\")
-    .replace(/\r?\n/g,"\\n")
-    .replace(/,/g,"\\,")
-    .replace(/;/g,"\\;");
+$("taskList").addEventListener("click", async e => {
+  const btn = e.target.closest("[data-delete-task]");
+  if (!btn) return;
+
+  state.tasks = state.tasks.filter(t => t.id !== btn.dataset.deleteTask);
+
+  if (await saveState("Task deleted")) renderAll();
+});
+
+function taskHTML(task) {
+  return `
+    <div class="item ${task.done ? "done" : ""}">
+      <input type="checkbox"
+        data-task-check="${escapeHTML(task.id)}"
+        ${task.done ? "checked" : ""}
+        aria-label="Mark ${escapeHTML(task.title)} complete">
+      <div class="item-body">
+        <div class="item-title">${escapeHTML(task.title)}</div>
+        <div class="item-meta">
+          ${escapeHTML(displayDate(task.date))}
+          · ${escapeHTML(task.priority || "Normal")}
+          ${task.details ? "<br>" + escapeHTML(task.details) : ""}
+        </div>
+      </div>
+      <button class="danger" data-delete-task="${escapeHTML(task.id)}">Delete</button>
+    </div>`;
 }
-function icsDateTime(date,time){
-  return String(date).replace(/-/g,"")+"T"+String(time||"09:00").replace(":","")+"00";
+
+function renderTasks() {
+  const filter = $("taskFilter").value;
+  let tasks = [...state.tasks].sort((a,b) =>
+    String(a.date).localeCompare(String(b.date))
+  );
+
+  if (filter === "active") tasks = tasks.filter(t => !t.done);
+  if (filter === "done") tasks = tasks.filter(t => t.done);
+
+  $("taskList").innerHTML = tasks.length
+    ? tasks.map(taskHTML).join("")
+    : '<div class="empty">No tasks here yet. Add your first task above 🌷</div>';
+
+  const total = state.tasks.length;
+  const done = state.tasks.filter(t => t.done).length;
+  const pct = total ? done / total * 100 : 0;
+
+  $("taskProgress").style.width = pct + "%";
+  $("taskProgressText").textContent =
+    `${done} of ${total} tasks completed · ${Math.round(pct)}%`;
 }
-function downloadCalendar(){
-  const events=[...state.events]
-    .filter(ev=>ev.date)
-    .sort((a,b)=>(a.date+(a.startTime||"09:00")).localeCompare(b.date+(b.startTime||"09:00")));
-  if(!events.length){
-    notify("Add a schedule before exporting your calendar.");
+
+/* ---------- Planner ---------- */
+
+$("eventForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const title = $("eventTitle").value.trim();
+  const date = $("eventDate").value;
+  if (!title || !date) return;
+
+  state.events.unshift({
+    id:uid(),
+    title,
+    date,
+    type:$("eventType").value,
+    details:$("eventDetails").value.trim()
+  });
+
+  selectedPlannerDate = date;
+  plannerMonthDate = parseDate(date);
+
+  if (await saveState("Added to your planner ♡")) {
+    e.target.reset();
+    $("eventDate").value = selectedPlannerDate;
+    renderAll();
+  }
+});
+
+$("plannerPrev").addEventListener("click", () => {
+  plannerMonthDate.setMonth(plannerMonthDate.getMonth() - 1);
+  renderPlanner();
+});
+
+$("plannerNext").addEventListener("click", () => {
+  plannerMonthDate.setMonth(plannerMonthDate.getMonth() + 1);
+  renderPlanner();
+});
+
+$("plannerCalendar").addEventListener("click", e => {
+  const button = e.target.closest("[data-planner-day]");
+  if (!button) return;
+  selectedPlannerDate = button.dataset.plannerDay;
+  $("eventDate").value = selectedPlannerDate;
+  renderPlanner();
+});
+
+$("plannerDayItems").addEventListener("click", async e => {
+  const button = e.target.closest("[data-delete-event]");
+  if (!button) return;
+
+  state.events = state.events.filter(x => x.id !== button.dataset.deleteEvent);
+  if (await saveState("Schedule item deleted")) renderAll();
+});
+
+function calendarHTML(monthDate, selectedDate) {
+  const year = monthDate.getFullYear();
+  const month = monthDate.getMonth();
+  const first = new Date(year, month, 1).getDay();
+  const count = new Date(year, month + 1, 0).getDate();
+  let html = "";
+
+  for (let i = 0; i < first; i++) {
+    html += '<button class="day" disabled aria-hidden="true"></button>';
+  }
+
+  for (let day = 1; day <= count; day++) {
+    const d = dateKey(new Date(year, month, day));
+    const hasItems =
+      state.events.some(x => x.date === d) ||
+      state.tasks.some(x => x.date === d);
+
+    const classes = [
+      "day",
+      d === selectedDate ? "selected" : "",
+      d === today() ? "today" : ""
+    ].filter(Boolean).join(" ");
+
+    html += `
+      <button class="${classes}" data-planner-day="${d}">
+        ${day}<span class="dot">${hasItems ? "•" : ""}</span>
+      </button>`;
+  }
+
+  return html;
+}
+
+function eventHTML(item) {
+  return `
+    <div class="item">
+      <div class="item-body">
+        <div class="item-title">${escapeHTML(item.title)}</div>
+        <div class="item-meta">
+          ${escapeHTML(item.type || "Schedule")}
+          ${item.details ? " · " + escapeHTML(item.details) : ""}
+        </div>
+      </div>
+      <button class="danger" data-delete-event="${escapeHTML(item.id)}">Delete</button>
+    </div>`;
+}
+
+function renderPlanner() {
+  $("plannerMonth").textContent = monthName(plannerMonthDate);
+  $("plannerCalendar").innerHTML =
+    calendarHTML(plannerMonthDate, selectedPlannerDate);
+
+  $("plannerSelectedTitle").textContent =
+    "Schedule for " + displayDate(selectedPlannerDate);
+
+  const events = state.events.filter(x => x.date === selectedPlannerDate);
+  const tasks = state.tasks.filter(x => x.date === selectedPlannerDate);
+
+  let html = events.map(eventHTML).join("");
+
+  if (tasks.length) {
+    html += tasks.map(t => `
+      <div class="item ${t.done ? "done" : ""}">
+        <div class="item-body">
+          <div class="item-title">✅ ${escapeHTML(t.title)}</div>
+          <div class="item-meta">Task · ${t.done ? "Completed" : "Not completed"}</div>
+        </div>
+      </div>`).join("");
+  }
+
+  $("plannerDayItems").innerHTML = html ||
+    '<div class="empty">Nothing scheduled for this date.</div>';
+}
+
+/* ---------- Notes ---------- */
+
+$("noteForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const title = $("noteTitle").value.trim();
+  const content = $("noteContent").value.trim();
+
+  if (!title || !content) return;
+
+  state.notes.unshift({
+    id:uid(),
+    title,
+    content,
+    createdAt:new Date().toISOString()
+  });
+
+  if (await saveState("Note saved ♡")) {
+    e.target.reset();
+    renderAll();
+  }
+});
+
+$("notesList").addEventListener("click", async e => {
+  const btn = e.target.closest("[data-delete-note]");
+  if (!btn) return;
+
+  state.notes = state.notes.filter(n => n.id !== btn.dataset.deleteNote);
+  if (await saveState("Note deleted")) renderAll();
+});
+
+function renderNotes() {
+  $("notesList").innerHTML = state.notes.length
+    ? state.notes.map(n => `
+      <div class="item">
+        <div class="item-body">
+          <div class="item-title">${escapeHTML(n.title)}</div>
+          <div class="item-meta">${escapeHTML(new Date(n.createdAt).toLocaleString())}</div>
+          <p style="font-size:13px;line-height:1.6;white-space:pre-wrap">${escapeHTML(n.content)}</p>
+        </div>
+        <button class="danger" data-delete-note="${escapeHTML(n.id)}">Delete</button>
+      </div>`).join("")
+    : '<div class="empty">Your notes will appear here after you save them 📝</div>';
+}
+
+/* ---------- Rich journal ---------- */
+
+document.querySelectorAll("[data-command]").forEach(button => {
+  button.addEventListener("click", () => {
+    $("journalEditor").focus();
+    document.execCommand(button.dataset.command, false, null);
+  });
+});
+
+$("journalTextColor").addEventListener("change", e => {
+  $("journalEditor").focus();
+  document.execCommand("styleWithCSS", false, true);
+  document.execCommand("foreColor", false, e.target.value);
+});
+
+$("addSticker").addEventListener("click", () => {
+  $("journalEditor").focus();
+  const sticker = document.createTextNode(" 🌸 💗 ✨ ");
+  const selection = window.getSelection();
+
+  if (selection && selection.rangeCount) {
+    const range = selection.getRangeAt(0);
+    range.deleteContents();
+    range.insertNode(sticker);
+    range.collapse(false);
+  } else {
+    $("journalEditor").appendChild(sticker);
+  }
+});
+
+$("journalPhotoButton").addEventListener("click", () => {
+  $("journalPhotoInput").click();
+});
+
+$("journalPhotoInput").addEventListener("change", async e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+
+  try {
+    const id = await saveImage(file);
+    const src = await getImage(id);
+
+    if (src) {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = file.name || "Journal picture";
+      img.dataset.photoId = id;
+      img.style.display = "block";
+      img.style.margin = "12px 0";
+      $("journalEditor").appendChild(img);
+
+      const p = document.createElement("p");
+      p.appendChild(document.createElement("br"));
+      $("journalEditor").appendChild(p);
+
+      notify("Picture added to your journal ♡");
+    }
+  } catch (error) {
+    console.error(error);
+    notify("Could not save the picture. Check available storage.");
+  }
+
+  e.target.value = "";
+});
+
+$("journalForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const editor = $("journalEditor");
+  const html = editor.innerHTML.trim();
+
+  if (!editor.textContent.trim() && !editor.querySelector("img")) {
+    notify("Write something in your journal first.");
     return;
   }
 
-  const stamp=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
-  const lines=[
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//MyAssist//Schedule Planner//EN",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH"
-  ];
-
-  events.forEach(ev=>{
-    const start=ev.startTime||"09:00";
-    let end=ev.endTime;
-
-    /* Older entries without times get a 30-minute default duration. */
-    if(!end){
-      const [h,m]=start.split(":").map(Number);
-      const total=Math.min(1439,h*60+m+30);
-      end=String(Math.floor(total/60)).padStart(2,"0")+":"+String(total%60).padStart(2,"0");
-      if(end<=start)end="23:59";
+  /* Persist pictures inside the journal as IndexedDB photo references.
+     Revoke only the temporary display URL after a successful save. */
+  const storedHTML = html.replace(
+    /<img([^>]*?)src="blob:[^"]*"([^>]*)>/g,
+    (match, before, after) => {
+      const img = editor.querySelector('img[src="' +
+        match.match(/src="([^"]+)"/)?.[1] + '"]');
+      if (!img || !img.dataset.photoId) return match;
+      return `<img${before}src="myassist-photo:${img.dataset.photoId}"${after}>`;
     }
+  );
 
-    lines.push(
-      "BEGIN:VEVENT",
-      "UID:"+icsEscape((ev.id||uid())+"@myassist.local"),
-      "DTSTAMP:"+stamp,
-      "DTSTART:"+icsDateTime(ev.date,start),
-      "DTEND:"+icsDateTime(ev.date,end),
-      "SUMMARY:"+icsEscape(ev.title||"MyAssist schedule"),
-      "DESCRIPTION:"+icsEscape([ev.type||"Schedule",ev.details||""].filter(Boolean).join("\n")),
-      "END:VEVENT"
-    );
-  });
-
-  lines.push("END:VCALENDAR");
-
-  const blob=new Blob([lines.join("\r\n")+"\r\n"],{type:"text/calendar;charset=utf-8"});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url;
-  a.download="myassist-calendar-"+today()+".ics";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url),3000);
-  notify("Calendar file exported. Open it to add schedules to your calendar ♡");
-}
-$("exportCalendar").addEventListener("click",downloadCalendar);
-
-function calendarHTML(monthDate,selected){
-  const y=monthDate.getFullYear(),m=monthDate.getMonth();
-  const first=new Date(y,m,1).getDay();
-  const count=new Date(y,m+1,0).getDate();
-  let html="";
-  for(let i=0;i<first;i++)html+='<button class="day" disabled></button>';
-  for(let day=1;day<=count;day++){
-    const date=dateKey(new Date(y,m,day));
-    const has=state.events.some(ev=>ev.date===date)||state.tasks.some(t=>t.date===date);
-    html+=`<button class="day ${date===selected?"selected":""} ${date===today()?"today":""}" data-planner-day="${date}">${day}<span class="dot">${has?"•":""}</span></button>`;
-  }
-  return html;
-}
-function renderPlanner(){
-  $("plannerMonth").textContent=monthName(plannerMonthDate);
-  $("plannerCalendar").innerHTML=calendarHTML(plannerMonthDate,selectedPlannerDate);
-  $("plannerSelectedTitle").textContent="Schedule for "+displayDate(selectedPlannerDate);
-  const events=state.events.filter(ev=>ev.date===selectedPlannerDate)
-    .sort((a,b)=>String(a.startTime||"").localeCompare(String(b.startTime||"")));
-  const tasks=state.tasks.filter(t=>t.date===selectedPlannerDate);
-  $("plannerDayItems").innerHTML=[
-    ...events.map(ev=>`<div class="item"><div class="item-body">
-      <div class="item-title">${esc(ev.title)}</div>
-      <div class="item-meta">${esc(ev.startTime?timeLabel(ev.startTime)+(ev.endTime?" – "+timeLabel(ev.endTime):""):"Time not set")} · ${esc(ev.type||"Schedule")}${ev.details?" · "+esc(ev.details):""}</div>
-      </div><button class="danger" data-delete-event="${esc(ev.id)}">Delete</button></div>`),
-    ...tasks.map(t=>`<div class="item ${t.done?"done":""}"><div class="item-body">
-      <div class="item-title">☑ ${esc(t.title)}</div>
-      <div class="item-meta">Task · ${t.done?"Completed":"Not completed"}</div>
-      </div></div>`)
-  ].join("")||'<div class="empty">Nothing scheduled for this date.</div>';
-}
-
-/* Quick notes */
-$("noteForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const title=$("noteTitle").value.trim(),content=$("noteContent").value.trim();
-  if(!title||!content)return;
-  state.notes.unshift({id:uid(),title,content,createdAt:new Date().toISOString()});
-  if(saveState("Note saved ♡")){e.target.reset();renderAll();}
-});
-$("notesList").addEventListener("click",e=>{
-  const b=e.target.closest("[data-delete-note]");if(!b)return;
-  state.notes=state.notes.filter(n=>n.id!==b.dataset.deleteNote);
-  if(saveState("Note deleted"))renderAll();
-});
-function renderNotes(){
-  $("notesList").innerHTML=state.notes.length?state.notes.map(n=>`
-    <div class="item"><div class="item-body">
-      <div class="item-title">${esc(n.title)}</div>
-      <div class="item-meta">${esc(new Date(n.createdAt||Date.now()).toLocaleString())}</div>
-      <p style="font-size:13px;line-height:1.6;white-space:pre-wrap">${esc(n.content)}</p>
-    </div><button class="danger" data-delete-note="${esc(n.id)}">Delete</button></div>
-  `).join(""):'<div class="empty">Your saved notes will appear here 📝</div>';
-}
-
-/* Notebook / journal */
-document.querySelectorAll("[data-command]").forEach(b=>{
-  b.addEventListener("click",()=>{
-    $("journalEditor").focus();
-    document.execCommand(b.dataset.command,false,null);
-  });
-});
-$("addSticker").addEventListener("click",()=>{
-  $("journalEditor").focus();
-  document.execCommand("insertText",false," 🌸 💙 ✨ ");
-});
-$("journalPhotoButton").addEventListener("click",()=>$("journalPhotoInput").click());
-$("journalPhotoInput").addEventListener("change",async e=>{
-  const file=e.target.files?.[0];if(!file)return;
-  try{
-    const id=await savePhoto(file);
-    const url=await photoURL(id);
-    const img=document.createElement("img");
-    img.src=url;img.alt=file.name||"Journal picture";img.dataset.photoId=id;
-    $("journalEditor").appendChild(img);
-    $("journalEditor").appendChild(document.createElement("p"));
-    notify("Picture added to journal ♡");
-  }catch(error){
-    console.error(error);notify("Could not save picture. Check storage.");
-  }
-  e.target.value="";
-});
-$("journalForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const editor=$("journalEditor");
-  if(!editor.textContent.trim()&&!editor.querySelector("img")){
-    notify("Write something first.");return;
-  }
-  const clone=editor.cloneNode(true);
-  clone.querySelectorAll("img").forEach(img=>{
-    if(img.dataset.photoId)img.setAttribute("src","myassist-photo:"+img.dataset.photoId);
-    else img.remove();
-  });
   state.journals.unshift({
-    id:uid(),title:$("journalTitle").value.trim()||"Untitled entry",
-    html:clone.innerHTML,createdAt:new Date().toISOString()
+    id:uid(),
+    title:$("journalTitle").value.trim() || "Untitled entry",
+    html:storedHTML,
+    createdAt:new Date().toISOString()
   });
-  if(saveState("Journal entry saved ♡")){
-    $("journalTitle").value="";editor.innerHTML="";renderJournals();
-  }
-});
-$("journalEntries").addEventListener("click",e=>{
-  const b=e.target.closest("[data-delete-journal]");if(!b)return;
-  state.journals=state.journals.filter(j=>j.id!==b.dataset.deleteJournal);
-  if(saveState("Journal entry deleted"))renderJournals();
-});
-async function renderJournals(){
-  const box=$("journalEntries");
-  if(!state.journals.length){
-    box.innerHTML='<div class="empty">Your journal pages will appear here 📓</div>';return;
-  }
-  box.innerHTML=state.journals.map(j=>`
-    <article class="journal-entry">
-      <div class="row"><div><strong>${esc(j.title)}</strong><div class="item-meta">${esc(new Date(j.createdAt||Date.now()).toLocaleString())}</div></div>
-      <button class="danger" data-delete-journal="${esc(j.id)}">Delete</button></div>
-      <div class="journal-content" id="journal-view-${esc(j.id)}"></div>
-    </article>
-  `).join("");
 
-  for(const j of state.journals){
-    const el=$("journal-view-"+j.id);if(!el)continue;
-    const template=document.createElement("template");
-    template.innerHTML=j.html||"";
-    template.content.querySelectorAll("script,iframe,object,embed,form").forEach(n=>n.remove());
-    for(const img of template.content.querySelectorAll("img")){
-      const src=img.getAttribute("src")||"";
-      if(src.startsWith("myassist-photo:")){
-        const url=await photoURL(src.slice("myassist-photo:".length));
-        if(url)img.src=url;else img.remove();
-      }else img.remove();
-      img.removeAttribute("onerror");img.removeAttribute("onload");
+  if (await saveState("Journal entry saved ♡")) {
+    $("journalTitle").value = "";
+    editor.innerHTML = "";
+    renderJournals();
+  }
+});
+
+$("journalEntries").addEventListener("click", async e => {
+  const btn = e.target.closest("[data-delete-journal]");
+  if (!btn) return;
+
+  const entry = state.journals.find(x => x.id === btn.dataset.deleteJournal);
+  if (!entry) return;
+
+  const ids = [...String(entry.html).matchAll(/myassist-photo:(photo-[\w-]+)/g)]
+    .map(m => m[1]);
+
+  state.journals = state.journals.filter(x => x.id !== entry.id);
+
+  if (await saveState("Journal entry deleted")) {
+    for (const id of ids) {
+      const usedElsewhere = state.journals.some(j => j.html.includes("myassist-photo:" + id));
+      if (!usedElsewhere) {
+        try { await removeImage(id); } catch (err) { console.warn(err); }
+      }
     }
-    template.content.querySelectorAll("*").forEach(n=>{
-      [...n.attributes].forEach(a=>{if(a.name.toLowerCase().startsWith("on"))n.removeAttribute(a.name);});
+    renderJournals();
+  }
+});
+
+async function renderJournals() {
+  const container = $("journalEntries");
+
+  if (!state.journals.length) {
+    container.innerHTML = '<div class="empty">Your journal pages will appear here 📓</div>';
+    return;
+  }
+
+  container.innerHTML = state.journals.map(j => `
+    <article class="notebook-entry">
+      <div class="row">
+        <div>
+          <strong>${escapeHTML(j.title)}</strong>
+          <div class="item-meta">${escapeHTML(new Date(j.createdAt).toLocaleString())}</div>
+        </div>
+        <button class="danger" data-delete-journal="${escapeHTML(j.id)}">Delete</button>
+      </div>
+      <div class="notebook-entry-content" id="journal-view-${escapeHTML(j.id)}"></div>
+    </article>`).join("");
+
+  for (const j of state.journals) {
+    const el = $("journal-view-" + j.id);
+    if (!el) continue;
+
+    /* Parse saved HTML through a template and only permit formatting elements.
+       Photo URLs are resolved from this app's own IndexedDB. */
+    const template = document.createElement("template");
+    template.innerHTML = j.html || "";
+
+    template.content.querySelectorAll("script,iframe,object,embed,form").forEach(n => n.remove());
+
+    for (const img of template.content.querySelectorAll("img")) {
+      const src = img.getAttribute("src") || "";
+      if (src.startsWith("myassist-photo:")) {
+        const id = src.slice("myassist-photo:".length);
+        const url = await getImage(id);
+        if (url) img.src = url;
+        else img.remove();
+      } else {
+        img.remove();
+      }
+      img.removeAttribute("onerror");
+      img.removeAttribute("onload");
+    }
+
+    template.content.querySelectorAll("*").forEach(node => {
+      [...node.attributes].forEach(attr => {
+        if (attr.name.toLowerCase().startsWith("on")) node.removeAttribute(attr.name);
+      });
     });
+
     el.replaceChildren(template.content.cloneNode(true));
   }
 }
 
-/* Finance */
-$("incomeForm").addEventListener("submit",e=>{
+/* ---------- Finance ---------- */
+
+$("incomeForm").addEventListener("submit", async e => {
   e.preventDefault();
-  const title=$("incomeTitle").value.trim(),amount=Number($("incomeAmount").value),date=$("incomeDate").value;
-  if(!title||!(amount>0)||!date)return;
-  state.incomes.unshift({id:uid(),title,amount,date});
-  if(saveState("Income recorded ♡")){e.target.reset();$("incomeDate").value=today();renderAll();}
+
+  const title = $("incomeTitle").value.trim();
+  const amount = Number($("incomeAmount").value);
+  const date = $("incomeDate").value;
+
+  if (!title || !(amount > 0) || !date) return;
+
+  state.incomes.unshift({id:uid(), title, amount, date});
+
+  if (await saveState("Income recorded ♡")) {
+    e.target.reset();
+    $("incomeDate").value = today();
+    renderAll();
+  }
 });
-$("expenseForm").addEventListener("submit",e=>{
+
+$("expenseForm").addEventListener("submit", async e => {
   e.preventDefault();
-  const title=$("expenseTitle").value.trim(),amount=Number($("expenseAmount").value),date=$("expenseDate").value;
-  if(!title||!(amount>0)||!date)return;
-  state.expenses.unshift({id:uid(),title,amount,date,category:$("expenseCategory").value});
-  if(saveState("Expense recorded ♡")){e.target.reset();$("expenseDate").value=today();renderAll();}
+
+  const title = $("expenseTitle").value.trim();
+  const amount = Number($("expenseAmount").value);
+  const date = $("expenseDate").value;
+  const category = $("expenseCategory").value;
+
+  if (!title || !(amount > 0) || !date) return;
+
+  state.expenses.unshift({id:uid(), title, amount, date, category});
+
+  if (await saveState("Expense recorded ♡")) {
+    e.target.reset();
+    $("expenseDate").value = today();
+    $("expenseCategory").value = "Food";
+    renderAll();
+  }
 });
-$("budgetForm").addEventListener("submit",e=>{
+
+$("budgetForm").addEventListener("submit", async e => {
   e.preventDefault();
-  const amount=Number($("budgetAmount").value);
-  if(!(amount>=0))return;
-  state.budget=amount;
-  if(saveState("Budget saved ♡"))renderFinance();
+
+  const amount = Number($("budgetAmount").value);
+  if (!(amount >= 0)) return;
+
+  state.budget = amount;
+  if (await saveState("Budget saved ♡")) renderFinance();
 });
-$("incomeList").addEventListener("click",e=>{
-  const b=e.target.closest("[data-delete-income]");if(!b)return;
-  state.incomes=state.incomes.filter(x=>x.id!==b.dataset.deleteIncome);
-  if(saveState("Income deleted"))renderAll();
+
+$("incomeList").addEventListener("click", async e => {
+  const btn = e.target.closest("[data-delete-income]");
+  if (!btn) return;
+
+  state.incomes = state.incomes.filter(x => x.id !== btn.dataset.deleteIncome);
+  if (await saveState("Income entry deleted")) renderAll();
 });
-$("expenseList").addEventListener("click",e=>{
-  const b=e.target.closest("[data-delete-expense]");if(!b)return;
-  state.expenses=state.expenses.filter(x=>x.id!==b.dataset.deleteExpense);
-  if(saveState("Expense deleted"))renderAll();
+
+$("expenseList").addEventListener("click", async e => {
+  const btn = e.target.closest("[data-delete-expense]");
+  if (!btn) return;
+
+  state.expenses = state.expenses.filter(x => x.id !== btn.dataset.deleteExpense);
+  if (await saveState("Expense entry deleted")) renderAll();
 });
-function renderFinance(){
-  const key=today().slice(0,7);
-  const incomes=state.incomes.filter(x=>String(x.date).startsWith(key));
-  const expenses=state.expenses.filter(x=>String(x.date).startsWith(key));
-  const totalIncome=incomes.reduce((s,x)=>s+Number(x.amount||0),0);
-  const totalExpense=expenses.reduce((s,x)=>s+Number(x.amount||0),0);
-  $("budgetAmount").value=state.budget||"";
-  const pct=state.budget?Math.min(100,totalExpense/state.budget*100):0;
-  $("budgetProgress").style.width=pct+"%";
-  $("budgetSummary").textContent=`This month: ${money(totalExpense)} spent · ${money(Math.max(0,Number(state.budget||0)-totalExpense))} remaining`;
-  $("incomeList").innerHTML=state.incomes.length?state.incomes.map(x=>`
-    <div class="item"><div class="item-body"><div class="item-title">${esc(x.title)}</div>
-    <div class="item-meta">${esc(displayDate(x.date))} · ${money(x.amount)}</div></div>
-    <button class="danger" data-delete-income="${esc(x.id)}">Delete</button></div>`).join(""):'<div class="empty">No income entries yet.</div>';
-  $("expenseList").innerHTML=state.expenses.length?state.expenses.map(x=>`
-    <div class="item"><div class="item-body"><div class="item-title">${esc(x.title)}</div>
-    <div class="item-meta">${esc(displayDate(x.date))} · ${esc(x.category||"Other")} · ${money(x.amount)}</div></div>
-    <button class="danger" data-delete-expense="${esc(x.id)}">Delete</button></div>`).join(""):'<div class="empty">No expense entries yet.</div>';
-  drawBarChart($("financeChart"),totalIncome,totalExpense);
+
+function renderFinance() {
+  const nowMonth = today().slice(0, 7);
+
+  const incomes = state.incomes.filter(x => String(x.date).startsWith(nowMonth));
+  const expenses = state.expenses.filter(x => String(x.date).startsWith(nowMonth));
+
+  const income = incomes.reduce((s,x) => s + Number(x.amount || 0), 0);
+  const expense = expenses.reduce((s,x) => s + Number(x.amount || 0), 0);
+  const balance = income - expense;
+  const remaining = Number(state.budget || 0) - expense;
+
+  $("financeIncome").textContent = money(income);
+  $("financeExpenses").textContent = money(expense);
+  $("financeBalance").textContent = money(balance);
+  $("financeRemaining").textContent = money(remaining);
+  $("budgetAmount").value = state.budget || "";
+
+  const budget = Number(state.budget || 0);
+  const used = budget > 0 ? Math.min(100, expense / budget * 100) : 0;
+  $("budgetProgress").style.width = used + "%";
+
+  $("budgetMessage").textContent = budget
+    ? `${money(expense)} spent out of ${money(budget)} (${Math.round(used)}%). ${remaining < 0 ? "You are over budget." : money(remaining) + " remaining."}`
+    : "Set a budget to track your spending.";
+
+  $("incomeList").innerHTML = state.incomes.length
+    ? [...state.incomes].sort((a,b) => b.date.localeCompare(a.date)).map(x => `
+      <div class="item">
+        <div class="item-body">
+          <div class="item-title">${escapeHTML(x.title)}</div>
+          <div class="item-meta">${escapeHTML(displayDate(x.date))}</div>
+        </div>
+        <strong>${money(x.amount)}</strong>
+        <button class="danger" data-delete-income="${escapeHTML(x.id)}">×</button>
+      </div>`).join("")
+    : '<div class="empty">No income entries yet.</div>';
+
+  $("expenseList").innerHTML = state.expenses.length
+    ? [...state.expenses].sort((a,b) => b.date.localeCompare(a.date)).map(x => `
+      <div class="item">
+        <div class="item-body">
+          <div class="item-title">${escapeHTML(x.title)}</div>
+          <div class="item-meta">${escapeHTML(x.category)} · ${escapeHTML(displayDate(x.date))}</div>
+        </div>
+        <strong>${money(x.amount)}</strong>
+        <button class="danger" data-delete-expense="${escapeHTML(x.id)}">×</button>
+      </div>`).join("")
+    : '<div class="empty">No expense entries yet.</div>';
+
+  renderExpenseDonut(expenses, expense);
+  drawMonthlyFinanceChart($("financeChart"), 8);
 }
 
-/* Simple finance charts */
-function drawBarChart(canvas,income,expense){
-  if(!canvas)return;
-  const rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;
-  canvas.width=Math.max(1,rect.width*ratio);canvas.height=Math.max(1,rect.height*ratio);
-  const ctx=canvas.getContext("2d");ctx.scale(ratio,ratio);
-  const w=rect.width,h=rect.height;
-  ctx.clearRect(0,0,w,h);
-  const max=Math.max(income,expense,1)*1.2;
-  const base=h-28,chartH=h-52;
-  ctx.strokeStyle="#eee6ef";ctx.beginPath();ctx.moveTo(10,base);ctx.lineTo(w-10,base);ctx.stroke();
-  const barW=Math.min(70,w/4),gap=30;
-  const x1=w/2-barW-gap/2,x2=w/2+gap/2;
-  const h1=income/max*chartH,h2=expense/max*chartH;
-  ctx.fillStyle="#c17ca5";ctx.fillRect(x1,base-h1,barW,h1);
-  ctx.fillStyle="#9481c4";ctx.fillRect(x2,base-h2,barW,h2);
-  ctx.fillStyle="#6c667c";ctx.font="11px sans-serif";ctx.textAlign="center";
-  ctx.fillText("Income",x1+barW/2,h-10);ctx.fillText("Expenses",x2+barW/2,h-10);
-}
-function drawDashboardChart(){
-  const key=today().slice(0,7);
-  const income=state.incomes.filter(x=>String(x.date).startsWith(key)).reduce((s,x)=>s+Number(x.amount||0),0);
-  const expense=state.expenses.filter(x=>String(x.date).startsWith(key)).reduce((s,x)=>s+Number(x.amount||0),0);
-  drawBarChart($("dashboardFinanceChart"),income,expense);
+function renderExpenseDonut(expenses, total) {
+  const palette = ["#f2a6c5","#b9a3e3","#8ec9ac","#f0c978","#a7c7e7","#e7a18a","#c7a3bc","#a8b3cf"];
+  const totals = {};
+
+  expenses.forEach(x => {
+    const category = x.category || "Other";
+    totals[category] = (totals[category] || 0) + Number(x.amount || 0);
+  });
+
+  const entries = Object.entries(totals).sort((a,b) => b[1]-a[1]);
+
+  let angle = 0;
+  const segments = entries.map((entry,i) => {
+    const part = total ? entry[1] / total * 360 : 0;
+    const segment = `${palette[i % palette.length]} ${angle}deg ${angle + part}deg`;
+    angle += part;
+    return segment;
+  });
+
+  $("expenseDonut").style.background =
+    total ? `conic-gradient(${segments.join(",")})` : "#f8e6ef";
+
+  $("expenseDonutLabel").innerHTML = `${money(total)}<br>spent`;
+
+  $("expenseLegend").innerHTML = entries.length
+    ? entries.map((entry,i) => `
+      <span><i style="background:${palette[i % palette.length]}"></i>
+      ${escapeHTML(entry[0])}: ${money(entry[1])}</span>`).join("")
+    : '<span>No expenses recorded</span>';
 }
 
-/* Dashboard */
-$("dashPrevMonth").addEventListener("click",()=>{
-  dashboardMonthDate.setMonth(dashboardMonthDate.getMonth()-1);renderDashboardCalendar();
-});
-$("dashNextMonth").addEventListener("click",()=>{
-  dashboardMonthDate.setMonth(dashboardMonthDate.getMonth()+1);renderDashboardCalendar();
-});
-$("dashCalendar").addEventListener("click",e=>{
-  const b=e.target.closest("[data-planner-day]");if(!b)return;
-  selectedPlannerDate=b.dataset.plannerDay;
-  plannerMonthDate=parseDate(selectedPlannerDate);
-  $("eventDate").value=selectedPlannerDate;
+/* ---------- Canvas charts ---------- */
+
+function drawCanvas(canvas, draw) {
+  if (!canvas) return;
+
+  const rect = canvas.getBoundingClientRect();
+  if (rect.width < 2) return;
+
+  const ratio = Math.min(window.devicePixelRatio || 1, 2);
+  const width = rect.width;
+  const height = 230;
+
+  canvas.width = Math.round(width * ratio);
+  canvas.height = Math.round(height * ratio);
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  ctx.setTransform(ratio,0,0,ratio,0,0);
+  ctx.clearRect(0,0,width,height);
+  draw(ctx,width,height);
+}
+
+function drawMonthlyFinanceChart(canvas, numberOfMonths) {
+  drawCanvas(canvas,(ctx,w,h) => {
+    const months = [];
+
+    for (let i = numberOfMonths - 1; i >= 0; i--) {
+      const d = new Date();
+      d.setDate(1);
+      d.setMonth(d.getMonth() - i);
+      const key = dateKey(d).slice(0,7);
+
+      const income = state.incomes
+        .filter(x => String(x.date).startsWith(key))
+        .reduce((s,x) => s + Number(x.amount || 0),0);
+
+      const expense = state.expenses
+        .filter(x => String(x.date).startsWith(key))
+        .reduce((s,x) => s + Number(x.amount || 0),0);
+
+      months.push({
+        label:d.toLocaleDateString(undefined,{month:"short"}),
+        income,
+        expense
+      });
+    }
+
+    const maxValue = Math.max(1,...months.flatMap(m => [m.income,m.expense]));
+    const left = 36, right = 8, top = 15, bottom = 30;
+    const plotW = w-left-right, plotH = h-top-bottom;
+
+    ctx.font = "10px sans-serif";
+    ctx.textBaseline = "middle";
+
+    for (let i=0;i<=4;i++) {
+      const y = top + plotH*i/4;
+      ctx.strokeStyle = "#f3e6ed";
+      ctx.beginPath();
+      ctx.moveTo(left,y);
+      ctx.lineTo(w-right,y);
+      ctx.stroke();
+
+      ctx.fillStyle = "#927b8a";
+      ctx.textAlign = "right";
+      ctx.fillText(money(maxValue*(1-i/4)).replace("PHP","₱"),left-5,y);
+    }
+
+    const slot = plotW/months.length;
+    const barW = Math.max(3,Math.min(13,slot*.26));
+
+    months.forEach((m,i) => {
+      const center = left + slot*(i+.5);
+      const incomeH = m.income/maxValue*plotH;
+      const expenseH = m.expense/maxValue*plotH;
+
+      ctx.fillStyle = "#e9a0c0";
+      ctx.fillRect(center-barW-1,top+plotH-incomeH,barW,incomeH);
+
+      ctx.fillStyle = "#b8a1df";
+      ctx.fillRect(center+1,top+plotH-expenseH,barW,expenseH);
+
+      ctx.fillStyle = "#927b8a";
+      ctx.textAlign = "center";
+      ctx.fillText(m.label,center,h-12);
+    });
+  });
+}
+
+function drawDashboardChart() {
+  const currentMonth = today().slice(0,7);
+  const income = state.incomes.filter(x => String(x.date).startsWith(currentMonth))
+    .reduce((s,x) => s + Number(x.amount || 0),0);
+  const expense = state.expenses.filter(x => String(x.date).startsWith(currentMonth))
+    .reduce((s,x) => s + Number(x.amount || 0),0);
+
+  drawCanvas($("dashboardFinanceChart"),(ctx,w,h) => {
+    const max = Math.max(income,expense,1);
+    const top = 12, bottom = 32;
+    const barH = h-top-bottom;
+    const barW = Math.min(65,w*.20);
+
+    const bars = [
+      {label:"Income",value:income,color:"#e9a0c0",x:w*.30},
+      {label:"Expenses",value:expense,color:"#b8a1df",x:w*.68}
+    ];
+
+    ctx.font = "11px sans-serif";
+    bars.forEach(b => {
+      const height = b.value/max*barH;
+      ctx.fillStyle = b.color;
+      ctx.fillRect(b.x-barW/2,top+barH-height,barW,height);
+
+      ctx.fillStyle = "#493743";
+      ctx.textAlign = "center";
+      ctx.fillText(money(b.value),b.x,Math.max(9,top+barH-height-8));
+      ctx.fillStyle = "#927b8a";
+      ctx.fillText(b.label,b.x,h-12);
+    });
+  });
+}
+
+/* ---------- Dashboard calendar ---------- */
+
+$("dashPrevMonth").addEventListener("click", () => {
+  dashboardMonthDate.setMonth(dashboardMonthDate.getMonth()-1);
   renderDashboardCalendar();
 });
-function renderDashboardCalendar(){
-  $("dashMonthLabel").textContent=monthName(dashboardMonthDate);
-  $("dashCalendar").innerHTML=calendarHTML(dashboardMonthDate,selectedPlannerDate);
-  $("dashSelectedDate").textContent="Schedule for "+displayDate(selectedPlannerDate);
-  const events=state.events.filter(x=>x.date===selectedPlannerDate)
-    .sort((a,b)=>String(a.startTime||"").localeCompare(String(b.startTime||"")));
-  const tasks=state.tasks.filter(x=>x.date===selectedPlannerDate);
-  $("dashDayItems").innerHTML=[
-    ...events.map(x=>`<div class="item"><div class="item-body">
-      <div class="item-title">${esc(x.title)}</div>
-      <div class="item-meta">${esc(x.startTime?timeLabel(x.startTime)+(x.endTime?" – "+timeLabel(x.endTime):""):"Time not set")} · ${esc(x.type||"Schedule")}</div>
-      </div></div>`),
-    ...tasks.map(x=>`<div class="item ${x.done?"done":""}"><div class="item-body">
-      <div class="item-title">☑ ${esc(x.title)}</div>
-      <div class="item-meta">${x.done?"Completed":"Task"}</div>
-      </div></div>`)
-  ].join("")||'<div class="small-muted">Nothing scheduled.</div>';
+
+$("dashNextMonth").addEventListener("click", () => {
+  dashboardMonthDate.setMonth(dashboardMonthDate.getMonth()+1);
+  renderDashboardCalendar();
+});
+
+$("dashCalendar").addEventListener("click", e => {
+  const button = e.target.closest("[data-planner-day]");
+  if (!button) return;
+
+  selectedPlannerDate = button.dataset.plannerDay;
+  plannerMonthDate = parseDate(selectedPlannerDate);
+  $("eventDate").value = selectedPlannerDate;
+  renderDashboardCalendar();
+
+  $("dashSelectedDate").textContent = "Schedule for " + displayDate(selectedPlannerDate);
+
+  const items = state.events.filter(x => x.date === selectedPlannerDate);
+  const tasks = state.tasks.filter(x => x.date === selectedPlannerDate);
+
+  $("dashDayItems").innerHTML =
+    items.map(x => `<div class="item"><div class="item-body"><div class="item-title">${escapeHTML(x.title)}</div><div class="item-meta">${escapeHTML(x.type || "Schedule")}</div></div></div>`).join("") +
+    tasks.map(x => `<div class="item ${x.done ? "done" : ""}"><div class="item-body"><div class="item-title">✅ ${escapeHTML(x.title)}</div><div class="item-meta">${x.done ? "Completed" : "Task"}</div></div></div>`).join("");
+
+  if (!items.length && !tasks.length) {
+    $("dashDayItems").innerHTML = '<div class="small-muted">Nothing scheduled.</div>';
+  }
+});
+
+function renderDashboardCalendar() {
+  $("dashMonthLabel").textContent = monthName(dashboardMonthDate);
+  $("dashCalendar").innerHTML = calendarHTML(dashboardMonthDate,selectedPlannerDate);
+
+  $("dashSelectedDate").textContent = "Schedule for " + displayDate(selectedPlannerDate);
+
+  const events = state.events.filter(x => x.date === selectedPlannerDate);
+  const tasks = state.tasks.filter(x => x.date === selectedPlannerDate);
+
+  $("dashDayItems").innerHTML =
+    events.map(x => `<div class="item"><div class="item-body"><div class="item-title">${escapeHTML(x.title)}</div><div class="item-meta">${escapeHTML(x.type || "Schedule")}</div></div></div>`).join("") +
+    tasks.map(x => `<div class="item ${x.done ? "done" : ""}"><div class="item-body"><div class="item-title">✅ ${escapeHTML(x.title)}</div><div class="item-meta">${x.done ? "Completed" : "Task"}</div></div></div>`).join("");
+
+  if (!events.length && !tasks.length) {
+    $("dashDayItems").innerHTML = '<div class="small-muted">Nothing scheduled.</div>';
+  }
 }
-async function renderDashboardPhotos(){
-  const box=$("dashboardPhotoStack");
-  const list=(state.gallery||[]).slice(0,3);
-  if(!list.length){
-    box.innerHTML='<div class="empty" style="grid-column:1/-1">Add a few favorite memories 📸</div>';
+
+function renderDashboard() {
+  const current = today().slice(0,7);
+  const tasks = state.tasks.filter(x => String(x.date).startsWith(current));
+  const completed = tasks.filter(x => x.done).length;
+  const total = tasks.length;
+  const remaining = total-completed;
+  const percent = total ? Math.round(completed/total*100) : 0;
+
+  $("statCompleted").textContent = completed + "/" + total;
+  $("statRemaining").textContent = remaining;
+
+  $("productivityPercent").innerHTML = `${percent}%<br>completed`;
+  $("productivityProgress").style.width = percent + "%";
+  $("productivityDonut").style.background =
+    `conic-gradient(#e9a0c0 ${percent*3.6}deg,#f8e6ef ${percent*3.6}deg 360deg)`;
+
+  $("productivityLegend").innerHTML = `
+    <span><i style="background:#e9a0c0"></i> Completed: ${completed}</span>
+    <span><i style="background:#f8e6ef"></i> Remaining: ${remaining}</span>`;
+
+  $("productivitySummary").textContent = total
+    ? `${completed} of ${total} tasks completed this month.`
+    : "Add a task to start tracking your progress.";
+
+  const incomes = state.incomes.filter(x => String(x.date).startsWith(current))
+    .reduce((s,x) => s + Number(x.amount || 0),0);
+  const expenses = state.expenses.filter(x => String(x.date).startsWith(current))
+    .reduce((s,x) => s + Number(x.amount || 0),0);
+
+  $("statIncome").textContent = money(incomes);
+  $("statExpenses").textContent = money(expenses);
+  $("dashBalance").textContent = money(incomes-expenses);
+
+  const nextTasks = [...state.tasks]
+    .filter(x => !x.done)
+    .sort((a,b) => String(a.date).localeCompare(String(b.date)))
+    .slice(0,4);
+
+  $("dashTasks").innerHTML = nextTasks.length
+    ? nextTasks.map(t => `
+      <div class="item">
+        <div class="item-body">
+          <div class="item-title">${escapeHTML(t.title)}</div>
+          <div class="item-meta">${escapeHTML(displayDate(t.date))}</div>
+        </div>
+      </div>`).join("")
+    : '<div class="empty">No pending tasks. Enjoy your moment! 🌷</div>';
+
+  renderDashboardCalendar();
+  drawDashboardChart();
+
+  const name = state.settings.name.trim();
+  $("welcomeHeading").textContent =
+    name ? `Welcome back, ${name} ♡` : state.settings.greeting;
+
+  $("welcomeDate").textContent = new Date().toLocaleDateString(undefined,{
+    weekday:"long",month:"long",day:"numeric",year:"numeric"
+  });
+}
+
+/* ---------- Photo gallery and cover ---------- */
+
+$("galleryInput").addEventListener("change", async e => {
+  const files = [...(e.target.files || [])];
+  if (!files.length) return;
+
+  let count = 0;
+
+  for (const file of files) {
+    try {
+      const id = await saveImage(file);
+      await putRecord("gallery-" + id, {photoId:id});
+      count++;
+    } catch (error) {
+      console.error(error);
+      notify("A photo could not be saved. Check available storage.");
+    }
+  }
+
+  e.target.value = "";
+  $("galleryStatus").textContent = `${count} photo(s) added.`;
+  renderGallery();
+  updateStorageInfo();
+});
+
+$("galleryGrid").addEventListener("click", async e => {
+  const button = e.target.closest("[data-delete-photo]");
+  if (!button) return;
+
+  const id = button.dataset.deletePhoto;
+
+  await deleteRecord("gallery-" + id);
+
+  const referencedByJournal = state.journals.some(j =>
+    j.html.includes("myassist-photo:" + id)
+  );
+
+  if (state.coverId !== id && !referencedByJournal) {
+    await removeImage(id);
+  }
+
+  renderGallery();
+  updateStorageInfo();
+  notify("Photo removed from gallery.");
+});
+
+async function renderGallery() {
+  const photos = await getAllPhotos();
+  const galleryRecords = (await getAllRecords())
+    .filter(r => r.key.startsWith("gallery-"))
+    .map(r => r.value.photoId);
+
+  const galleryPhotos = photos.filter(p => galleryRecords.includes(p.id));
+
+  $("galleryGrid").innerHTML = galleryPhotos.length
+    ? galleryPhotos.map(p => `
+      <div class="photo-card">
+        <img data-gallery-image="${escapeHTML(p.id)}" alt="${escapeHTML(p.name)}">
+        <div class="photo-actions">
+          <div class="item-title">${escapeHTML(p.name)}</div>
+          <button class="danger" data-delete-photo="${escapeHTML(p.id)}" style="margin-top:8px">Remove</button>
+        </div>
+      </div>`).join("")
+    : '<div class="empty" style="grid-column:1/-1">Your photo gallery is waiting for memories 🖼️</div>';
+
+  for (const p of galleryPhotos) {
+    const el = document.querySelector(`[data-gallery-image="${p.id}"]`);
+    if (!el) continue;
+
+    const url = await getImage(p.id);
+    if (url) el.src = url;
+  }
+}
+
+$("coverInput").addEventListener("change", async e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+
+  try {
+    const id = await saveImage(file);
+    const oldId = state.coverId;
+    state.coverId = id;
+
+    if (await saveState("Cover photo saved ♡")) {
+      await applyCover();
+
+      if (oldId && oldId !== id) {
+        const usedByGallery = (await getRecord("gallery-" + oldId)) !== undefined;
+        const usedByJournal = state.journals.some(j => j.html.includes("myassist-photo:" + oldId));
+        if (!usedByGallery && !usedByJournal) await removeImage(oldId);
+      }
+    } else {
+      await removeImage(id);
+    }
+  } catch (error) {
+    console.error(error);
+    notify("Could not save cover photo. Check available storage.");
+  }
+
+  e.target.value = "";
+});
+
+async function applyCover() {
+  const banner = $("welcomeBanner");
+
+  if (!state.coverId) {
+    banner.style.backgroundImage = "";
+    banner.style.background = "linear-gradient(115deg,#f7c4d9,#f3dff5)";
     return;
   }
-  box.innerHTML=list.map(id=>`<div class="photo-card"><img data-stack-photo="${esc(id)}" alt="Your memory"></div>`).join("");
-  for(const id of list){
-    const img=box.querySelector(`[data-stack-photo="${id}"]`);
-    const url=await photoURL(id);if(img&&url)img.src=url;
-  }
-}
-function renderDashboard(){
-  const key=today().slice(0,7);
-  const tasks=state.tasks.filter(x=>String(x.date).startsWith(key));
-  const done=tasks.filter(x=>x.done).length,remaining=tasks.length-done;
-  const pct=tasks.length?Math.round(done/tasks.length*100):0;
-  $("statCompleted").textContent=done+"/"+tasks.length;
-  $("statRemaining").textContent=remaining;
-  $("productivityPercent").innerHTML=pct+"%<br>completed";
-  $("productivityProgress").style.width=pct+"%";
-  $("productivityDonut").style.background=`conic-gradient(#c17ca5 ${pct*3.6}deg,#f0edf5 ${pct*3.6}deg 360deg)`;
-  $("productivityLegend").innerHTML=`<span><i style="background:#c17ca5"></i> Completed: ${done}</span><span><i style="background:#f0edf5"></i> Remaining: ${remaining}</span>`;
-  $("productivitySummary").textContent=tasks.length?`${done} of ${tasks.length} tasks completed this month.`:"Add a task to start tracking your progress.";
-  const income=state.incomes.filter(x=>String(x.date).startsWith(key)).reduce((s,x)=>s+Number(x.amount||0),0);
-  const expense=state.expenses.filter(x=>String(x.date).startsWith(key)).reduce((s,x)=>s+Number(x.amount||0),0);
-  $("statIncome").textContent=money(income);
-  $("statExpenses").textContent=money(expense);
-  $("dashBalance").textContent=money(income-expense);
-  const upcoming=state.tasks.filter(x=>!x.done).sort((a,b)=>String(a.date).localeCompare(String(b.date))).slice(0,4);
-  $("dashTasks").innerHTML=upcoming.length?upcoming.map(x=>`<div class="item"><div class="item-body">
-    <div class="item-title">${esc(x.title)}</div><div class="item-meta">${esc(displayDate(x.date))}</div>
-    </div></div>`).join(""):'<div class="empty">No pending tasks. Enjoy your moment! 🌷</div>';
-  $("welcomeHeading").textContent=state.settings.name.trim()?`Welcome back, ${state.settings.name.trim()} ♡`:state.settings.greeting;
-  $("welcomeDate").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric",year:"numeric"});
-  renderDashboardCalendar();drawDashboardChart();renderDashboardPhotos();applyCover();
-}
 
-/* Gallery */
-$("galleryInput").addEventListener("change",async e=>{
-  const files=[...(e.target.files||[])];let added=0;
-  for(const file of files){
-    try{
-      const id=await savePhoto(file);
-      state.gallery.unshift(id);added++;
-    }catch(error){console.error(error);notify("A photo could not be saved. Check storage.");}
-  }
-  e.target.value="";
-  if(added)saveState(added+" photo(s) added ♡");
-  await renderGallery();await renderDashboardPhotos();updateStorageInfo();
-});
-$("dashboardAddPhotos").addEventListener("click",()=>$("dashboardPhotoInput").click());
-$("dashboardPhotoInput").addEventListener("change",async e=>{
-  const files=[...(e.target.files||[])];let added=0;
-  for(const file of files){
-    try{const id=await savePhoto(file);state.gallery.unshift(id);added++;}
-    catch(error){console.error(error);notify("Could not save a photo. Check storage.");}
-  }
-  e.target.value="";
-  if(added)saveState(added+" photo(s) added ♡");
-  await renderGallery();await renderDashboardPhotos();updateStorageInfo();
-});
-$("galleryGrid").addEventListener("click",async e=>{
-  const b=e.target.closest("[data-delete-photo]");if(!b)return;
-  const id=b.dataset.deletePhoto;
-  state.gallery=state.gallery.filter(x=>x!==id);
-  if(state.coverId!==id)await photoDelete(id).catch(()=>{});
-  saveState("Photo removed from gallery.");
-  await renderGallery();await renderDashboardPhotos();
-});
-async function renderGallery(){
-  const box=$("galleryGrid");
-  if(!state.gallery.length){
-    box.innerHTML='<div class="empty" style="grid-column:1/-1">Your photo gallery is waiting for memories 🖼️</div>';return;
-  }
-  box.innerHTML=state.gallery.map(id=>`<div class="photo-card">
-    <img data-gallery-image="${esc(id)}" alt="Gallery photo">
-    <div class="photo-actions"><button class="danger" data-delete-photo="${esc(id)}">Remove</button></div>
-  </div>`).join("");
-  for(const id of state.gallery){
-    const img=box.querySelector(`[data-gallery-image="${id}"]`);
-    const url=await photoURL(id);if(img&&url)img.src=url;
+  const url = await getImage(state.coverId);
+
+  if (url) {
+    banner.style.backgroundImage =
+      `linear-gradient(90deg,rgba(255,232,242,.88),rgba(255,240,248,.50)),url("${url}")`;
   }
 }
 
-/* Cover photo: keep it until the user explicitly removes it */
-$("coverInput").addEventListener("change",async e=>{
-  const file=e.target.files?.[0];if(!file)return;
-  try{
-    const id=await savePhoto(file);
-    state.coverId=id;
-    if(saveState("Cover photo saved ♡"))await applyCover();
-  }catch(error){console.error(error);notify("Could not save cover photo. Check storage.");}
-  e.target.value="";
-});
-async function applyCover(){
-  const banner=$("welcomeBanner");
-  if(!state.coverId){
-    banner.style.backgroundImage="";
-    banner.style.background="linear-gradient(115deg,#ffe5f1,#eee5ff 58%,#e2f2ff)";
-    return;
+$("removeCover").addEventListener("click", async () => {
+  const oldId = state.coverId;
+  state.coverId = null;
+
+  if (await saveState("Cover removed")) {
+    await applyCover();
+
+    if (oldId) {
+      const galleryRecord = await getRecord("gallery-" + oldId);
+      const usedByJournal = state.journals.some(j => j.html.includes("myassist-photo:" + oldId));
+
+      if (!galleryRecord && !usedByJournal) await removeImage(oldId);
+    }
   }
-  const url=await photoURL(state.coverId);
-  if(url){
-    banner.style.backgroundImage=`linear-gradient(90deg,rgba(255,240,248,.78),rgba(245,240,255,.45)),url("${url}")`;
-    banner.style.backgroundSize="cover";
-    banner.style.backgroundPosition="center";
-  }
-}
-$("removeCover").addEventListener("click",async()=>{
-  if(!state.coverId){notify("No cover photo is set.");return;}
-  state.coverId=null;
-  if(saveState("Cover photo removed ♡"))await applyCover();
 });
 
-/* Settings */
-$("settingsForm").addEventListener("submit",e=>{
+/* ---------- Settings ---------- */
+
+$("settingsForm").addEventListener("submit", async e => {
   e.preventDefault();
-  state.settings.name=$("displayName").value.trim();
-  state.settings.greeting=$("welcomeMessage").value.trim()||"A little progress every day";
-  if(saveState("Preferences saved ♡"))renderAll();
-});
-async function updateStorageInfo(){
-  let text="App details are saved in browser storage. Photos are stored separately in IndexedDB.";
-  try{
-    if(navigator.storage?.estimate){
-      const info=await navigator.storage.estimate();
-      text+=`<br><br><strong>Estimated storage:</strong> ${((info.usage||0)/1048576).toFixed(2)} MB`;
-      if(info.quota)text+=` of ${(info.quota/1048576).toFixed(2)} MB reported quota`;
-    }
-  }catch(e){}
-  $("storageInfo").innerHTML=text+"<br><br>Export a backup regularly.";
-}
 
-/* Backup and restore */
-$("exportBackup").addEventListener("click",async()=>{
-  try{
-    const output={
-      app:"MyAssist",version:2,exportedAt:new Date().toISOString(),
-      state,photos:[]
-    };
-    for(const id of state.gallery){
-      const p=await photoGet(id);
-      if(p?.blob)output.photos.push({id,name:p.name,type:p.type,data:await fileToDataURL(p.blob)});
-    }
-    if(state.coverId&&!output.photos.some(p=>p.id===state.coverId)){
-      const p=await photoGet(state.coverId);
-      if(p?.blob)output.photos.push({id:state.coverId,name:p.name,type:p.type,data:await fileToDataURL(p.blob)});
-    }
-    for(const j of state.journals){
-      const matches=[...(j.html||"").matchAll(/myassist-photo:([a-zA-Z0-9_-]+)/g)].map(m=>m[1]);
-      for(const id of matches){
-        if(output.photos.some(p=>p.id===id))continue;
-        const p=await photoGet(id);
-        if(p?.blob)output.photos.push({id,name:p.name,type:p.type,data:await fileToDataURL(p.blob)});
+  state.settings.name = $("displayName").value.trim();
+  state.settings.greeting = $("welcomeMessage").value.trim() ||
+    "A little progress every day";
+
+  if (await saveState("Preferences saved ♡")) renderAll();
+});
+
+async function updateStorageInfo() {
+  let text = "Your app data and photos are stored in this browser using IndexedDB.";
+
+  try {
+    if (navigator.storage && navigator.storage.estimate) {
+      const estimate = await navigator.storage.estimate();
+      const used = estimate.usage || 0;
+      const quota = estimate.quota || 0;
+
+      text += `<br><br><strong>Estimated storage:</strong> ${(used/1024/1024).toFixed(2)} MB`;
+      if (quota) {
+        text += ` of ${(quota/1024/1024).toFixed(2)} MB available to this browser`;
       }
     }
-    const blob=new Blob([JSON.stringify(output)],{type:"application/json"});
-    const url=URL.createObjectURL(blob),a=document.createElement("a");
-    a.href=url;a.download="myassist-backup-"+today()+".json";
-    document.body.appendChild(a);a.click();a.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),3000);
-    notify("Backup exported. Keep it somewhere safe ♡");
-  }catch(error){console.error(error);notify("Backup failed. Check available storage.");}
-});
-$("importBackup").addEventListener("change",async e=>{
-  const file=e.target.files?.[0];if(!file)return;
-  if(!confirm("Restore this backup? Current MyAssist data will be replaced.")){e.target.value="";return;}
-  try{
-    const backup=JSON.parse(await file.text());
-    if(backup.app!=="MyAssist"||!backup.state)throw new Error("This is not a valid MyAssist backup.");
-    state=normalizeState(backup.state);
-    for(const p of backup.photos||[]){
-      if(!p.data||!p.id)continue;
-      const blob=await dataURLToBlob(p.data);
-      await photoPut({id:p.id,name:p.name||"Photo",type:p.type||blob.type,blob});
-    }
-    saveState(null);renderAll();notify("Backup restored ♡");
-  }catch(error){console.error(error);notify("Could not restore backup: "+error.message);}
-  e.target.value="";
-});
-$("clearData").addEventListener("click",async()=>{
-  if(!confirm("Delete all MyAssist tasks, notes, finances, and photos? Export a backup first if needed."))return;
-  if(!confirm("This cannot be undone from MyAssist. Continue?"))return;
-  localStorage.removeItem(DATA_KEY);
-  state=defaultState();
-  saveState(null);renderAll();notify("MyAssist data cleared.");
-});
+  } catch (error) {
+    console.warn("Storage estimate unavailable", error);
+  }
 
-/* Main rendering */
-function renderAll(){
-  renderTasks();renderPlanner();renderNotes();renderJournals();
-  renderFinance();renderDashboard();
-  $("displayName").value=state.settings.name||"";
-  $("welcomeMessage").value=state.settings.greeting||"";
-  applyCover();updateStorageInfo();
+  text += "<br><br>Storage estimates are approximate. Export a backup regularly.";
+  $("storageInfo").innerHTML = text;
 }
-window.addEventListener("resize",()=>{
-  drawDashboardChart();
-  drawBarChart($("financeChart"),
-    state.incomes.reduce((s,x)=>s+Number(x.amount||0),0),
-    state.expenses.reduce((s,x)=>s+Number(x.amount||0),0)
-  );
-});
 
-async function start(){
-  try{
-    await openPhotoDB();
-    loadState();
-    populateTimeOptions();
-    renderAll();
-    console.log("MyAssist ready");
-  }catch(error){
+/* ---------- Backup / restore ---------- */
+
+$("exportBackup").addEventListener("click", exportBackup);
+
+async function exportBackup() {
+  try {
+    const records = await getAllRecords();
+    const output = {
+      app:"MyAssist",
+      version:1,
+      exportedAt:new Date().toISOString(),
+      state,
+      photos:[]
+    };
+
+    for (const record of records) {
+      if (!record.key.startsWith("photo-")) continue;
+      if (!record.value || !(record.value.blob instanceof Blob)) continue;
+
+      output.photos.push({
+        id:record.key,
+        name:record.value.name || "photo",
+        type:record.value.type || record.value.blob.type,
+        data:await fileToDataURL(record.value.blob)
+      });
+    }
+
+    const blob = new Blob([JSON.stringify(output)], {
+      type:"application/json"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "myassist-backup-" + today() + ".json";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+    notify("Backup exported. Keep the file somewhere safe ♡");
+  } catch (error) {
     console.error(error);
-    notify("MyAssist could not initialize storage.");
+    notify("Backup failed. Check available storage and try again.");
   }
 }
-start();
+
+$("importBackup").addEventListener("change", async e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+
+  if (!confirm("Restore this backup? Current MyAssist data will be replaced.")) {
+    e.target.value = "";
+    return;
+  }
+
+  try {
+    const raw = await file.text();
+    const backup = JSON.parse(raw);
+
+    if (backup.app !== "MyAssist" || !backup.state) {
+      throw new Error("This is not a valid MyAssist backup.");
+    }
+
+    const oldRecords = await getAllRecords();
+
+    for (const record of oldRecords) {
+      await deleteRecord(record.key);
+    }
+
+    const restored = Object.assign(defaultState(), backup.state);
+    restored.settings = Object.assign(defaultState().settings, restored.settings || {});
+
+    for (const p of (backup.photos || [])) {
+      const blob = await dataURLToBlob(p.data);
+      await putRecord(p.id, {
+        blob,
+        name:p.name || "photo",
+        type:p.type || blob.type,
+        savedAt:new Date().toISOString()
+      });
+    }
+
+    await putRecord("app-state", restored);
+    await loadState();
+    await applyCover();
+    renderAll();
+
+    notify("Backup restored successfully ♡");
+  } catch (error) {
+    console.error(error);
+    notify("Could not restore backup: " + error.message);
+  }
+
+  e.target.value = "";
+});
+
+$("clearData").addEventListener("click", async () => {
+  if (!confirm("Delete ALL MyAssist data, including tasks, notes, photos, and finances? Export a backup first if you need your information.")) {
+    return;
+  }
+
+  if (!confirm("This cannot be undone from MyAssist. Are you absolutely sure?")) {
+    return;
+  }
+
+  try {
+    const records = await getAllRecords();
+    for (const record of records) await deleteRecord(record.key);
+
+    state = defaultState();
+    await saveState(null);
+    await applyCover();
+    renderAll();
+    notify("MyAssist data cleared.");
+  } catch (error) {
+    console.error(error);
+    notify("Could not clear all data.");
+  }
+});
+
+/* ---------- Rendering ---------- */
+
+function renderAll() {
+  renderTasks();
+  renderPlanner();
+  renderNotes();
+  renderJournals();
+  renderFinance();
+  renderDashboard();
+
+  $("displayName").value = state.settings.name || "";
+  $("welcomeMessage").value = state.settings.greeting || "";
+
+  applyCover();
+  updateStorageInfo();
+}
+
+window.addEventListener("resize", () => {
+  clearTimeout(chartResizeTimer);
+  chartResizeTimer = setTimeout(() => {
+    drawMonthlyFinanceChart($("financeChart"),8);
+    drawDashboardChart();
+  },150);
+});
+
+/* ---------- Start ---------- */
+
+async function startApp() {
+  try {
+    await openDatabase();
+    await loadState();
+
+    renderAll();
+
+    /* Repaint after layout has settled, especially on iPad Safari. */
+    requestAnimationFrame(() => {
+      drawMonthlyFinanceChart($("financeChart"),8);
+      drawDashboardChart();
+    });
+
+    console.log("MyAssist initialized successfully.");
+  } catch (error) {
+    console.error("MyAssist initialization failed:", error);
+
+    document.querySelector("main").insertAdjacentHTML(
+      "afterbegin",
+      `<div class="card" style="border-color:#d95d91">
+        <h2>MyAssist couldn't initialize its storage</h2>
+        <p class="small-muted">${escapeHTML(error.message || "Unknown error")}</p>
+        <p class="small-muted">Try opening the published GitHub Pages website in Safari, then refresh it. Do not clear Safari website data if you have information you need to keep.</p>
+      </div>`
+    );
+
+    notify("MyAssist couldn't open its storage.");
+  }
+}
+
+startApp();
 </script>
+
 </body>
 </html>
